@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */; };
+		0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */; };
+		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
-		04E829C1214323ED000BC96D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829C0214323ED000BC96D /* ViewController.swift */; };
+		04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829C0214323ED000BC96D /* LoginViewController.swift */; };
 		04E829C4214323ED000BC96D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C2214323ED000BC96D /* Main.storyboard */; };
 		04E829C6214323EF000BC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C5214323EF000BC96D /* Assets.xcassets */; };
 		04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C7214323EF000BC96D /* LaunchScreen.storyboard */; };
 		04E829D4214323EF000BC96D /* autodoorctrlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829D3214323EF000BC96D /* autodoorctrlTests.swift */; };
+		04F882F721436D67005306AF /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F621436D67005306AF /* LoginAPI.swift */; };
+		04F882FA214370B0005306AF /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F9214370B0005306AF /* LoginError.swift */; };
+		37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		0440E777214357B70037F94B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
+		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829BE214323ED000BC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04E829C0214323ED000BC96D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04E829C0214323ED000BC96D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04E829C3214323ED000BC96D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04E829C5214323EF000BC96D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04E829C8214323EF000BC96D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +49,12 @@
 		04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = autodoorctrlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829D3214323EF000BC96D /* autodoorctrlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autodoorctrlTests.swift; sourceTree = "<group>"; };
 		04E829D5214323EF000BC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F882F621436D67005306AF /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		04F882F9214370B0005306AF /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		2152557AA9808F5B2656DCB1 /* Pods_autodoorctrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F29A1E8397778149C470102 /* Pods-autodoorctrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autodoorctrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl.debug.xcconfig"; sourceTree = "<group>"; };
+		4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE0AF43179166A16D5786611 /* Pods-autodoorctrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autodoorctrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +76,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0466DB8921436682002583DB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0466DB8A21436690002583DB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				04F882F621436D67005306AF /* LoginAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				0440E777214357B70037F94B /* TPKeyboardAvoidingScrollView.h */,
+				0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */,
+				0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
 		04E829B2214323ED000BC96D = {
 			isa = PBXGroup;
 			children = (
 				04E829BD214323ED000BC96D /* autodoorctrl */,
 				04E829D2214323EF000BC96D /* autodoorctrlTests */,
 				04E829BC214323ED000BC96D /* Products */,
+				E8DC6C8937D1242E3EC4DD08 /* Pods */,
+				D2A60429434BD60389FAB160 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,10 +126,14 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				0466DB8A21436690002583DB /* Networking */,
+				0466DB8921436682002583DB /* Shared */,
+				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
+				04F882F821436EFE005306AF /* Login */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
-				04E829C0214323ED000BC96D /* ViewController.swift */,
-				04E829C2214323ED000BC96D /* Main.storyboard */,
+				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
+				04E829C2214323ED000BC96D /* Main.storyboard */,
 				04E829C7214323EF000BC96D /* LaunchScreen.storyboard */,
 				04E829CA214323EF000BC96D /* Info.plist */,
 			);
@@ -96,6 +149,33 @@
 			path = autodoorctrlTests;
 			sourceTree = "<group>";
 		};
+		04F882F821436EFE005306AF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04E829C0214323ED000BC96D /* LoginViewController.swift */,
+				04F882F9214370B0005306AF /* LoginError.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D2A60429434BD60389FAB160 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */,
+				2152557AA9808F5B2656DCB1 /* Pods_autodoorctrlTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8DC6C8937D1242E3EC4DD08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F29A1E8397778149C470102 /* Pods-autodoorctrl.debug.xcconfig */,
+				DE0AF43179166A16D5786611 /* Pods-autodoorctrl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E829D8214323EF000BC96D /* Build configuration list for PBXNativeTarget "autodoorctrl" */;
 			buildPhases = (
+				249DAC1B834C0BB95FEFCAC0 /* [CP] Check Pods Manifest.lock */,
 				04E829B7214323ED000BC96D /* Sources */,
 				04E829B8214323ED000BC96D /* Frameworks */,
 				04E829B9214323ED000BC96D /* Resources */,
+				15561C0DC570E2F9C4109492 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +228,7 @@
 				TargetAttributes = {
 					04E829BA214323ED000BC96D = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					04E829CE214323EF000BC96D = {
 						CreatedOnToolsVersion = 10.0;
@@ -192,13 +275,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15561C0DC570E2F9C4109492 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		249DAC1B834C0BB95FEFCAC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-autodoorctrl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04E829B7214323ED000BC96D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E829C1214323ED000BC96D /* ViewController.swift in Sources */,
+				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
+				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
+				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
+				04F882FA214370B0005306AF /* LoginError.swift in Sources */,
+				0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,8 +488,11 @@
 		};
 		04E829D9214323EF000BC96D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F29A1E8397778149C470102 /* Pods-autodoorctrl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDBTK98VL3;
 				INFOPLIST_FILE = autodoorctrl/Info.plist;
@@ -369,15 +502,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		04E829DA214323EF000BC96D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE0AF43179166A16D5786611 /* Pods-autodoorctrl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDBTK98VL3;
 				INFOPLIST_FILE = autodoorctrl/Info.plist;
@@ -387,7 +526,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -407,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
 			};
@@ -428,7 +569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
 			};

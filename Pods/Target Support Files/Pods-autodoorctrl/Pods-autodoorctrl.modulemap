@@ -1,0 +1,6 @@
+framework module Pods_autodoorctrl {
+  umbrella header "Pods-autodoorctrl-umbrella.h"
+
+  export *
+  module * { export * }
+}

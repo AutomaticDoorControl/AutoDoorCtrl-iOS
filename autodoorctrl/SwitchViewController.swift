@@ -1,0 +1,66 @@
+//
+//  SwitchViewController.swift
+//  autodoorctrl
+//
+//  Created by Jing Wei Li on 9/7/18.
+//  Copyright © 2018 Jing Wei Li. All rights reserved.
+//
+
+import UIKit
+
+class SwitchViewController: UIViewController {
+    @IBOutlet weak var statusLabel: UILabel!
+    let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
+    var isOn = false
+    private let orangeColor = UIColor(red: 244/255, green: 176/255, blue: 62/255, alpha: 1)
+    private let darkGreenColor = UIColor(red: 142/255, green: 202/255, blue: 67/255, alpha: 1)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func dismiss(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func lockOrUnlock(_ sender: UITapGestureRecognizer) {
+        hapticFeedback.impactOccurred()
+        if isOn {
+            isOn = false
+            statusLabel.text = "Off"
+        } else {
+            isOn = true
+            statusLabel.text = "On"
+        }
+        
+        UIView.transition(with: view,
+                          duration: 0.5,
+                          options: .curveEaseInOut,
+                          animations: { [weak self] in
+                            self?.view.backgroundColor = (self?.isOn ?? false)
+                                ? self?.darkGreenColor
+                                : self?.orangeColor
+            },
+                          completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
