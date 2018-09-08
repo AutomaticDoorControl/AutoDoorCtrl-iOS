@@ -13,7 +13,7 @@ class SwitchViewController: UIViewController {
     let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
     var isOn = false
     private let orangeColor = UIColor(red: 244/255, green: 176/255, blue: 62/255, alpha: 1)
-    private let darkGreenColor = UIColor(red: 142/255, green: 202/255, blue: 67/255, alpha: 1)
+    private let greenColor = UIColor(red: 142/255, green: 202/255, blue: 67/255, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,10 @@ class SwitchViewController: UIViewController {
         hapticFeedback.impactOccurred()
         if isOn {
             isOn = false
-            statusLabel.text = "Off"
+            statusLabel.text = "Locked"
         } else {
             isOn = true
-            statusLabel.text = "On"
+            statusLabel.text = "Unlocked"
         }
         
         UIView.transition(with: view,
@@ -43,7 +43,7 @@ class SwitchViewController: UIViewController {
                           options: .curveEaseInOut,
                           animations: { [weak self] in
                             self?.view.backgroundColor = (self?.isOn ?? false)
-                                ? self?.darkGreenColor
+                                ? self?.greenColor
                                 : self?.orangeColor
             },
                           completion: nil)

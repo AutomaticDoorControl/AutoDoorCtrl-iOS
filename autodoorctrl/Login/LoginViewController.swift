@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var rcsIDTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var versionLabel: UILabel!
     
     private let rcsIDTextFieldTag = 1
     private let passwordTextFieldTag = 2
@@ -28,6 +29,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         rcsIDTextField.tag = rcsIDTextFieldTag
         passwordTextField.tag = passwordTextFieldTag
         passwordTextField.isSecureTextEntry = true
+        
+        configureUI()
+        
+        #if DEBUG
+            rcsIDTextField.text = "abc"
+            passwordTextField.text = "abc"
+        #endif
     }
     
     // MARK: - UITextFieldDelegate
@@ -47,27 +55,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         if passwordTextField.text?.isEmpty ?? false || rcsIDTextField.text?.isEmpty ?? false {
             handleError(with: .incompleteCredentials)
+            return
         }
+        disableUI()
         LoginAPI.loginUser(username: rcsIDTextField.text ?? "",
                            password: passwordTextField.text ?? "",
                            successHandler: {
                             DispatchQueue.main.async { [weak self] in
                                 guard let strongSelf = self else { return }
                                 strongSelf.passwordTextField.text = nil
-                                strongSelf.rcsIDTextField.text = nil
-                                self?.performSegue(withIdentifier: "showSwitchVC", sender: strongSelf)
+                                strongSelf.enableUI()
+                                strongSelf.performSegue(withIdentifier: "showSwitchVC", sender: strongSelf)
                             }
         },
                            errorHandler: { [weak self] error in
+                            self?.enableUI()
                             self?.handleError(with: error)
         })
     }
+    
+    // MARK: - Private
     
     private func handleError(with error: LoginError) {
         switch error {
         case .invalidCredentials:
             SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                  body: "Incorrect Username or Password")
+                                                  body: "Incorrect username or password")
         case .incompleteCredentials:
             SwiftMessagesWrapper.showErrorMessage(title: "Error",
                                                   body: "Please fill in the username or password")
@@ -77,7 +90,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-
-
+    private func configureUI () {
+        loginButton.layer.cornerRadius = 10.0
+        loginButton.clipsToBounds = true
+        passwordTextField.setBottomBorder()
+        rcsIDTextField.setBottomBorder()
+        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? ""
+        versionLabel.text = "v\(version)"
+    }
+    
+    private func disableUI() {
+        loginButton.isEnabled = false
+        loginButton.alpha = 0.5
+        loginButton.setTitle("Logging in", for: .normal)
+    }
+    
+    private func enableUI () {
+        loginButton.isEnabled = true
+        loginButton.alpha = 1.0
+        loginButton.setTitle("Log in", for: .normal)
+    }
 }
 

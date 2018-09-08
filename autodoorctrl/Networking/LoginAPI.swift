@@ -14,7 +14,7 @@ enum LoginAPI {
                           successHandler: @escaping () -> Void,
                           errorHandler: @escaping (LoginError) -> Void) {
         if username == "abc" && password == "abc" {
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 successHandler()
             }
         } else {

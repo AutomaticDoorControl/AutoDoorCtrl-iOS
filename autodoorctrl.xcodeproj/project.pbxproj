@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */; };
+		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
 		0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */; };
 		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		0440E777214357B70037F94B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		04633FBF21438DB0007B3358 /* UITextField+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Underline.swift"; sourceTree = "<group>"; };
 		0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04633FBE21438D65007B3358 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04633FBF21438DB0007B3358 /* UITextField+Underline.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0466DB8921436682002583DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				04633FBE21438D65007B3358 /* Extensions */,
 				0466DB8A21436690002583DB /* Networking */,
 				0466DB8921436682002583DB /* Shared */,
 				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
@@ -321,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
