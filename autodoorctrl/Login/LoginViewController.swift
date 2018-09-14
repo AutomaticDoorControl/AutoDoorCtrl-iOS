@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var biometricsButton: UIButton!
     
     private let rcsIDTextFieldTag = 1
     private let passwordTextFieldTag = 2
@@ -36,6 +37,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             rcsIDTextField.text = "abc"
             passwordTextField.text = "abc"
         #endif
+        
+        loginUserWithBiometrics()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let shouldHideBiometricButton = !BiometricsController.isBiometricAvailable() || UserDefaults.isFirstLogin()
+         biometricsButton.isHidden = shouldHideBiometricButton
     }
     
     // MARK: - UITextFieldDelegate
@@ -63,15 +72,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                            successHandler: {
                             DispatchQueue.main.async { [weak self] in
                                 guard let strongSelf = self else { return }
-                                strongSelf.passwordTextField.text = nil
-                                strongSelf.enableUI()
-                                strongSelf.performSegue(withIdentifier: "showSwitchVC", sender: strongSelf)
+                                
+                                let completion = {
+                                    strongSelf.passwordTextField.text = nil
+                                    strongSelf.enableUI()
+                                    strongSelf.performSegue(withIdentifier: "showSwitchVC", sender: strongSelf)
+                                }
+                                
+                                if UserDefaults.isFirstLogin() && BiometricsController.isBiometricAvailable() {
+                                    strongSelf.showBiometricsAlert(withAgreedHandler: { completion() },
+                                                                   withDisagreedHandler: { completion() })
+                                    UserDefaults.setFirstLogin()
+                                } else {
+                                    completion()
+                                }
                             }
         },
                            errorHandler: { [weak self] error in
                             self?.enableUI()
                             self?.handleError(with: error)
         })
+    }
+    
+    @IBAction func biometricButtonTapped(_ sender: UIButton) {
+        if !BiometricsController.isUserAgreedToBiometrics() {
+            showBiometricsAlert(withAgreedHandler: { [weak self] in self?.loginUserWithBiometrics() })
+        } else {
+            loginUserWithBiometrics()
+        }
     }
     
     // MARK: - Private
@@ -95,7 +123,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.clipsToBounds = true
         passwordTextField.setBottomBorder()
         rcsIDTextField.setBottomBorder()
-        let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? ""
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         versionLabel.text = "v\(version)"
     }
     
@@ -109,6 +137,48 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.isEnabled = true
         loginButton.alpha = 1.0
         loginButton.setTitle("Log in", for: .normal)
+    }
+    
+    // MARK: - Private Methods: Biometrics
+    
+    private func showBiometricsAlert(withAgreedHandler agreedHandler: @escaping () -> Void,
+                                     withDisagreedHandler disagreedHandler: @escaping () -> Void = { }) {
+        let biometricString = BiometricsController.biometricMode()
+        let alert = UIAlertController(title: biometricString,
+                                      message: "Use \(biometricString) for faster future logins?",
+                                      preferredStyle: .alert)
+        let agreedAction = UIAlertAction(title: "Yes", style: .default,
+                                         handler: { [weak self] _ in
+                                            UserDefaults.setBiometricAgreement()
+                                            BiometricsController.saveLoginInfo(withRCSID: self?.rcsIDTextField.text ?? "",
+                                                                               andPassword: self?.passwordTextField.text ?? "")
+                                            agreedHandler()
+        })
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: { _ in disagreedHandler() })
+        
+        alert.addAction(agreedAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func loginUserWithBiometrics() {
+        if BiometricsController.isUserAgreedToBiometrics() {
+            BiometricsController.loginWithBiometrics(onSuccess: { [weak self] in
+                guard let strongSelf = self else { return }
+                let rcsID = UserDefaults.rcsID()
+                let password = UserDefaults.password()
+                strongSelf.disableUI()
+                LoginAPI.loginUser(username: rcsID, password: password,
+                                   successHandler: {
+                                    strongSelf.enableUI()
+                                    strongSelf.performSegue(withIdentifier: "showSwitchVC", sender: strongSelf)
+                    },
+                                   errorHandler: { error in
+                                    strongSelf.enableUI()
+                                    strongSelf.handleError(with: error)
+                })
+            })
+        }
     }
 }
 

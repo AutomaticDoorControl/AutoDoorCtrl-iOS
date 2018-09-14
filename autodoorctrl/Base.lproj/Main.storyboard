@@ -24,38 +24,38 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30v-iC-Vo4">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="RCS ID" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d3t-oi-phv">
-                                                <rect key="frame" x="82" y="377" width="211" height="40"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="RCS ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3t-oi-phv">
+                                                <rect key="frame" x="67.5" y="377" width="240" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="211" id="0Xb-19-ege"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="0Xb-19-ege"/>
                                                     <constraint firstAttribute="height" constant="40" id="ddw-rF-gSe"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oO1-g8-Xvo">
-                                                <rect key="frame" x="81.5" y="439" width="212" height="40"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oO1-g8-Xvo">
+                                                <rect key="frame" x="67.5" y="439" width="240" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Y1h-ru-5nX"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212" id="ehW-y2-bWl"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="ehW-y2-bWl"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AutoDoorCtrl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-g7-XfE">
-                                                <rect key="frame" x="75" y="162.5" width="225.5" height="47.5"/>
+                                                <rect key="frame" x="75" y="162" width="225" height="48"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xr9-Yn-hhj">
-                                                <rect key="frame" x="81.5" y="507" width="212" height="40"/>
+                                                <rect key="frame" x="67.5" y="507" width="240" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="77O-SX-8BS"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212" id="Eof-ZC-5cy"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Eof-ZC-5cy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Log In">
@@ -65,13 +65,26 @@
                                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgk-1K-49a"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSe-ua-0Ne">
+                                                <rect key="frame" x="262.5" y="435" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="WR7-D9-SHc"/>
+                                                    <constraint firstAttribute="height" constant="35" id="lgD-r5-3fJ"/>
+                                                </constraints>
+                                                <state key="normal" image="FingerprintIcon"/>
+                                                <connections>
+                                                    <action selector="biometricButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0KV-cU-Z06"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="xr9-Yn-hhj" secondAttribute="bottom" constant="120" id="4HN-br-4FA"/>
                                             <constraint firstAttribute="bottom" secondItem="xr9-Yn-hhj" secondAttribute="bottom" constant="70" id="AOC-b4-TOW"/>
+                                            <constraint firstItem="KSe-ua-0Ne" firstAttribute="trailing" secondItem="oO1-g8-Xvo" secondAttribute="trailing" constant="-10" id="Dcf-hd-bfC"/>
                                             <constraint firstItem="oO1-g8-Xvo" firstAttribute="top" secondItem="d3t-oi-phv" secondAttribute="bottom" constant="22" id="FFL-85-9BT"/>
                                             <constraint firstItem="xr9-Yn-hhj" firstAttribute="top" secondItem="oO1-g8-Xvo" secondAttribute="bottom" constant="28" id="Svi-Fv-DB7"/>
+                                            <constraint firstItem="oO1-g8-Xvo" firstAttribute="top" secondItem="KSe-ua-0Ne" secondAttribute="bottom" constant="-31" id="UI6-B8-fGT"/>
                                             <constraint firstItem="oO1-g8-Xvo" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="elP-oP-d4R"/>
                                             <constraint firstAttribute="bottom" secondItem="HsG-g7-XfE" secondAttribute="bottom" multiplier="667:210" id="g1U-iE-jHb"/>
                                             <constraint firstItem="d3t-oi-phv" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="lmC-6w-lZO"/>
@@ -119,6 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="biometricsButton" destination="KSe-ua-0Ne" id="gpk-fI-IOE"/>
                         <outlet property="loginButton" destination="xr9-Yn-hhj" id="CoP-bA-Wle"/>
                         <outlet property="passwordTextField" destination="oO1-g8-Xvo" id="ror-qo-OZJ"/>
                         <outlet property="rcsIDTextField" destination="d3t-oi-phv" id="zJh-qJ-Td1"/>
@@ -148,8 +162,8 @@
                                     <action selector="dismiss:" destination="0sk-w0-Zzb" eventType="touchUpInside" id="Z4v-x1-PjY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQd-9N-shr">
-                                <rect key="frame" x="92" y="402.5" width="191" height="64.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQd-9N-shr">
+                                <rect key="frame" x="97.5" y="402.5" width="180" height="64.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="54"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -183,4 +197,7 @@
             <point key="canvasLocation" x="904" y="29"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FingerprintIcon" width="64" height="64"/>
+    </resources>
 </document>

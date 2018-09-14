@@ -32,10 +32,10 @@ class SwitchViewController: UIViewController {
         hapticFeedback.impactOccurred()
         if isOn {
             isOn = false
-            statusLabel.text = "Locked"
+            statusLabel.text = "Closed"
         } else {
             isOn = true
-            statusLabel.text = "Unlocked"
+            statusLabel.text = "Open"
         }
         
         UIView.transition(with: view,
