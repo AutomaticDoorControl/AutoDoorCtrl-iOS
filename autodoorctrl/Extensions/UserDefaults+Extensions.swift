@@ -11,9 +11,7 @@ import Foundation
 extension UserDefaults {
     private static let firstLoginKey = "firstLogin"
     private static let biometricLoginAgreementKey = "agreedToBiometrics"
-    //TODO: Store the information below in Keychain
     private static let rcsIDKey = "rcsIDKey"
-    private static let passwordKey = "passwordKey"
     
     // MARK: - First Login
     
@@ -39,18 +37,13 @@ extension UserDefaults {
         self.standard.set(false, forKey: biometricLoginAgreementKey)
     }
     
-    // MARK: - RCSID and Password
-    static func saveLoginCredentials(rcsID: String, password: String) {
+    // MARK: - RCSID (Passwords are saved to the keychain)
+    static func saveRCSID(with rcsID: String) {
         self.standard.set(rcsID, forKey: rcsIDKey)
-        self.standard.set(password, forKey: passwordKey)
     }
     
     static func rcsID() -> String {
         return self.standard.object(forKey: rcsIDKey) as? String ?? ""
-    }
-    
-    static func password() -> String {
-        return self.standard.object(forKey: passwordKey) as? String ?? ""
     }
     
 }

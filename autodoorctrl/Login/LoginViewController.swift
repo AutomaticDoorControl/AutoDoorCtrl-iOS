@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let shouldHideBiometricButton = !BiometricsController.isBiometricAvailable() || UserDefaults.isFirstLogin()
-         biometricsButton.isHidden = shouldHideBiometricButton
+        biometricsButton.isHidden = shouldHideBiometricButton
     }
     
     // MARK: - UITextFieldDelegate
@@ -150,8 +150,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let agreedAction = UIAlertAction(title: "Yes", style: .default,
                                          handler: { [weak self] _ in
                                             UserDefaults.setBiometricAgreement()
-                                            BiometricsController.saveLoginInfo(withRCSID: self?.rcsIDTextField.text ?? "",
-                                                                               andPassword: self?.passwordTextField.text ?? "")
+                                            try? KeychainOperations.savePassword(self?.passwordTextField.text ?? "",
+                                                                           attachedToRCSID: self?.rcsIDTextField.text ?? "")
+                                            UserDefaults.saveRCSID(with: self?.rcsIDTextField.text ?? "")
                                             agreedHandler()
         })
         let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: { _ in disagreedHandler() })
@@ -166,7 +167,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             BiometricsController.loginWithBiometrics(onSuccess: { [weak self] in
                 guard let strongSelf = self else { return }
                 let rcsID = UserDefaults.rcsID()
-                let password = UserDefaults.password()
+                let password = (try? KeychainOperations.retrievePassword(matching: rcsID)) ?? ""
                 strongSelf.disableUI()
                 LoginAPI.loginUser(username: rcsID, password: password,
                                    successHandler: {

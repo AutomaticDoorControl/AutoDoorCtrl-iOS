@@ -29,10 +29,6 @@ enum BiometricsController {
         return self.context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
     }
     
-    static func saveLoginInfo(withRCSID username: String, andPassword password: String) {
-        UserDefaults.saveLoginCredentials(rcsID: username, password: password)
-    }
-    
     static func isUserAgreedToBiometrics() -> Bool {
         return UserDefaults.isUserAgreedToBiometrics()
     }

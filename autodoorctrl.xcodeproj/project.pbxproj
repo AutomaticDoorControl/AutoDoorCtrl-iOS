@@ -13,6 +13,9 @@
 		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
 		0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465E122214A2F2B00298241 /* BiometricsController.swift */; };
 		0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */; };
+		0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
+		0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */; };
+		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
 		04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829C0214323ED000BC96D /* LoginViewController.swift */; };
@@ -44,6 +47,8 @@
 		04633FBF21438DB0007B3358 /* UITextField+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Underline.swift"; sourceTree = "<group>"; };
 		0465E122214A2F2B00298241 /* BiometricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsController.swift; sourceTree = "<group>"; };
 		0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
+		0481C29F214C70E40078BAAA /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
+		0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKeychainOperations.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829BE214323ED000BC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 			children = (
 				04E829D3214323EF000BC96D /* autodoorctrlTests.swift */,
 				04E829D5214323EF000BC96D /* Info.plist */,
+				0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */,
 			);
 			path = autodoorctrlTests;
 			sourceTree = "<group>";
@@ -171,6 +177,7 @@
 				0465E122214A2F2B00298241 /* BiometricsController.swift */,
 				04E829C0214323ED000BC96D /* LoginViewController.swift */,
 				04F882F9214370B0005306AF /* LoginError.swift */,
+				0481C29F214C70E40078BAAA /* KeychainOperations.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -345,6 +352,7 @@
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,
 				0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */,
+				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04F882FA214370B0005306AF /* LoginError.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
@@ -357,6 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E829D4214323EF000BC96D /* autodoorctrlTests.swift in Sources */,
+				0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */,
+				0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
