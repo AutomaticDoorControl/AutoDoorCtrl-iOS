@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var biometricsButton: UIButton!
+    @IBOutlet weak var resetBioButton: UIButton!
     
     private let rcsIDTextFieldTag = 1
     private let passwordTextFieldTag = 2
@@ -102,6 +103,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func resetBiometrics(_ sender: Any) {
+        let bioString = BiometricsController.biometricMode()
+        let resetBioAlert = UIAlertController(title: "Reset \(bioString)?",
+                                              message: "This will remove all the \(bioString) login credentials",
+                                              preferredStyle: .alert)
+        resetBioAlert.view.tintColor = UIColor.red
+        resetBioAlert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+            BiometricsController.resetBiometrics()
+            self?.resetBioButton.isHidden = true
+        })
+        resetBioAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        present(resetBioAlert, animated: true, completion: nil)
+    }
+    
     // MARK: - Private
     
     private func handleError(with error: LoginError) {
@@ -125,18 +140,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         rcsIDTextField.setBottomBorder()
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         versionLabel.text = "v\(version)"
+        
+        if !BiometricsController.isUserAgreedToBiometrics() { resetBioButton.isHidden = true }
     }
     
     private func disableUI() {
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
         loginButton.setTitle("Logging in", for: .normal)
+        resetBioButton.isEnabled = false
+        resetBioButton.alpha = 0.5
     }
     
     private func enableUI () {
         loginButton.isEnabled = true
         loginButton.alpha = 1.0
         loginButton.setTitle("Log in", for: .normal)
+        resetBioButton.isEnabled = true
+        resetBioButton.alpha = 1
     }
     
     // MARK: - Private Methods: Biometrics
@@ -153,6 +174,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                             try? KeychainOperations.savePassword(self?.passwordTextField.text ?? "",
                                                                                  attachedToRCSID: self?.rcsIDTextField.text ?? "")
                                             UserDefaults.saveRCSID(with: self?.rcsIDTextField.text ?? "")
+                                            self?.resetBioButton.isHidden = false
                                             agreedHandler()
         })
         let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: { _ in disagreedHandler() })

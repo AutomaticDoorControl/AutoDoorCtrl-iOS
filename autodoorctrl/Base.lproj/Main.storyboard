@@ -45,7 +45,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AutoDoorCtrl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-g7-XfE">
-                                                <rect key="frame" x="75" y="162" width="225" height="48"/>
+                                                <rect key="frame" x="75" y="162.5" width="225.5" height="47.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -76,6 +76,27 @@
                                                     <action selector="biometricButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0KV-cU-Z06"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lXH-Ze-bZk">
+                                                <rect key="frame" x="121" y="555" width="133.5" height="28"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-fE-SUv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="28"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-TI-UAi">
+                                                        <rect key="frame" x="30.5" y="0.0" width="103" height="28"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <state key="normal" title="Reset Biometrics">
+                                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="resetBiometrics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwA-KE-mQg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -84,11 +105,13 @@
                                             <constraint firstItem="KSe-ua-0Ne" firstAttribute="trailing" secondItem="oO1-g8-Xvo" secondAttribute="trailing" constant="-10" id="Dcf-hd-bfC"/>
                                             <constraint firstItem="oO1-g8-Xvo" firstAttribute="top" secondItem="d3t-oi-phv" secondAttribute="bottom" constant="22" id="FFL-85-9BT"/>
                                             <constraint firstItem="xr9-Yn-hhj" firstAttribute="top" secondItem="oO1-g8-Xvo" secondAttribute="bottom" constant="28" id="Svi-Fv-DB7"/>
+                                            <constraint firstItem="lXH-Ze-bZk" firstAttribute="top" secondItem="xr9-Yn-hhj" secondAttribute="bottom" constant="8" id="T8T-dG-EoI"/>
                                             <constraint firstItem="oO1-g8-Xvo" firstAttribute="top" secondItem="KSe-ua-0Ne" secondAttribute="bottom" constant="-31" id="UI6-B8-fGT"/>
                                             <constraint firstItem="oO1-g8-Xvo" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="elP-oP-d4R"/>
                                             <constraint firstAttribute="bottom" secondItem="HsG-g7-XfE" secondAttribute="bottom" multiplier="667:210" id="g1U-iE-jHb"/>
                                             <constraint firstItem="d3t-oi-phv" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="lmC-6w-lZO"/>
                                             <constraint firstItem="xr9-Yn-hhj" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="mx2-c1-LHb"/>
+                                            <constraint firstItem="lXH-Ze-bZk" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="pas-SB-3i2"/>
                                             <constraint firstItem="HsG-g7-XfE" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="ump-3Y-jID"/>
                                         </constraints>
                                         <variation key="default">
@@ -103,21 +126,13 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-fE-SUv">
-                                        <rect key="frame" x="175" y="559" width="25" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="4tS-fE-SUv" firstAttribute="top" secondItem="xr9-Yn-hhj" secondAttribute="bottom" constant="12" id="5H5-tZ-7Mk"/>
                                     <constraint firstItem="30v-iC-Vo4" firstAttribute="leading" secondItem="mob-hi-ASb" secondAttribute="leading" id="62I-cA-y9h"/>
                                     <constraint firstItem="30v-iC-Vo4" firstAttribute="centerY" secondItem="mob-hi-ASb" secondAttribute="centerY" id="Hm0-28-T3i"/>
                                     <constraint firstItem="30v-iC-Vo4" firstAttribute="top" secondItem="mob-hi-ASb" secondAttribute="top" id="QT5-a6-SPd"/>
                                     <constraint firstItem="30v-iC-Vo4" firstAttribute="centerX" secondItem="mob-hi-ASb" secondAttribute="centerX" id="cX7-U0-0wU"/>
                                     <constraint firstAttribute="bottom" secondItem="30v-iC-Vo4" secondAttribute="bottom" id="iat-4y-aCF"/>
-                                    <constraint firstItem="4tS-fE-SUv" firstAttribute="centerX" secondItem="30v-iC-Vo4" secondAttribute="centerX" id="vzD-N9-iaf"/>
                                     <constraint firstAttribute="trailing" secondItem="30v-iC-Vo4" secondAttribute="trailing" id="yfs-LM-bL4"/>
                                 </constraints>
                             </scrollView>
@@ -136,6 +151,7 @@
                         <outlet property="loginButton" destination="xr9-Yn-hhj" id="CoP-bA-Wle"/>
                         <outlet property="passwordTextField" destination="oO1-g8-Xvo" id="ror-qo-OZJ"/>
                         <outlet property="rcsIDTextField" destination="d3t-oi-phv" id="zJh-qJ-Td1"/>
+                        <outlet property="resetBioButton" destination="oYy-TI-UAi" id="JNm-nA-9jJ"/>
                         <outlet property="versionLabel" destination="4tS-fE-SUv" id="U0D-HP-nAl"/>
                         <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="hyh-MR-nS1"/>
                     </connections>

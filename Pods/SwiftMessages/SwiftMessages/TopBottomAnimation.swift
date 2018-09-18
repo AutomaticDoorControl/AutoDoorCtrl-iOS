@@ -41,7 +41,7 @@ public class TopBottomAnimation: NSObject, Animator {
     }
 
     public func show(context: AnimationContext, completion: @escaping AnimationCompletion) {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustMargins), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustMargins), name: UIDevice.orientationDidChangeNotification, object: nil)
         install(context: context)
         showAnimation(completion: completion)
     }

@@ -48,6 +48,9 @@ enum BiometricsController {
     }
     
     static func resetBiometrics() {
+        try? KeychainOperations.deletePassword(matching: UserDefaults.rcsID())
+        UserDefaults.resetBiometricAgreement()
+        UserDefaults.removeRcsID()
         
     }
     

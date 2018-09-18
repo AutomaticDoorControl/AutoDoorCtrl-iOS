@@ -46,4 +46,8 @@ extension UserDefaults {
         return self.standard.object(forKey: rcsIDKey) as? String ?? ""
     }
     
+    static func removeRcsID() {
+        self.standard.removeObject(forKey: rcsIDKey)
+    }
+    
 }
