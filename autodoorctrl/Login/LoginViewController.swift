@@ -151,7 +151,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                          handler: { [weak self] _ in
                                             UserDefaults.setBiometricAgreement()
                                             try? KeychainOperations.savePassword(self?.passwordTextField.text ?? "",
-                                                                           attachedToRCSID: self?.rcsIDTextField.text ?? "")
+                                                                                 attachedToRCSID: self?.rcsIDTextField.text ?? "")
                                             UserDefaults.saveRCSID(with: self?.rcsIDTextField.text ?? "")
                                             agreedHandler()
         })

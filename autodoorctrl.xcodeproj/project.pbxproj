@@ -164,8 +164,8 @@
 		04E829D2214323EF000BC96D /* autodoorctrlTests */ = {
 			isa = PBXGroup;
 			children = (
-				04E829D3214323EF000BC96D /* autodoorctrlTests.swift */,
 				04E829D5214323EF000BC96D /* Info.plist */,
+				04E829D3214323EF000BC96D /* autodoorctrlTests.swift */,
 				0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */,
 			);
 			path = autodoorctrlTests;
