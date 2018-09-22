@@ -23,6 +23,10 @@ extension UserDefaults {
         self.standard.set(true, forKey: firstLoginKey)
     }
     
+    static func resetFirstLogin() {
+        self.standard.set(false, forKey: firstLoginKey)
+    }
+    
     // MARK: - Biometrics
     
     static func isUserAgreedToBiometrics() -> Bool {
@@ -48,6 +52,10 @@ extension UserDefaults {
     
     static func removeRcsID() {
         self.standard.removeObject(forKey: rcsIDKey)
+    }
+    
+    static func isLoginSaved() -> Bool {
+        return rcsID() != ""
     }
     
 }

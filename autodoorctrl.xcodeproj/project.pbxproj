@@ -13,9 +13,18 @@
 		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
 		0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465E122214A2F2B00298241 /* BiometricsController.swift */; };
 		0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */; };
+		046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046701712155F2A7007DF2BE /* UIView+Customizations.swift */; };
+		046701742155FA66007DF2BE /* DoorsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046701732155FA66007DF2BE /* DoorsListTableViewController.swift */; };
+		046701762155FFEF007DF2BE /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046701752155FFEF007DF2BE /* Door.swift */; };
+		0467017921560123007DF2BE /* DoorsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017821560123007DF2BE /* DoorsAPI.swift */; };
+		0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017B215602F7007DF2BE /* DoorsListController.swift */; };
+		0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */; };
+		0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467018021560631007DF2BE /* DoorsListTableViewCell.xib */; };
+		0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */; };
 		0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */; };
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
+		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
 		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
 		04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829C0214323ED000BC96D /* LoginViewController.swift */; };
@@ -47,8 +56,17 @@
 		04633FBF21438DB0007B3358 /* UITextField+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Underline.swift"; sourceTree = "<group>"; };
 		0465E122214A2F2B00298241 /* BiometricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsController.swift; sourceTree = "<group>"; };
 		0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
+		046701712155F2A7007DF2BE /* UIView+Customizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Customizations.swift"; sourceTree = "<group>"; };
+		046701732155FA66007DF2BE /* DoorsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListTableViewController.swift; sourceTree = "<group>"; };
+		046701752155FFEF007DF2BE /* Door.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
+		0467017821560123007DF2BE /* DoorsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsAPI.swift; sourceTree = "<group>"; };
+		0467017B215602F7007DF2BE /* DoorsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListController.swift; sourceTree = "<group>"; };
+		0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListTableViewCell.swift; sourceTree = "<group>"; };
+		0467018021560631007DF2BE /* DoorsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoorsListTableViewCell.xib; sourceTree = "<group>"; };
+		0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToDoorCommDelegate.swift; sourceTree = "<group>"; };
 		0481C29F214C70E40078BAAA /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
 		0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKeychainOperations.swift; sourceTree = "<group>"; };
+		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829BE214323ED000BC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +110,7 @@
 			children = (
 				04633FBF21438DB0007B3358 /* UITextField+Underline.swift */,
 				040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */,
+				046701712155F2A7007DF2BE /* UIView+Customizations.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -108,8 +127,30 @@
 			isa = PBXGroup;
 			children = (
 				04F882F621436D67005306AF /* LoginAPI.swift */,
+				0467017821560123007DF2BE /* DoorsAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		04670177215600D8007DF2BE /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */,
+				0467018021560631007DF2BE /* DoorsListTableViewCell.xib */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		04C288BA2155E4DD00561798 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				046701752155FFEF007DF2BE /* Door.swift */,
+				04C288BB2155E50900561798 /* MapsViewController.swift */,
+				046701732155FA66007DF2BE /* DoorsListTableViewController.swift */,
+				0467017B215602F7007DF2BE /* DoorsListController.swift */,
+				0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */,
+			);
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */ = {
@@ -146,11 +187,13 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				04670177215600D8007DF2BE /* Custom Views */,
 				04633FBE21438D65007B3358 /* Extensions */,
 				0466DB8A21436690002583DB /* Networking */,
 				0466DB8921436682002583DB /* Shared */,
 				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
 				04F882F821436EFE005306AF /* Login */,
+				04C288BA2155E4DD00561798 /* Maps */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
 				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
@@ -286,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */,
+				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
 			);
@@ -346,16 +390,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
+				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
+				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
 				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,
+				046701742155FA66007DF2BE /* DoorsListTableViewController.swift in Sources */,
+				046701762155FFEF007DF2BE /* Door.swift in Sources */,
 				0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */,
 				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
+				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04F882FA214370B0005306AF /* LoginError.swift in Sources */,
+				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
 				0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */,
 			);

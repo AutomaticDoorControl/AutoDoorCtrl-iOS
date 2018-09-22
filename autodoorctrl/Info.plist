@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSFaceIDUsageDescription</key>
-	<string>In order to login with TouchID or FaceID, we need your permission. </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -43,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSFaceIDUsageDescription</key>
+    <string>In order to login with TouchID or FaceID, we need your permission. </string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>To shows the available doors nearby, will you allow this app to always know your location?</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>To shows the available doors nearby, will you allow this app to know your current location?</string>
 </dict>
 </plist>

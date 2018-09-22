@@ -153,7 +153,7 @@
                         <outlet property="rcsIDTextField" destination="d3t-oi-phv" id="zJh-qJ-Td1"/>
                         <outlet property="resetBioButton" destination="oYy-TI-UAi" id="JNm-nA-9jJ"/>
                         <outlet property="versionLabel" destination="4tS-fE-SUv" id="U0D-HP-nAl"/>
-                        <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="hyh-MR-nS1"/>
+                        <segue destination="iJ9-w2-gnX" kind="presentation" identifier="showMaps" modalTransitionStyle="crossDissolve" id="nZC-Ai-xJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQd-9N-shr">
-                                <rect key="frame" x="97.5" y="402.5" width="180" height="64.5"/>
+                                <rect key="frame" x="97.5" y="402" width="180" height="65"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="54"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -210,7 +210,161 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="904" y="29"/>
+            <point key="canvasLocation" x="1463" y="27"/>
+        </scene>
+        <!--Maps View Controller-->
+        <scene sceneID="PUc-U7-4le">
+            <objects>
+                <viewController id="iJ9-w2-gnX" customClass="MapsViewController" customModule="autodoorctrl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8UP-cB-unL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fzM-Xb-rfk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-aJ-A99">
+                                <rect key="frame" x="20" y="35" width="70" height="35"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PPk-nQ-uBP">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="5IL-sk-hBi"/>
+                                    <constraint firstAttribute="width" constant="70" id="Zpu-jn-Xoy"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAB-UN-0zY">
+                                <rect key="frame" x="39" y="44" width="32" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="iJ9-w2-gnX" eventType="touchUpInside" id="ogR-8d-c9I"/>
+                                </connections>
+                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qp0-eY-2jj">
+                                <rect key="frame" x="15" y="493" width="343" height="154"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rn4-bU-bGX">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="154"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tao-EQ-TwI">
+                                            <rect key="frame" x="-7" y="-9" width="350" height="163"/>
+                                            <connections>
+                                                <segue destination="UbB-IA-QtS" kind="embed" id="CJd-cU-h8T"/>
+                                            </connections>
+                                        </containerView>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="tao-EQ-TwI" secondAttribute="trailing" id="A0x-so-kUf"/>
+                                        <constraint firstAttribute="bottom" secondItem="tao-EQ-TwI" secondAttribute="bottom" id="HXX-6N-RM5"/>
+                                        <constraint firstItem="tao-EQ-TwI" firstAttribute="top" secondItem="Rn4-bU-bGX" secondAttribute="top" constant="-9" id="aLk-Z2-et4"/>
+                                        <constraint firstItem="tao-EQ-TwI" firstAttribute="leading" secondItem="Rn4-bU-bGX" secondAttribute="leading" constant="-7" id="dUL-d4-ju8"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="154" id="9TZ-87-8SZ"/>
+                                    <constraint firstAttribute="width" constant="343" id="deo-9i-EkA"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwd-X7-Fic">
+                                <rect key="frame" x="15" y="473" width="343" height="20"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ryP-yc-io1">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwK-h4-dbH">
+                                            <rect key="frame" x="146" y="6.5" width="51" height="7"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="7" id="Dc3-e0-SdR"/>
+                                                <constraint firstAttribute="width" constant="51" id="KVc-Gy-cqh"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstItem="SwK-h4-dbH" firstAttribute="centerY" secondItem="ryP-yc-io1" secondAttribute="centerY" id="LZ0-Wx-ZcZ"/>
+                                        <constraint firstItem="SwK-h4-dbH" firstAttribute="centerX" secondItem="ryP-yc-io1" secondAttribute="centerX" id="aZu-Sh-36e"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="inE-yb-ilc" appends="YES" id="jJu-ao-Cad"/>
+                                        <outletCollection property="gestureRecognizers" destination="B3b-Mt-hDG" appends="YES" id="HRi-fr-CGF"/>
+                                    </connections>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2RF-HZ-0YA"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iAB-UN-0zY" firstAttribute="top" secondItem="X4E-OC-d37" secondAttribute="top" constant="24" id="6NC-9S-0Zi"/>
+                            <constraint firstItem="fzM-Xb-rfk" firstAttribute="leading" secondItem="FPv-aJ-A99" secondAttribute="trailing" constant="-90" id="DBU-Ru-YdE"/>
+                            <constraint firstItem="tao-EQ-TwI" firstAttribute="top" secondItem="Vwd-X7-Fic" secondAttribute="bottom" constant="-9" id="DLE-dA-imB"/>
+                            <constraint firstItem="iAB-UN-0zY" firstAttribute="centerY" secondItem="FPv-aJ-A99" secondAttribute="centerY" id="DMi-eS-Lzq"/>
+                            <constraint firstItem="fzM-Xb-rfk" firstAttribute="leading" secondItem="8UP-cB-unL" secondAttribute="leading" id="IK4-F5-Eir"/>
+                            <constraint firstItem="Vwd-X7-Fic" firstAttribute="leading" secondItem="tao-EQ-TwI" secondAttribute="leading" constant="7" id="IKX-k5-VQ9"/>
+                            <constraint firstItem="Vwd-X7-Fic" firstAttribute="trailing" secondItem="tao-EQ-TwI" secondAttribute="trailing" id="Jhf-vG-ZLQ"/>
+                            <constraint firstItem="fzM-Xb-rfk" firstAttribute="bottom" secondItem="X4E-OC-d37" secondAttribute="bottom" id="Z11-aU-mh1"/>
+                            <constraint firstItem="qp0-eY-2jj" firstAttribute="trailing" secondItem="fzM-Xb-rfk" secondAttribute="trailing" constant="-17" id="bUR-hE-7ry"/>
+                            <constraint firstItem="iAB-UN-0zY" firstAttribute="centerX" secondItem="FPv-aJ-A99" secondAttribute="centerX" id="bmK-UW-66b"/>
+                            <constraint firstItem="fzM-Xb-rfk" firstAttribute="top" secondItem="FPv-aJ-A99" secondAttribute="bottom" constant="-70" id="c3J-UO-TSO"/>
+                            <constraint firstItem="qp0-eY-2jj" firstAttribute="bottom" secondItem="fzM-Xb-rfk" secondAttribute="bottom" constant="-20" id="k5K-1N-dBr"/>
+                            <constraint firstAttribute="trailing" secondItem="fzM-Xb-rfk" secondAttribute="trailing" id="rsA-we-Ne9"/>
+                            <constraint firstItem="fzM-Xb-rfk" firstAttribute="top" secondItem="8UP-cB-unL" secondAttribute="top" id="sn6-cS-gas"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X4E-OC-d37"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButtonBackground" destination="FPv-aJ-A99" id="Fo6-O9-rHc"/>
+                        <outlet property="doorsListHeight" destination="9TZ-87-8SZ" id="Ktx-az-L6I"/>
+                        <outlet property="doorsListView" destination="qp0-eY-2jj" id="WYs-ot-xzH"/>
+                        <outlet property="mapView" destination="fzM-Xb-rfk" id="m7w-rQ-mb1"/>
+                        <outlet property="slideBar" destination="SwK-h4-dbH" id="Z2A-7P-ZGh"/>
+                        <outlet property="slideBarBackDrop" destination="Vwd-X7-Fic" id="gnN-kl-93q"/>
+                        <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="mrr-Ow-DGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfH-Af-0K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="inE-yb-ilc">
+                    <connections>
+                        <action selector="collapseList:" destination="iJ9-w2-gnX" id="8Fb-Ou-irk"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="B3b-Mt-hDG">
+                    <connections>
+                        <action selector="expandList:" destination="iJ9-w2-gnX" id="vzA-BY-fQr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="733.60000000000002" y="26.53673163418291"/>
+        </scene>
+        <!--Doors List Table View Controller-->
+        <scene sceneID="47L-Eg-Mou">
+            <objects>
+                <tableViewController id="UbB-IA-QtS" customClass="DoorsListTableViewController" customModule="autodoorctrl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JCz-iM-0wM">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="163"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="UbB-IA-QtS" id="tK0-1t-yWQ"/>
+                            <outlet property="delegate" destination="UbB-IA-QtS" id="mZs-1A-CJ9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqK-MF-jwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="500"/>
         </scene>
     </scenes>
     <resources>
