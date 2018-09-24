@@ -11,8 +11,8 @@ import UIKit
 
 extension UIView {
     
-    func addRoundBorder(borderRadius: CGFloat = 10.0) {
-        self.layer.cornerRadius = borderRadius
+    func addRoundedCorner(cornerRadius: CGFloat = 10.0) {
+        self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
     }
     
@@ -20,7 +20,7 @@ extension UIView {
         let shadowPath = UIBezierPath(rect: bounds)
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        layer.shadowOffset = CGSize(width: 2, height: 2)
         layer.shadowOpacity = 0.5
         layer.shadowPath = shadowPath.cgPath
     }

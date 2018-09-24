@@ -16,14 +16,9 @@ class DoorsListTableViewCell: UITableViewCell {
     static let identifier = "doorsListTableViewCell"
     
     func setup(from door: Door) {
-        doorsImageView.image = UIImage(named: "FingerprintIcon")
+        doorsImageView.image = UIImage(named: "UnlockIcon")
         masterLabel.text = door.name
         detailLabel.text = "Coordinate: \(door.coordinate.latitude), \(door.coordinate.longitude)"
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        // not implemented
     }
 
     override func awakeFromNib() {

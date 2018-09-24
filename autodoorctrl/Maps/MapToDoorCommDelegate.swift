@@ -11,4 +11,7 @@ import Foundation
 protocol MapToDoorCommDelegate: class {
     func didReceiveDoorsData(with doors: [Door])
     func didSelectSingleDoor(with door: Door)
+    
+    func expandList()
+    func collapseList()
 }

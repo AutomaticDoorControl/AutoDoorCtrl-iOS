@@ -210,7 +210,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1463" y="27"/>
+            <point key="canvasLocation" x="1398" y="27"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="PUc-U7-4le">
@@ -246,15 +246,15 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qp0-eY-2jj">
-                                <rect key="frame" x="15" y="493" width="343" height="154"/>
+                                <rect key="frame" x="15" y="477" width="343" height="170"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rn4-bU-bGX">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="154"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="170"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tao-EQ-TwI">
-                                            <rect key="frame" x="-7" y="-9" width="350" height="163"/>
+                                            <rect key="frame" x="-7" y="-9" width="350" height="179"/>
                                             <connections>
-                                                <segue destination="UbB-IA-QtS" kind="embed" id="CJd-cU-h8T"/>
+                                                <segue destination="FkV-AC-UCr" kind="embed" id="bHH-cG-Od4"/>
                                             </connections>
                                         </containerView>
                                     </subviews>
@@ -267,39 +267,8 @@
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="9TZ-87-8SZ"/>
+                                    <constraint firstAttribute="height" constant="170" id="9TZ-87-8SZ"/>
                                     <constraint firstAttribute="width" constant="343" id="deo-9i-EkA"/>
-                                </constraints>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwd-X7-Fic">
-                                <rect key="frame" x="15" y="473" width="343" height="20"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ryP-yc-io1">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwK-h4-dbH">
-                                            <rect key="frame" x="146" y="6.5" width="51" height="7"/>
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="7" id="Dc3-e0-SdR"/>
-                                                <constraint firstAttribute="width" constant="51" id="KVc-Gy-cqh"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <gestureRecognizers/>
-                                    <constraints>
-                                        <constraint firstItem="SwK-h4-dbH" firstAttribute="centerY" secondItem="ryP-yc-io1" secondAttribute="centerY" id="LZ0-Wx-ZcZ"/>
-                                        <constraint firstItem="SwK-h4-dbH" firstAttribute="centerX" secondItem="ryP-yc-io1" secondAttribute="centerX" id="aZu-Sh-36e"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="inE-yb-ilc" appends="YES" id="jJu-ao-Cad"/>
-                                        <outletCollection property="gestureRecognizers" destination="B3b-Mt-hDG" appends="YES" id="HRi-fr-CGF"/>
-                                    </connections>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="2RF-HZ-0YA"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -308,11 +277,8 @@
                         <constraints>
                             <constraint firstItem="iAB-UN-0zY" firstAttribute="top" secondItem="X4E-OC-d37" secondAttribute="top" constant="24" id="6NC-9S-0Zi"/>
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="leading" secondItem="FPv-aJ-A99" secondAttribute="trailing" constant="-90" id="DBU-Ru-YdE"/>
-                            <constraint firstItem="tao-EQ-TwI" firstAttribute="top" secondItem="Vwd-X7-Fic" secondAttribute="bottom" constant="-9" id="DLE-dA-imB"/>
                             <constraint firstItem="iAB-UN-0zY" firstAttribute="centerY" secondItem="FPv-aJ-A99" secondAttribute="centerY" id="DMi-eS-Lzq"/>
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="leading" secondItem="8UP-cB-unL" secondAttribute="leading" id="IK4-F5-Eir"/>
-                            <constraint firstItem="Vwd-X7-Fic" firstAttribute="leading" secondItem="tao-EQ-TwI" secondAttribute="leading" constant="7" id="IKX-k5-VQ9"/>
-                            <constraint firstItem="Vwd-X7-Fic" firstAttribute="trailing" secondItem="tao-EQ-TwI" secondAttribute="trailing" id="Jhf-vG-ZLQ"/>
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="bottom" secondItem="X4E-OC-d37" secondAttribute="bottom" id="Z11-aU-mh1"/>
                             <constraint firstItem="qp0-eY-2jj" firstAttribute="trailing" secondItem="fzM-Xb-rfk" secondAttribute="trailing" constant="-17" id="bUR-hE-7ry"/>
                             <constraint firstItem="iAB-UN-0zY" firstAttribute="centerX" secondItem="FPv-aJ-A99" secondAttribute="centerX" id="bmK-UW-66b"/>
@@ -328,43 +294,81 @@
                         <outlet property="doorsListHeight" destination="9TZ-87-8SZ" id="Ktx-az-L6I"/>
                         <outlet property="doorsListView" destination="qp0-eY-2jj" id="WYs-ot-xzH"/>
                         <outlet property="mapView" destination="fzM-Xb-rfk" id="m7w-rQ-mb1"/>
-                        <outlet property="slideBar" destination="SwK-h4-dbH" id="Z2A-7P-ZGh"/>
-                        <outlet property="slideBarBackDrop" destination="Vwd-X7-Fic" id="gnN-kl-93q"/>
                         <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="mrr-Ow-DGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfH-Af-0K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="inE-yb-ilc">
-                    <connections>
-                        <action selector="collapseList:" destination="iJ9-w2-gnX" id="8Fb-Ou-irk"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="B3b-Mt-hDG">
-                    <connections>
-                        <action selector="expandList:" destination="iJ9-w2-gnX" id="vzA-BY-fQr"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="733.60000000000002" y="26.53673163418291"/>
         </scene>
         <!--Doors List Table View Controller-->
-        <scene sceneID="47L-Eg-Mou">
+        <scene sceneID="zSN-9O-5LP">
             <objects>
-                <tableViewController id="UbB-IA-QtS" customClass="DoorsListTableViewController" customModule="autodoorctrl" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JCz-iM-0wM">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="163"/>
+                <viewController id="FkV-AC-UCr" customClass="DoorsListTableViewController" customModule="autodoorctrl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gj5-tt-Hna">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="179"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="UbB-IA-QtS" id="tK0-1t-yWQ"/>
-                            <outlet property="delegate" destination="UbB-IA-QtS" id="mZs-1A-CJ9"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bqK-MF-jwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToW-XY-pFm">
+                                <rect key="frame" x="0.0" y="10" width="350" height="20"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn4-qG-E5V">
+                                        <rect key="frame" x="155" y="6" width="40" height="8"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="pUM-Px-bn6"/>
+                                            <constraint firstAttribute="width" constant="40" id="xH5-v0-NVA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Zn4-qG-E5V" firstAttribute="top" secondItem="ToW-XY-pFm" secondAttribute="top" constant="6" id="8gX-xi-dke"/>
+                                    <constraint firstItem="Zn4-qG-E5V" firstAttribute="centerX" secondItem="ToW-XY-pFm" secondAttribute="centerX" id="sHc-PN-ZzZ"/>
+                                    <constraint firstItem="Zn4-qG-E5V" firstAttribute="centerY" secondItem="ToW-XY-pFm" secondAttribute="centerY" id="utN-9V-id1"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="jM1-Hy-1fg" appends="YES" id="JD1-fm-dCv"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZcO-Od-7F9" appends="YES" id="XQj-0m-p5a"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Bb-v1-hOB">
+                                <rect key="frame" x="0.0" y="30" width="350" height="149"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ToW-XY-pFm" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="0br-Ba-dGX"/>
+                            <constraint firstItem="3Bb-v1-hOB" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="5sW-Cc-4ng"/>
+                            <constraint firstItem="ToW-XY-pFm" firstAttribute="top" secondItem="sfp-PP-qyc" secondAttribute="top" constant="10" id="DOn-CO-FhK"/>
+                            <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="3Bb-v1-hOB" secondAttribute="trailing" id="ITB-D6-Vk8"/>
+                            <constraint firstItem="sfp-PP-qyc" firstAttribute="bottom" secondItem="3Bb-v1-hOB" secondAttribute="bottom" id="eyX-rc-3m6"/>
+                            <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="ToW-XY-pFm" secondAttribute="trailing" id="iwh-rJ-n5e"/>
+                            <constraint firstItem="3Bb-v1-hOB" firstAttribute="top" secondItem="ToW-XY-pFm" secondAttribute="bottom" id="lHk-rv-SLy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sfp-PP-qyc"/>
+                    </view>
+                    <connections>
+                        <outlet property="slideBar" destination="ToW-XY-pFm" id="YSl-5t-8nS"/>
+                        <outlet property="slideBarHandle" destination="Zn4-qG-E5V" id="5MZ-wJ-KeL"/>
+                        <outlet property="tableView" destination="3Bb-v1-hOB" id="8Yz-f1-NGR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1H-xW-DWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="jM1-Hy-1fg">
+                    <connections>
+                        <action selector="collapse:" destination="FkV-AC-UCr" id="k3P-Ka-CAW"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="ZcO-Od-7F9">
+                    <connections>
+                        <action selector="expand:" destination="FkV-AC-UCr" id="Y8q-Fs-7yZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="733" y="500"/>
+            <point key="canvasLocation" x="732.79999999999995" y="542.87856071964018"/>
         </scene>
     </scenes>
     <resources>

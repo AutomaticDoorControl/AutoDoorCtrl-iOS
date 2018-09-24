@@ -15,8 +15,6 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var doorsListView: UIView!
     @IBOutlet weak var doorsListHeight: NSLayoutConstraint!
-    @IBOutlet weak var slideBar: UIView!
-    @IBOutlet weak var slideBarBackDrop: UIVisualEffectView!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
@@ -24,10 +22,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButtonBackground.addRoundBorder()
-        doorsListView.addRoundBorder()
-        slideBar.addRoundBorder(borderRadius: 3.0)
-        slideBarBackDrop.addRoundBorder(borderRadius: 3.0)
+        backButtonBackground.addRoundedCorner()
+        doorsListView.addRoundedCorner()
+        doorsListView.addBorders(width: 0.3)
         
         mapView.showsUserLocation = true
         mapView.delegate = self
@@ -71,12 +68,33 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func didSelectSingleDoor(with door: Door) {
         keepingRegionScale = true
-        if isDoorsListExpanded { collapseList(UISwipeGestureRecognizer()) }
+        if isDoorsListExpanded { collapseList() }
         centerMapOnUserLocation(from: door.coordinate)
         mapView.selectAnnotation(door, animated: true)
     }
     
+    func collapseList() {
+        guard doorsListHeight.constant != 170 else { return }
+        doorsListView.layoutIfNeeded()
+        isDoorsListExpanded = !isDoorsListExpanded
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.doorsListHeight.constant = 170
+            self?.doorsListView.layoutIfNeeded()
+        }
+    }
+    
+    func expandList() {
+        guard doorsListHeight.constant == 170 else { return }
+        doorsListView.layoutIfNeeded()
+        isDoorsListExpanded = !isDoorsListExpanded
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.doorsListHeight.constant = UIScreen.main.bounds.height * 0.6
+            self?.doorsListView.layoutIfNeeded()
+        }
+    }
+    
     // MARK: - MKMapViewDelegate
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let doorAnnotation = annotation as? Door else { return nil }
         var view: MKAnnotationView
@@ -93,10 +111,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                 doorButton.setImage(UIImage(named: "UnlockIcon"), for: .normal)
                 view.rightCalloutAccessoryView = doorButton
             }
-        } else {
-            return nil
+            return view
         }
-        return view
+        return MKAnnotationView(annotation: annotation, reuseIdentifier: Door.identifier)
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -108,26 +125,6 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     @IBAction func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func collapseList(_ sender: UISwipeGestureRecognizer) {
-        guard doorsListHeight.constant != 154 else { return }
-        doorsListView.layoutIfNeeded()
-        isDoorsListExpanded = !isDoorsListExpanded
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.doorsListHeight.constant = 154
-            self?.doorsListView.layoutIfNeeded()
-        }
-    }
-    
-    @IBAction func expandList(_ sender: Any) {
-        guard doorsListHeight.constant == 154 else { return }
-        doorsListView.layoutIfNeeded()
-        isDoorsListExpanded = !isDoorsListExpanded
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.doorsListHeight.constant = UIScreen.main.bounds.height * 0.6
-            self?.doorsListView.layoutIfNeeded()
-        }
     }
     
     // MARKL - Private

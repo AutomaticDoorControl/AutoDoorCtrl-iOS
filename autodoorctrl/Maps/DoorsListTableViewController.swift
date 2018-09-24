@@ -8,7 +8,10 @@
 
 import UIKit
 
-class DoorsListTableViewController: UITableViewController {
+class DoorsListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var slideBar: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var slideBarHandle: UIView!
     private let controller = DoorsListController()
     private let haptic = UIImpactFeedbackGenerator(style: .medium)
     
@@ -17,13 +20,17 @@ class DoorsListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor.clear
+        slideBarHandle.addRoundedCorner(cornerRadius: 3.0)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.separatorColor = UIColor.clear
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         
-        tableView.register(UINib(nibName: "DoorsListTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: DoorsListTableViewCell.identifier)
+        tableView.register(UINib(nibName: "DoorsListTableViewCell", bundle: Bundle.main),
+                           forCellReuseIdentifier: DoorsListTableViewCell.identifier)
         
         controller.fetchDoorsInfo(from: nil,
                                            successHandler: { [weak self] in
@@ -33,30 +40,31 @@ class DoorsListTableViewController: UITableViewController {
         },
                                            errorHandler: { error in
                                             SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                                                      body: "Cannot fetch doors info")
+                                                                                  body: "Cannot fetch doors info")
         })
         
     }
     
     // MARK: - Table View Delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         haptic.impactOccurred()
         delegate?.didSelectSingleDoor(with: controller.doors[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller.doors.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DoorsListTableViewCell.identifier, for: indexPath)
 
         if let doorsCell = cell as? DoorsListTableViewCell {
@@ -65,5 +73,10 @@ class DoorsListTableViewController: UITableViewController {
 
         return cell
     }
- 
+    
+    // MARK: IBActions
+    
+    @IBAction func expand(_ sender: UISwipeGestureRecognizer) { delegate?.expandList() }
+    
+     @IBAction func collapse(_ sender: UISwipeGestureRecognizer) { delegate?.collapseList() }
 }

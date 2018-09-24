@@ -143,7 +143,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func configureUI () {
-        loginButton.addRoundBorder()
+        loginButton.addRoundedCorner()
         passwordTextField.setBottomBorder()
         rcsIDTextField.setBottomBorder()
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
