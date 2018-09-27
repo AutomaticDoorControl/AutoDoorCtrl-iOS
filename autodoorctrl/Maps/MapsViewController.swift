@@ -15,10 +15,13 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var doorsListView: UIView!
     @IBOutlet weak var doorsListHeight: NSLayoutConstraint!
+    @IBOutlet weak var doorsListWidth: NSLayoutConstraint!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
+    
+    // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,11 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         (children.first as? DoorsListTableViewController)?.delegate = self
         
         determineCurrentLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adjustDoorListWidth()
     }
     
     // MARK: - MapKit Methods
@@ -68,7 +76,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func didSelectSingleDoor(with door: Door) {
         keepingRegionScale = true
-        if isDoorsListExpanded { collapseList() }
+        if isDoorsListExpanded && UIDevice.current.userInterfaceIdiom == .phone { collapseList() }
         centerMapOnUserLocation(from: door.coordinate)
         mapView.selectAnnotation(door, animated: true)
     }
@@ -127,6 +135,12 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         dismiss(animated: true, completion: nil)
     }
     
-    // MARKL - Private
+    // MARK - Private
     
+    private func adjustDoorListWidth() {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            let screenWidth = UIScreen.main.bounds.width
+            doorsListWidth.constant = screenWidth - Constants.kMapListRightConstraintLength * 2
+        }
+    }
 }
