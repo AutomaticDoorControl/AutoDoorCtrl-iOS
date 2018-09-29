@@ -112,17 +112,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func resetBiometrics(_ sender: Any) {
         let bioString = BiometricsController.biometricMode()
-        let resetBioAlert = UIAlertController(title: "Reset \(bioString)?",
-                                              message: "This will remove all the \(bioString) login credentials.",
+        let resetBioAlert = UIAlertController(title: String(format: NSLocalizedString("ResetBioTitle", comment: ""), bioString),
+                                              message: String(format: NSLocalizedString("ResetBioMessage", comment: ""), bioString),
                                               preferredStyle: .alert)
         resetBioAlert.view.tintColor = UIColor.red
-        resetBioAlert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             BiometricsController.resetBiometrics()
             self?.resetBioButton.isHidden = true
             self?.biometricsButton.isHidden = true
             UserDefaults.resetFirstLogin()
         })
-        resetBioAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
         present(resetBioAlert, animated: true, completion: nil)
     }
     
@@ -131,14 +131,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func handleError(with error: LoginError) {
         switch error {
         case .invalidCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                  body: "Incorrect username or password")
+            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: NSLocalizedString("ErrorWrongCredsTitle", comment: ""))
         case .incompleteCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                  body: "Please fill in the username or password")
+            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: NSLocalizedString("ErrorIncompleteCredsTitle", comment: ""))
         case .networkFailure:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                  body: "No internet connection")
+            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: NSLocalizedString("ErrorNoInternetTitle", comment: ""))
         }
     }
     
@@ -155,7 +155,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func disableUI() {
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
-        loginButton.setTitle("Logging in", for: .normal)
+        loginButton.setTitle(NSLocalizedString("LoggingInTitle", comment: ""), for: .normal)
         resetBioButton.isEnabled = false
         resetBioButton.alpha = 0.5
     }
@@ -163,7 +163,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func enableUI () {
         loginButton.isEnabled = true
         loginButton.alpha = 1.0
-        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitle(NSLocalizedString("LogInTitle", comment: ""), for: .normal)
         resetBioButton.isEnabled = true
         resetBioButton.alpha = 1
     }
@@ -178,9 +178,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                      shouldSavePassword: Bool = false) {
         let biometricString = BiometricsController.biometricMode()
         let alert = UIAlertController(title: biometricString,
-                                      message: "Use \(biometricString) for faster future logins?",
+                                      message: String(format: NSLocalizedString("BioAlertTitle", comment: ""), biometricString),
                                       preferredStyle: .alert)
-        let agreedAction = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+        let agreedAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             UserDefaults.setBiometricAgreement()
             self?.resetBioButton.isHidden = false
             if shouldSavePassword {
@@ -188,7 +188,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 agreedHandler()
             }
         }
-        let cancelAction = UIAlertAction(title: "No", style: .cancel) { _ in disagreedHandler() }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel) { _ in disagreedHandler() }
         
         alert.addAction(agreedAction)
         alert.addAction(cancelAction)

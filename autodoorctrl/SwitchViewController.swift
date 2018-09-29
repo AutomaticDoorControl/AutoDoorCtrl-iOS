@@ -32,10 +32,10 @@ class SwitchViewController: UIViewController {
         hapticFeedback.impactOccurred()
         if isOn {
             isOn = false
-            statusLabel.text = "Closed"
+            statusLabel.text = NSLocalizedString("CloseDoorTitle", comment: "")
         } else {
             isOn = true
-            statusLabel.text = "Open"
+            statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")
         }
         
         UIView.transition(with: view,
@@ -52,15 +52,5 @@ class SwitchViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

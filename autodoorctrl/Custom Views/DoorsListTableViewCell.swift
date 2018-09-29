@@ -18,18 +18,13 @@ class DoorsListTableViewCell: UITableViewCell {
     func setup(from door: Door) {
         doorsImageView.image = UIImage(named: "UnlockIcon")
         masterLabel.text = door.name
-        detailLabel.text = "Coordinate: \(door.coordinate.latitude), \(door.coordinate.longitude)"
+        detailLabel.text = String(format: NSLocalizedString("DoorSubtitle", comment: ""),
+                                  door.coordinate.latitude, door.coordinate.longitude)
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

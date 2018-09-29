@@ -27,6 +27,7 @@ class Door: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return "Coordinate: \(self.coordinate.latitude), \(self.coordinate.longitude)"
+        return String(format: NSLocalizedString("DoorSubtitle", comment: ""),
+                      coordinate.latitude, coordinate.longitude)
     }
 }

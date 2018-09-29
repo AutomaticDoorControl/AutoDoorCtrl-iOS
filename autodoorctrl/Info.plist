@@ -44,8 +44,8 @@
 	<key>NSFaceIDUsageDescription</key>
 	<string>In order to login with TouchID or FaceID, we need your permission. </string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To show the available doors nearby, will you allow this app to always know your location?</string>
+	<string>To show available doors nearby, will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To show the available doors nearby, will you allow this app to know your current location?</string>
+	<string>To show available doors nearby, will you allow this app to know your current location?</string>
 </dict>
 </plist>

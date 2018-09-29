@@ -21,7 +21,7 @@ enum BiometricsController {
     
     private static var context: LAContext = {
         let contextToConfig = LAContext()
-        contextToConfig.localizedCancelTitle = "Enter RCSID/Password"
+        contextToConfig.localizedCancelTitle = NSLocalizedString("BioCancelTitle", comment: "")
         return contextToConfig
     }()
     
@@ -35,7 +35,8 @@ enum BiometricsController {
     
     static func loginWithBiometrics(onSuccess successHandler: @escaping () -> Void,
                                     onError errorHandler: @escaping (Error?) -> Void = { _ in }) {
-        self.context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Log in") { success, error in
+        self.context.evaluatePolicy(.deviceOwnerAuthentication,
+                                    localizedReason: NSLocalizedString("LogInTitle", comment: "")) { success, error in
             DispatchQueue.main.async {
                 if success {
                     resetContext()
@@ -57,7 +58,8 @@ enum BiometricsController {
     static func biometricMode() -> String {
         if #available(iOS 11.0, *) {
             switch context.biometryType {
-            case .none: return "None"
+            case .none: return NSLocalizedString("BioTitleNone", comment: "")
+            // the result shouldn't be localized as they are names of Apple Services
             case .touchID: return "Touch ID"
             case .faceID: return "Face ID"
             }
@@ -72,6 +74,6 @@ enum BiometricsController {
      */
     private static func resetContext() {
         self.context = LAContext()
-        self.context.localizedCancelTitle = "Enter RCSID/Password"
+        self.context.localizedCancelTitle = NSLocalizedString("BioCancelTitle", comment: "")
     }
 }

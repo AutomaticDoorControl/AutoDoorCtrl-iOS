@@ -40,7 +40,7 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         },
                                            errorHandler: { error in
                                             SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                                                  body: "Cannot fetch doors info")
+                                                                                  body: NSLocalizedString("ErrorNoDoorsTitle", comment: ""))
         })
         
     }

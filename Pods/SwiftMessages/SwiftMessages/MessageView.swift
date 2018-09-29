@@ -290,7 +290,7 @@ extension MessageView {
         bodyLabel?.textColor = foregroundColor
         button?.backgroundColor = foregroundColor
         button?.tintColor = backgroundColor
-        button?.contentEdgeInsets = UIEdgeInsets.init(top: 7.0, left: 7.0, bottom: 7.0, right: 7.0)
+        button?.contentEdgeInsets = UIEdgeInsets(top: 7.0, left: 7.0, bottom: 7.0, right: 7.0)
         button?.layer.cornerRadius = 5.0
         iconImageView?.isHidden = iconImageView?.image == nil
         iconLabel?.isHidden = iconLabel?.text == nil
@@ -381,8 +381,8 @@ extension MessageView {
         bodyLabel?.text = body
         iconImageView?.image = iconImage
         iconLabel?.text = iconText
-        button?.setImage(buttonImage, for: UIControl.State())
-        button?.setTitle(buttonTitle, for: UIControl.State())
+        button?.setImage(buttonImage, for: .normal)
+        button?.setTitle(buttonTitle, for: .normal)
         self.buttonTapHandler = buttonTapHandler
         iconImageView?.isHidden = iconImageView?.image == nil
         iconLabel?.isHidden = iconLabel?.text == nil

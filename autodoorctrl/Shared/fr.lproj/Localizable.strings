@@ -1,0 +1,38 @@
+/* 
+  File.strings
+  autodoorctrl
+
+  Created by Jing Wei Li on 9/29/18.
+  Copyright © 2018 Jing Wei Li. All rights reserved.
+*/
+
+
+// Shared
+"Yes" = "Oui";
+"No" = "Non";
+
+// Biometrics
+"BioCancelTitle" = "Entrer RCS ID/Mot De Passe";
+"BioTitleNone" = "Aucun";
+
+"ResetBioTitle" = "Réinitialiser %@";
+"ResetBioMessage" = "Cela supprimera toutes les informations de connexion pour %@.";
+
+"BioAlertTitle" = "Utilisez %@ pour les futures connexions?";
+
+// Log In
+"LogInTitle" = "Ouverture De Session";
+"LoggingInTitle" = "Se connecter";
+
+"ErrorTitle" = "Erreur";
+"ErrorWrongCredsTitle" = "identifiant ou mot de passe incorrect";
+"ErrorIncompleteCredsTitle" = "S'il vous plaît remplir le nom d'utilisateur ou mot de passe";
+"ErrorNoInternetTitle" = "pas de connexion Internet";
+"ErrorNoDoorsTitle" = "Impossible de récupérer les informations de portes";
+
+// Doors + Maps
+"DoorSubtitle" = "Coordonner: %.4f, %.4f";
+
+// Opening + Closing Doors
+"OpenDoorTitle" = "Ouvrir";
+"CloseDoorTitle" = "Fermer";
