@@ -27,6 +27,8 @@
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
+		04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */; };
+		04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */; };
 		04D2DB19215CA5B20061E72D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2DB18215CA5B20061E72D /* Constants.swift */; };
 		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
@@ -74,6 +76,8 @@
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Options.swift"; sourceTree = "<group>"; };
+		04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPI.swift; sourceTree = "<group>"; };
 		04D2DB18215CA5B20061E72D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,7 @@
 			children = (
 				04F882F621436D67005306AF /* LoginAPI.swift */,
 				0467017821560123007DF2BE /* DoorsAPI.swift */,
+				04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				04E829C0214323ED000BC96D /* LoginViewController.swift */,
 				04F882F9214370B0005306AF /* LoginError.swift */,
 				0481C29F214C70E40078BAAA /* KeychainOperations.swift */,
+				04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -422,6 +429,7 @@
 				04F882FA214370B0005306AF /* LoginError.swift in Sources */,
 				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
+				04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */,
 				0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

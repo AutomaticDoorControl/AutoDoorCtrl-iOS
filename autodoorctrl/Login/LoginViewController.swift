@@ -126,9 +126,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         present(resetBioAlert, animated: true, completion: nil)
     }
     
-    // MARK: - Private
+    @IBAction func showLoginOptions(_ sender: UIButton) {
+        handleLoginOptions()
+    }
+    // MARK: - "Private?"
     
-    private func handleError(with error: LoginError) {
+    func handleError(with error: LoginError) {
         switch error {
         case .invalidCredentials:
             SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
@@ -139,6 +142,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         case .networkFailure:
             SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
                                                   body: NSLocalizedString("ErrorNoInternetTitle", comment: ""))
+        case .genericError(let error):
+            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: error?.localizedDescription ?? "")
         }
     }
     

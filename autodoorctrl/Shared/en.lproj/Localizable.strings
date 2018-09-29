@@ -9,6 +9,8 @@
 // Shared
 "Yes" = "Yes";
 "No" = "No";
+"Cancel" = "Cancel";
+"Message" = "Message";
 
 // Biometrics
 "BioCancelTitle" = "Enter RCS ID or Password";
@@ -23,6 +25,10 @@
 "LogInTitle" = "Log In";
 "LoggingInTitle" = "Logging In";
 
+"AdminLoginTitle" = "Admin Login";
+
+"OptionsTitle" = "Options";
+
 "ErrorTitle" = "Error";
 "ErrorWrongCredsTitle" = "Incorrect username or password";
 "ErrorIncompleteCredsTitle" = "Please fill in the username or password";
@@ -35,3 +41,7 @@
 // Opening + Closing Doors
 "OpenDoorTitle" = "Open";
 "CloseDoorTitle" = "Close";
+
+// Services
+"ShowActiveTitle" = "Show Active Students";
+"AddToActiveTitle" = "Add RCSID to Active";

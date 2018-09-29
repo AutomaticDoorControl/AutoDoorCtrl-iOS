@@ -8,7 +8,7 @@
 
 /*
  * French only
- * English versions are emebdded in the original Info.plist
+ * English versions are embedded in the original Info.plist
  */
 
 "NSFaceIDUsageDescription" = "Pour vous connecter avec TouchID ou FaceID, nous avons besoin de votre permission.";

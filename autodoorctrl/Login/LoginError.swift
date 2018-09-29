@@ -12,4 +12,5 @@ enum LoginError {
     case invalidCredentials
     case incompleteCredentials
     case networkFailure
+    case genericError(error: Error?)
 }

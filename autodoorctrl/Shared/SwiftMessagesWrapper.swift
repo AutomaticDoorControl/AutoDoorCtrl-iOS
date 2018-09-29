@@ -19,6 +19,14 @@ enum SwiftMessagesWrapper {
         SwiftMessagesWrapper.showMessage(title: title, body: body, style: .warning)
     }
     
+    static func showGenericMessage(title: String, body: String) {
+        SwiftMessagesWrapper.showMessage(title: title, body: body, style: .info)
+    }
+    
+    static func showSuccessMessage(title: String, body: String) {
+        SwiftMessagesWrapper.showMessage(title: title, body: body, style: .success)
+    }
+    
     // MARK: - Private Helper Methods
     
     private static func showMessage(title: String, body: String, style: Theme) {

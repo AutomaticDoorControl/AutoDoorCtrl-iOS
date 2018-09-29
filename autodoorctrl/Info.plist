@@ -41,6 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 	<key>NSFaceIDUsageDescription</key>
 	<string>In order to login with TouchID or FaceID, we need your permission. </string>
 	<key>NSLocationAlwaysUsageDescription</key>
