@@ -59,7 +59,7 @@ enum BiometricsController {
         if #available(iOS 11.0, *) {
             switch context.biometryType {
             case .none: return NSLocalizedString("BioTitleNone", comment: "")
-            // the result shouldn't be localized as they are names of Apple Services
+            // the rest shouldn't be localized as they are names of Apple Services
             case .touchID: return "Touch ID"
             case .faceID: return "Face ID"
             }

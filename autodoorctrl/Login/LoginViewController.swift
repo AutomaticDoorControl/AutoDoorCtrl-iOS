@@ -110,42 +110,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func resetBiometrics(_ sender: Any) {
-        let bioString = BiometricsController.biometricMode()
-        let resetBioAlert = UIAlertController(title: String(format: NSLocalizedString("ResetBioTitle", comment: ""), bioString),
-                                              message: String(format: NSLocalizedString("ResetBioMessage", comment: ""), bioString),
-                                              preferredStyle: .alert)
-        resetBioAlert.view.tintColor = UIColor.red
-        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
-            BiometricsController.resetBiometrics()
-            self?.resetBioButton.isHidden = true
-            self?.biometricsButton.isHidden = true
-            UserDefaults.resetFirstLogin()
-        })
-        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
-        present(resetBioAlert, animated: true, completion: nil)
-    }
-    
-    @IBAction func showLoginOptions(_ sender: UIButton) {
-        handleLoginOptions()
-    }
-    // MARK: - "Private?"
-    
-    func handleError(with error: LoginError) {
-        switch error {
-        case .invalidCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorWrongCredsTitle", comment: ""))
-        case .incompleteCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorIncompleteCredsTitle", comment: ""))
-        case .networkFailure:
-            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorNoInternetTitle", comment: ""))
-        case .genericError(let error):
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: error?.localizedDescription ?? "")
+    @IBAction func showOptionsMenu(_ sender: Any) {
+        if let button = sender as? UIButton {
+            handleLoginOptions(with: button)
         }
+    }
+    
+    // MARK: - "Private"
+    
+    private func handleError(with error: NetworkingError) {
+        error.handleError()
     }
     
     private func configureUI () {

@@ -17,8 +17,8 @@
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "oO1-g8-Xvo"; */
 "oO1-g8-Xvo.placeholder" = "Mot de passe";
 
-/* Class = "UIButton"; normalTitle = "Reset Biometrics"; ObjectID = "oYy-TI-UAi"; */
-"oYy-TI-UAi.normalTitle" = "Réinitialiser la biométrie";
+/* Class = "UIButton"; normalTitle = "Options"; ObjectID = "oYy-TI-UAi"; */
+"oYy-TI-UAi.normalTitle" = "Les Options";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wpK-og-TAA"; */
 "wpK-og-TAA.normalTitle" = "Arriere";

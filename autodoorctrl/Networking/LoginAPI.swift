@@ -17,12 +17,14 @@ enum LoginAPI {
     
     static func loginUser(username: String, password: String,
                           successHandler: @escaping () -> Void,
-                          errorHandler: @escaping (LoginError) -> Void) {
+                          errorHandler: @escaping (NetworkingError) -> Void) {
         let params = ["RCSid": username]
         let headers = ["Content-Type": "application/json"]
         
         if username == "abc" && password == "abc" {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { successHandler() }
+            User.current.rcsID = username
+            User.current.isActive = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { successHandler() }
             return
         }
         
@@ -45,8 +47,8 @@ enum LoginAPI {
      * TODO: Figure out what the admin username / password is.
      */
     static func loginAdmin(username: String, password: String,
-                          successHandler: @escaping () -> Void,
-                          errorHandler: @escaping (LoginError) -> Void) {
+                           successHandler: @escaping () -> Void,
+                           errorHandler: @escaping (NetworkingError) -> Void) {
         let params = ["username": username, "password": password]
         let headers = ["Content-Type": "application/json"]
 
@@ -68,20 +70,22 @@ enum LoginAPI {
     /**
      * The response must contain an active student!
      */
-    private static func parseJSONResponse(from json: Data?, originalRCSID rcsID: String) -> LoginError? {
+    private static func parseJSONResponse(from json: Data?, originalRCSID rcsID: String) -> NetworkingError? {
         if let data = json,
             let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
             let dict = jsonData as? [Dictionary<String, Any>],
             let status = dict.first?["Status"] as? String { // this will return the status - active?
             print(dict)
             if status.hasPrefix("Active") {
+                User.current.isActive = true
+                User.current.rcsID = (dict.first?["RCSid"] as? String ?? " ").trimmingCharacters(in: .whitespaces)
                 return nil
             } else {
-                return LoginError.genericError(error:
+                return NetworkingError.genericError(error:
                     NSError(domain: "Student is inactive", code: 0, userInfo: [:]))
             }
         }
-        return LoginError.genericError(error: NSError(domain: "Student does not exist in DB", code: 0, userInfo: [:]))
+        return NetworkingError.genericError(error: NSError(domain: "Student does not exist in DB", code: 0, userInfo: [:]))
     }
     
 }

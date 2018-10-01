@@ -11,6 +11,7 @@
 "No" = "No";
 "Cancel" = "Cancel";
 "Message" = "Message";
+"Actions" = "Actions";
 
 // Biometrics
 "BioCancelTitle" = "Enter RCS ID or Password";
@@ -45,3 +46,8 @@
 // Services
 "ShowActiveTitle" = "Show Active Students";
 "AddToActiveTitle" = "Add RCSID to Active";
+"registerTitle" = "Register RCSID";
+"removeTitle" = "Remove RCSID";
+
+"enterRCSIDTitle" = "Enter RCSID";
+"myInfoTitle" = "My Info";

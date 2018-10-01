@@ -27,6 +27,10 @@
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
+		04C2D1C0216192950082C9C8 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C2D1BF216192950082C9C8 /* Dashboard.storyboard */; };
+		04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */; };
+		04C2D1C6216197D00082C9C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C5216197D00082C9C8 /* User.swift */; };
+		04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C7216199B30082C9C8 /* DashboardController.swift */; };
 		04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */; };
 		04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */; };
 		04D2DB19215CA5B20061E72D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2DB18215CA5B20061E72D /* Constants.swift */; };
@@ -37,7 +41,7 @@
 		04E829C6214323EF000BC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C5214323EF000BC96D /* Assets.xcassets */; };
 		04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C7214323EF000BC96D /* LaunchScreen.storyboard */; };
 		04F882F721436D67005306AF /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F621436D67005306AF /* LoginAPI.swift */; };
-		04F882FA214370B0005306AF /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F9214370B0005306AF /* LoginError.swift */; };
+		04F882FA214370B0005306AF /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F9214370B0005306AF /* NetworkingError.swift */; };
 		37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,10 @@
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		04C2D1BF216192950082C9C8 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
+		04C2D1C5216197D00082C9C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		04C2D1C7216199B30082C9C8 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Options.swift"; sourceTree = "<group>"; };
 		04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPI.swift; sourceTree = "<group>"; };
 		04D2DB18215CA5B20061E72D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -90,7 +98,7 @@
 		04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = autodoorctrlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829D5214323EF000BC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F882F621436D67005306AF /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
-		04F882F9214370B0005306AF /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		04F882F9214370B0005306AF /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		2152557AA9808F5B2656DCB1 /* Pods_autodoorctrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29A1E8397778149C470102 /* Pods-autodoorctrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autodoorctrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl.debug.xcconfig"; sourceTree = "<group>"; };
 		4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +151,7 @@
 				04F882F621436D67005306AF /* LoginAPI.swift */,
 				0467017821560123007DF2BE /* DoorsAPI.swift */,
 				04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */,
+				04F882F9214370B0005306AF /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -159,13 +168,31 @@
 		04C288BA2155E4DD00561798 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				046701752155FFEF007DF2BE /* Door.swift */,
 				04C288BB2155E50900561798 /* MapsViewController.swift */,
 				046701732155FA66007DF2BE /* DoorsListTableViewController.swift */,
 				0467017B215602F7007DF2BE /* DoorsListController.swift */,
 				0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		04C2D1C1216193170082C9C8 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
+				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
+				04C2D1C7216199B30082C9C8 /* DashboardController.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		04C2D1C4216197980082C9C8 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				046701752155FFEF007DF2BE /* Door.swift */,
+				04C2D1C5216197D00082C9C8 /* User.swift */,
+			);
+			path = "Model Classes";
 			sourceTree = "<group>";
 		};
 		04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */ = {
@@ -202,6 +229,7 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				04C2D1C4216197980082C9C8 /* Model Classes */,
 				04670177215600D8007DF2BE /* Custom Views */,
 				04633FBE21438D65007B3358 /* Extensions */,
 				0466DB8A21436690002583DB /* Networking */,
@@ -209,10 +237,11 @@
 				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
 				04F882F821436EFE005306AF /* Login */,
 				04C288BA2155E4DD00561798 /* Maps */,
+				04C2D1C1216193170082C9C8 /* Misc */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
-				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
 				04E829C2214323ED000BC96D /* Main.storyboard */,
+				04C2D1BF216192950082C9C8 /* Dashboard.storyboard */,
 				04E829C7214323EF000BC96D /* LaunchScreen.storyboard */,
 				04E829CA214323EF000BC96D /* Info.plist */,
 			);
@@ -233,7 +262,6 @@
 			children = (
 				0465E122214A2F2B00298241 /* BiometricsController.swift */,
 				04E829C0214323ED000BC96D /* LoginViewController.swift */,
-				04F882F9214370B0005306AF /* LoginError.swift */,
 				0481C29F214C70E40078BAAA /* KeychainOperations.swift */,
 				04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */,
 			);
@@ -349,6 +377,7 @@
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
+				04C2D1C0216192950082C9C8 /* Dashboard.storyboard in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +440,10 @@
 				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
 				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
+				04C2D1C6216197D00082C9C8 /* User.swift in Sources */,
+				04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
+				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
@@ -426,7 +458,7 @@
 				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
 				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
-				04F882FA214370B0005306AF /* LoginError.swift in Sources */,
+				04F882FA214370B0005306AF /* NetworkingError.swift in Sources */,
 				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
 				04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */,

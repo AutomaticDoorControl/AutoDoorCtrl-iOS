@@ -11,7 +11,7 @@ import UIKit
 
 extension LoginViewController {
     
-    func handleLoginOptions() {
+    func handleLoginOptions(with button: UIButton) {
         let username = self.rcsIDTextField.text ?? ""
         let password = self.passwordTextField.text ?? ""
         
@@ -22,32 +22,13 @@ extension LoginViewController {
             LoginAPI.loginAdmin(username: username, password: password, successHandler: {
                 strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
             }, errorHandler: { error in
-                strongSelf.handleError(with: error)
+                error.handleError()
             })
         }
         
-        let showActiveStudentsAction = UIAlertAction(title: NSLocalizedString("ShowActiveTitle", comment: ""),
-                                                     style: .default) { [weak self] _ in
-            ServicesAPI.showActiveUser(successHandler: { students in
-                SwiftMessagesWrapper.showGenericMessage(title: NSLocalizedString("Message", comment: ""),
-                                                        body: students)
-            },
-                                       errorHandler: { error in
-                self?.handleError(with: error)
-            })
-        }
-        
-        let addToActiveAction = UIAlertAction(title: NSLocalizedString("AddToActiveTitle", comment: ""), style: .default) { [weak self] _ in
-            guard let username = self?.rcsIDTextField.text, username != "" else {
-                self?.handleError(with: .genericError(error: NSError(domain: "Empty String", code: 0, userInfo: [:])))
-                return
-            }
-            ServicesAPI.addStudentsToActive(rcsID: username, successHandler: {
-                SwiftMessagesWrapper.showGenericMessage(title:NSLocalizedString("Message", comment: "") ,
-                                                        body: "Done")
-            }, errorHandler: { error in
-                self?.handleError(with: error)
-            })
+        let bioTitle = String(format: NSLocalizedString("ResetBioTitle", comment: ""), BiometricsController.biometricMode())
+        let resetBioAction = UIAlertAction(title: bioTitle, style: .destructive) { [weak self] _ in
+            self?.resetBiometricFunctions()
         }
         
         
@@ -57,12 +38,30 @@ extension LoginViewController {
         let alertController = UIAlertController(title: NSLocalizedString("OptionsTitle", comment: ""),
                                                 message: nil, preferredStyle: .actionSheet)
         alertController.addAction(adminLoginAction)
-        alertController.addAction(showActiveStudentsAction)
-        alertController.addAction(addToActiveAction)
+        alertController.addAction(resetBioAction)
         alertController.addAction(cancelAction)
         alertController.view.tintColor = UIColor.red
         
+        alertController.popoverPresentationController?.sourceView = button
+        alertController.popoverPresentationController?.sourceRect = button.bounds
+        
         present(alertController, animated: true, completion: nil)
+    }
+    
+    private func resetBiometricFunctions() {
+        let bioString = BiometricsController.biometricMode()
+        let resetBioAlert = UIAlertController(title: String(format: NSLocalizedString("ResetBioTitle", comment: ""), bioString),
+                                              message: String(format: NSLocalizedString("ResetBioMessage", comment: ""), bioString),
+                                              preferredStyle: .alert)
+        resetBioAlert.view.tintColor = UIColor.red
+        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
+            BiometricsController.resetBiometrics()
+            self?.resetBioButton.isHidden = true
+            self?.biometricsButton.isHidden = true
+            UserDefaults.resetFirstLogin()
+        })
+        resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
+        present(resetBioAlert, animated: true, completion: nil)
     }
     
 }
