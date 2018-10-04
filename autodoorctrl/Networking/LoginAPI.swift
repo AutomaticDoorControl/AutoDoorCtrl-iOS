@@ -69,23 +69,19 @@ enum LoginAPI {
     
     /**
      * The response must contain an active student!
+     * Using Codable instead of JSONSerialization reduced the amount of lines needed to parse json!
      */
     private static func parseJSONResponse(from json: Data?, originalRCSID rcsID: String) -> NetworkingError? {
         if let data = json,
-            let jsonData = try? JSONSerialization.jsonObject(with: data, options: []),
-            let dict = jsonData as? [Dictionary<String, Any>],
-            let status = dict.first?["Status"] as? String { // this will return the status - active?
-            print(dict)
-            if status.hasPrefix("Active") {
-                User.current.isActive = true
-                User.current.rcsID = (dict.first?["RCSid"] as? String ?? " ").trimmingCharacters(in: .whitespaces)
+            let user = (try? JSONDecoder().decode([UserFromCodable].self, from: data))?.first {
+                User.current.setUp(codableObject: user)
+                print(User.current.debugDescription)
+                guard User.current.isActive else {
+                    return .genericError(error: NSError(domain: "Student is inactive", code: 0, userInfo: [:]))
+                }
                 return nil
-            } else {
-                return NetworkingError.genericError(error:
-                    NSError(domain: "Student is inactive", code: 0, userInfo: [:]))
-            }
         }
-        return NetworkingError.genericError(error: NSError(domain: "Student does not exist in DB", code: 0, userInfo: [:]))
+        return .genericError(error: NSError(domain: "Student does not exist in DB", code: 0, userInfo: [:]))
     }
     
 }

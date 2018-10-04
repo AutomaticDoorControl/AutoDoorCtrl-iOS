@@ -27,8 +27,12 @@ enum ServicesAPI {
             if !response.result.isSuccess {
                 errorHandler(.genericError(error: response.error))
             } else {
-                guard let data  = response.data else { return }
-                successHandler(String(data: data, encoding: String.Encoding.utf8) ?? "")
+                guard let data  = response.data,
+                    let str = String(data: data, encoding: String.Encoding.utf8) else {
+                        errorHandler(.genericError(error: NSError(domain: "Unexpected Error", code: 0, userInfo: [:])))
+                        return
+                }
+                successHandler(str)
             }
         }
     }

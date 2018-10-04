@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Cga-aT-5RE"; */
+"Cga-aT-5RE.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Srr-co-iEZ"; */
+"Srr-co-iEZ.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "bBQ-Xu-7S7"; */
+"bBQ-Xu-7S7.title" = "Tableau de Bord";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "t5w-rn-bTr"; */
+"t5w-rn-bTr.title" = "Arrière";

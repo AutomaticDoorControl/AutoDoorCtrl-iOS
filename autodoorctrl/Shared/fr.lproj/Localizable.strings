@@ -13,6 +13,7 @@
 "Cancel" = "Annuler";
 "Message" = "Message";
 "Actions" = "Actes";
+"Continue" = "Continuer";
 
 // Biometrics
 "BioCancelTitle" = "Entrer RCS ID/Mot De Passe";

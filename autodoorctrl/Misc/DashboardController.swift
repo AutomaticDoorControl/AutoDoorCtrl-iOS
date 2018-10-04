@@ -63,7 +63,8 @@ class DashboardController: NSObject {
                                       message: nil, preferredStyle: .alert)
         alert.addTextField { $0.placeholder = "RCSID" }
         
-        alert.addAction(UIAlertAction(title: "Continue", style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
+                                      style: .destructive, handler: { _ in
             guard let rcsID = alert.textFields?[0].text else { return }
             ServicesAPI.performOperationOnStudent(with: rcsID, method: mode,
                                                   successHandler: {

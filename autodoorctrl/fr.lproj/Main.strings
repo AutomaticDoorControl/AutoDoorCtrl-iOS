@@ -12,7 +12,7 @@
 "d3t-oi-phv.placeholder" = "RCS ID";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "iAB-UN-0zY"; */
-"iAB-UN-0zY.normalTitle" = "Arriere";
+"iAB-UN-0zY.normalTitle" = "Arrière";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "oO1-g8-Xvo"; */
 "oO1-g8-Xvo.placeholder" = "Mot de passe";
@@ -21,7 +21,7 @@
 "oYy-TI-UAi.normalTitle" = "Les Options";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wpK-og-TAA"; */
-"wpK-og-TAA.normalTitle" = "Arriere";
+"wpK-og-TAA.normalTitle" = "Arrière";
 
 /* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "xr9-Yn-hhj"; */
 "xr9-Yn-hhj.normalTitle" = "Ouverture De Session";

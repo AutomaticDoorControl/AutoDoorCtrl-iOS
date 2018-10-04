@@ -21,9 +21,7 @@ extension LoginViewController {
             guard let strongSelf = self else { return }
             LoginAPI.loginAdmin(username: username, password: password, successHandler: {
                 strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
-            }, errorHandler: { error in
-                error.handleError()
-            })
+            }, errorHandler: { $0.handleError() })
         }
         
         let bioTitle = String(format: NSLocalizedString("ResetBioTitle", comment: ""), BiometricsController.biometricMode())

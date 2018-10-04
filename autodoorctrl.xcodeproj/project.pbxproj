@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */; };
+		0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0433F0A92165D94000F63E50 /* Dashboard.storyboard */; };
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */; };
 		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
@@ -27,7 +28,6 @@
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
-		04C2D1C0216192950082C9C8 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C2D1BF216192950082C9C8 /* Dashboard.storyboard */; };
 		04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */; };
 		04C2D1C6216197D00082C9C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C5216197D00082C9C8 /* User.swift */; };
 		04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C7216199B30082C9C8 /* DashboardController.swift */; };
@@ -57,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
+		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -80,7 +82,6 @@
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
-		04C2D1BF216192950082C9C8 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		04C2D1C5216197D00082C9C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04C2D1C7216199B30082C9C8 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -241,7 +242,7 @@
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
 				04E829C2214323ED000BC96D /* Main.storyboard */,
-				04C2D1BF216192950082C9C8 /* Dashboard.storyboard */,
+				0433F0A92165D94000F63E50 /* Dashboard.storyboard */,
 				04E829C7214323EF000BC96D /* LaunchScreen.storyboard */,
 				04E829CA214323EF000BC96D /* Info.plist */,
 			);
@@ -377,7 +378,7 @@
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
-				04C2D1C0216192950082C9C8 /* Dashboard.storyboard in Resources */,
+				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +487,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0433F0A92165D94000F63E50 /* Dashboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0433F0A82165D94000F63E50 /* Base */,
+				0433F0AB2165D94500F63E50 /* fr */,
+			);
+			name = Dashboard.storyboard;
+			sourceTree = "<group>";
+		};
 		0485F298215F508200742978 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
