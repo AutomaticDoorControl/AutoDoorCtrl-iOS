@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */; };
 		0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0433F0A92165D94000F63E50 /* Dashboard.storyboard */; };
+		0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */; };
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */; };
 		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
@@ -59,6 +60,7 @@
 		040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
+		0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailsTableViewController.swift; sourceTree = "<group>"; };
 		0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
 				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
 				04C2D1C7216199B30082C9C8 /* DashboardController.swift */,
+				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
 				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
+				0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */,
 				04C2D1C6216197D00082C9C8 /* User.swift in Sources */,
 				04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,

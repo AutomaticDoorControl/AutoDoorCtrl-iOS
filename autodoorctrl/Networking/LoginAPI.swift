@@ -73,8 +73,8 @@ enum LoginAPI {
      */
     private static func parseJSONResponse(from json: Data?, originalRCSID rcsID: String) -> NetworkingError? {
         if let data = json,
-            let user = (try? JSONDecoder().decode([UserFromCodable].self, from: data))?.first {
-                User.current.setUp(codableObject: user)
+            let user = (try? JSONDecoder().decode([User].self, from: data))?.first {
+                User.current = user
                 print(User.current.debugDescription)
                 guard User.current.isActive else {
                     return .genericError(error: NSError(domain: "Student is inactive", code: 0, userInfo: [:]))

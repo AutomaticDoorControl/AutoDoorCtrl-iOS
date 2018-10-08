@@ -43,9 +43,7 @@ class DashboardController: NSObject {
     
     func handleActions(on vc: UIViewController, from indexPath: IndexPath) {
         if indexPath.row == 0 {
-            ServicesAPI.showActiveUser(successHandler: {
-                SwiftMessagesWrapper.showGenericMessage(title: NSLocalizedString("Message", comment: ""), body: $0)},
-                                       errorHandler: { $0.handleError() })
+            vc.performSegue(withIdentifier: "showDashboardDetails", sender: vc)
         } else if indexPath.row == 1 {
             handleStudentOperations(from: .register, on: vc)
         } else if indexPath.row == 2 {

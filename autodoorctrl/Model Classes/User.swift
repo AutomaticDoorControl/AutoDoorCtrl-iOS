@@ -10,34 +10,31 @@ import Foundation
 
 
 /**
- * A class representing the current user.
+ * A class representing the current user. It conforms to Codable so it's easier
+ * to parse data from JSON.
  */
-class User: NSObject {
-    static let current = User.init()
+class User: NSObject, Codable {
+    static var current = User()
     
     var rcsID: String = ""
     var isActive: Bool = false
     
-    override init() { super.init() }
-    
-    func setUp(codableObject: UserFromCodable) {
-        rcsID = codableObject.rcsID
-        isActive = codableObject.isActive.hasPrefix("Active")
+    override init() {
+        super.init()
     }
-    
-    override var debugDescription: String {
-        return "User - rcsID:\(rcsID), active?: \(isActive)"
-    }
-    
-}
-
-class UserFromCodable: Codable {
-    
-    let rcsID: String
-    let isActive: String
     
     private enum CodingKeys: String, CodingKey {
         case rcsID = "RCSid"
         case isActive = "Status"
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        rcsID = (try container.decode(String.self, forKey: .rcsID)).trimmingCharacters(in: .whitespaces)
+        isActive = (try container.decode(String.self, forKey: .isActive)).hasPrefix("Active")
+    }
+    
+    override var debugDescription: String {
+        return "User - rcsID:\(rcsID), active?: \(isActive)"
     }
 }
