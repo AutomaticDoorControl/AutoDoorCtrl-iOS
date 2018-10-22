@@ -23,6 +23,7 @@
 		0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */; };
 		0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467018021560631007DF2BE /* DoorsListTableViewCell.xib */; };
 		0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */; };
+		04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */; };
 		0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */; };
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
@@ -76,6 +77,7 @@
 		0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListTableViewCell.swift; sourceTree = "<group>"; };
 		0467018021560631007DF2BE /* DoorsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoorsListTableViewCell.xib; sourceTree = "<group>"; };
 		0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToDoorCommDelegate.swift; sourceTree = "<group>"; };
+		04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+DynamicType.swift"; sourceTree = "<group>"; };
 		0481C29F214C70E40078BAAA /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
 		0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKeychainOperations.swift; sourceTree = "<group>"; };
 		0485F285215ECABE00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				04633FBF21438DB0007B3358 /* UITextField+Underline.swift */,
 				040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */,
 				046701712155F2A7007DF2BE /* UIView+Customizations.swift */,
+				04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,11 +407,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JLActivityIndicator/JLActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +455,7 @@
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,

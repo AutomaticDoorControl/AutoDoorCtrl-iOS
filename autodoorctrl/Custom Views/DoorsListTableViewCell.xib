@@ -26,15 +26,15 @@
                             <constraint firstAttribute="width" constant="45" id="Ree-KH-hna"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI0-eI-v9v">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WI0-eI-v9v">
                         <rect key="frame" x="71" y="9" width="43.5" height="20"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-XL-xKz">
-                        <rect key="frame" x="71" y="32" width="40" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8A-XL-xKz">
+                        <rect key="frame" x="71" y="32" width="39.5" height="19.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

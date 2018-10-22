@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 enum LoginAPI {
-    private static let loginString = "http://localhost:8080/api/login"
-    private static let adminLoginString = "http://localhost:8080/api/admin/login"
+    private static let loginString = Constants.apiStart + "api/login"
+    private static let adminLoginString = Constants.apiStart + "api/admin/login"
     
     // MARK: - Public
     

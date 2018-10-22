@@ -63,7 +63,7 @@ class DashboardController: NSObject {
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
                                       style: .destructive, handler: { _ in
-            guard let rcsID = alert.textFields?[0].text else { return }
+            guard let rcsID = alert.textFields?.first?.text else { return }
             ServicesAPI.performOperationOnStudent(with: rcsID, method: mode,
                                                   successHandler: {
                                                     SwiftMessagesWrapper.showSuccessMessage(title: NSLocalizedString("Message", comment: ""),

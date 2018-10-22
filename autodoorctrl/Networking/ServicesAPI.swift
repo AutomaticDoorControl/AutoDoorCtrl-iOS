@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 
 enum ServicesAPI {
-    private static let activeUserString = "http://localhost:8080/api/active_user"
-    private static let addStudentsString = "http://localhost:8080/api/addtoActive"
-    private static let registerStudentString = "http://localhost:8080/api/request-access"
-    private static let removeStudentString = "http://localhost:8080/api/remove"
+    private static let activeUserString = Constants.apiStart + "api/active_user"
+    private static let addStudentsString = Constants.apiStart + "api/addtoActive"
+    private static let registerStudentString = Constants.apiStart + "api/request-access"
+    private static let removeStudentString = Constants.apiStart + "api/remove"
     
     // MARK: - Enums
     
