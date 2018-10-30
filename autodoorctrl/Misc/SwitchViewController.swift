@@ -24,6 +24,7 @@ class SwitchViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func dismiss(_ sender: UIButton) {
+        BLEManager.current.disconnect()
         dismiss(animated: true, completion: nil)
     }
     
@@ -33,9 +34,11 @@ class SwitchViewController: UIViewController {
         if isOn {
             isOn = false
             statusLabel.text = NSLocalizedString("CloseDoorTitle", comment: "")
+            BLEManager.current.send(string: Constants.toggleCommand)
         } else {
             isOn = true
             statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")
+            BLEManager.current.send(string: Constants.toggleCommand)
         }
         
         UIView.transition(with: view,

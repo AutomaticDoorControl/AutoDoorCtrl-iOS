@@ -11,6 +11,8 @@ import UIKit
 
 enum Constants {
     static let kMapListRightConstraintLength: CGFloat = 17
-    //static let apiStart = "http://af3f7c7a.ngrok.io/"
-    static let apiStart = "http://localhost:8080/"
+    static let apiStart = "http://a8ee78d5.ngrok.io/"
+    //static let apiStart = "http://localhost:8080/"
+    
+    static let toggleCommand = "a"
 }

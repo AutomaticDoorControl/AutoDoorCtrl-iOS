@@ -29,6 +29,9 @@
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
+		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
+		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
+		04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */; };
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
 		04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */; };
 		04C2D1C6216197D00082C9C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C5216197D00082C9C8 /* User.swift */; };
@@ -85,6 +88,9 @@
 		0485F297215F508200742978 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
+		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		04C2D1C5216197D00082C9C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -171,6 +177,16 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		04B47AB721862EA700731C5B /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				04B47AB821862EBC00731C5B /* BLEError.swift */,
+				04B47AB921862EBC00731C5B /* BLEManager.swift */,
+				04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
 		04C288BA2155E4DD00561798 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +252,7 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				04B47AB721862EA700731C5B /* BLE */,
 				04C2D1C4216197980082C9C8 /* Model Classes */,
 				04670177215600D8007DF2BE /* Custom Views */,
 				04633FBE21438D65007B3358 /* Extensions */,
@@ -448,13 +465,16 @@
 			files = (
 				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
 				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
+				04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
 				0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */,
 				04C2D1C6216197D00082C9C8 /* User.swift in Sources */,
 				04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
+				04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */,
 				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */,
 				04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,

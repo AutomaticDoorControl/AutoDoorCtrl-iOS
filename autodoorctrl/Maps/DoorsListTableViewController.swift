@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreBluetooth
 
-class DoorsListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DoorsListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BLEManagerDelegate {
     @IBOutlet weak var slideBar: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var slideBarHandle: UIView!
@@ -32,17 +33,12 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         tableView.register(UINib(nibName: "DoorsListTableViewCell", bundle: Bundle.main),
                            forCellReuseIdentifier: DoorsListTableViewCell.identifier)
         
-        controller.fetchDoorsInfo(from: nil,
-                                           successHandler: { [weak self] in
-                                            self?.delegate?.didReceiveDoorsData(with: self?.controller.doors ?? [])
-                                            self?.tableView.separatorColor = UIColor.black
-                                            self?.tableView.reloadData()
-        },
-                                           errorHandler: { error in
-                                            SwiftMessagesWrapper.showErrorMessage(title: "Error",
-                                                                                  body: NSLocalizedString("ErrorNoDoorsTitle", comment: ""))
-        })
-        
+        BLEManager.current.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        BLEManager.current.scan()
     }
     
     // MARK: - Table View Delegate
@@ -79,4 +75,12 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func expand(_ sender: UISwipeGestureRecognizer) { delegate?.expandList() }
     
      @IBAction func collapse(_ sender: UISwipeGestureRecognizer) { delegate?.collapseList() }
+    
+    // MARK: BLEManagerDelegate
+    
+    func didDiscoverDoors(doors: [Door]) {
+        delegate?.didReceiveDoorsData(with: doors)
+        controller.doors = doors
+        tableView.reloadData()
+    }
 }

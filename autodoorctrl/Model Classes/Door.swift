@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import MapKit
+import CoreBluetooth
 
 
 class Door: NSObject, MKAnnotation {
@@ -16,6 +17,13 @@ class Door: NSObject, MKAnnotation {
     
     let name: String
     let coordinate: CLLocationCoordinate2D
+    var peripheral: CBPeripheral?
+    
+    init(peripheral: CBPeripheral) {
+        name = peripheral.name ?? "No Name"
+        self.coordinate = CLLocationCoordinate2D(latitude: 42.7306, longitude: -73.6780)
+        self.peripheral = peripheral
+    }
     
     init(name: String, longitude: Double, latitude: Double) {
         self.name = name

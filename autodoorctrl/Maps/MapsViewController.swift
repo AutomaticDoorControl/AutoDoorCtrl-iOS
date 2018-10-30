@@ -125,7 +125,11 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        performSegue(withIdentifier: "showSwitchVC", sender: self)
+        if let door = view.annotation as? Door, let peripheral = door.peripheral {
+            BLEManager.current.delegate = nil
+            BLEManager.current.delegate = self
+            BLEManager.current.connect(peripheral: peripheral)
+        }
     }
     
     
@@ -142,5 +146,11 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             let screenWidth = UIScreen.main.bounds.width
             doorsListWidth.constant = screenWidth - Constants.kMapListRightConstraintLength * 2
         }
+    }
+}
+
+extension MapsViewController: BLEManagerDelegate {
+    func readyToSendData() {
+        performSegue(withIdentifier: "showSwitchVC", sender: self)
     }
 }
