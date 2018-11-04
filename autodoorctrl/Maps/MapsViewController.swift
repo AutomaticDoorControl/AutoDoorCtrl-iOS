@@ -153,4 +153,8 @@ extension MapsViewController: BLEManagerDelegate {
     func readyToSendData() {
         performSegue(withIdentifier: "showSwitchVC", sender: self)
     }
+    
+    func didReceiveError(error: BLEError?) {
+        error?.showErrorMessage()
+    }
 }

@@ -13,6 +13,7 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var slideBar: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var slideBarHandle: UIView!
+    @IBOutlet weak var noBLEWarning: UILabel!
     private let controller = DoorsListController()
     private let haptic = UIImpactFeedbackGenerator(style: .medium)
     
@@ -34,11 +35,17 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
                            forCellReuseIdentifier: DoorsListTableViewCell.identifier)
         
         BLEManager.current.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        BLEManager.current.scan()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshBLEs), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Scan for Doors",
+                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0),      NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        refreshControl.tintColor = UIColor.black
+        tableView.refreshControl = refreshControl
+        
+        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.5) {
+            BLEManager.current.scan()
+        }
     }
     
     // MARK: - Table View Delegate
@@ -79,8 +86,26 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: BLEManagerDelegate
     
     func didDiscoverDoors(doors: [Door]) {
+        noBLEWarning.isHidden = true
         delegate?.didReceiveDoorsData(with: doors)
         controller.doors = doors
+        tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
+    }
+    
+    func didReceiveError(error: BLEError?) {
+        tableView.refreshControl?.endRefreshing()
+        noBLEWarning.isHidden = false
+        error?.showErrorMessage()
+        if let error = error, case .scanningTimeout = error {
+            controller.doors.removeAll()
+            tableView.reloadData()
+        }
+    }
+    
+    @objc func refreshBLEs() {
+        BLEManager.current.delegate = self
+        noBLEWarning.isHidden = true
+        BLEManager.current.scan()
     }
 }

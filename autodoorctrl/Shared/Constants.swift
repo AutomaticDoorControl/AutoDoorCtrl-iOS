@@ -15,4 +15,9 @@ enum Constants {
     //static let apiStart = "http://localhost:8080/"
     
     static let toggleCommand = "a"
+    
+    enum IncomingCommands {
+        static let offCommand = "OFF"
+        static let onCommand = "ON"
+    }
 }
