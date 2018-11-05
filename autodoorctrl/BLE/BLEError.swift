@@ -12,23 +12,30 @@ import CoreBluetooth
 enum BLEError {
     case genericError(error: Error?)
     case bluetoothOff
-    case timeOut
+    case connectionTimeout
+    case scanningTimeout
     case peripheralDisconnected
     case unexpected
     
-    func showErrorMessage() {
+    var errorDesctription: String {
         switch self {
         case .genericError(let error):
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: error?.localizedDescription ?? "")
+            return error?.localizedDescription ?? ""
         case .bluetoothOff:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Bluetooth is off")
-        case .timeOut:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Connection timed out")
+            return  "Bluetooth is off"
+        case .connectionTimeout:
+            return "Connection timed out"
         case .peripheralDisconnected:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Bluetooth Device Disconnected")
+            return "Bluetooth Device Disconnected"
         case .unexpected:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Unexpected Error Encountered")
+            return "Unexpected Error Encountered"
+        case .scanningTimeout:
+            return "Scanning timed out"
         }
+    }
+    
+    func showErrorMessage() {
+        SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
     }
     
     static func error(fromBLEState state: CBManagerState) -> BLEError? {

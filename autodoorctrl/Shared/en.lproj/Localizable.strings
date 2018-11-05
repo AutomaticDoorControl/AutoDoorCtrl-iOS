@@ -42,7 +42,7 @@
 
 // Opening + Closing Doors
 "OpenDoorTitle" = "Open";
-"CloseDoorTitle" = "Close";
+"CloseDoorTitle" = "Closed";
 
 // Services
 "ShowActiveTitle" = "Show Active Students";

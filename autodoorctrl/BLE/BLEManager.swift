@@ -23,12 +23,13 @@ class BLEManager: NSObject {
     private var adc: CBPeripheral?
     private var adcDataPoint: CBCharacteristic?
     
-    private let bleModuleUUID = CBUUID(string: "0xFFE0") // gorgeous!
+    private let bleModuleUUID = CBUUID(string: "0xFFE0")
     private let bleCharacteristicUUID = CBUUID(string: "0xFFE1")
     
     // if the connection request last more than 5s, then let the delegate know of the timeout error.
     private let timeOutInterval: TimeInterval = 5.0
-    private var timeOutTimer: Timer?
+    private var connectingTimeoutTimer: Timer?
+    private var scanningTimeoutTimer: Timer?
     
     private var availableBLEs: Set<CBPeripheral> = Set()
     
@@ -39,8 +40,14 @@ class BLEManager: NSObject {
     
     // MARK: - Instance methods
     func scan() {
+        availableBLEs.removeAll()
         if bluetoothManager.state == .poweredOn {
             bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
+            scanningTimeoutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
+                                                        repeats: false) { [weak self] _ in
+                self?.bluetoothManager.stopScan()
+                self?.delegate?.didReceiveError(error: .scanningTimeout)
+            }
         } else {
             DispatchQueue.main.async { [weak self] in
                 if let strongSelf = self {
@@ -52,10 +59,9 @@ class BLEManager: NSObject {
     }
     
     func connect(peripheral: CBPeripheral) {
-        timeOutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
+        connectingTimeoutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
                                             repeats: false) { [weak self] _ in
-                                                self?.delegate?.didReceiveError(error: .timeOut)
-                                                self?.bluetoothManager.stopScan()
+                                                self?.delegate?.didReceiveError(error: .connectionTimeout)
         }
         bluetoothManager.connect(peripheral)
     }
@@ -114,6 +120,7 @@ extension BLEManager: CBCentralManagerDelegate {
         print(peripheral.debugDescription)
         // if you rename the ble module, there will be a newline. Be sure to remove it
         availableBLEs.insert(peripheral)
+        scanningTimeoutTimer?.invalidate()
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.delegate?.didDiscoverDoors(doors:
@@ -131,8 +138,11 @@ extension BLEManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager,
                         didDisconnectPeripheral peripheral: CBPeripheral,
                         error: Error?) {
-        DispatchQueue.main.async { [weak self] in
-            self?.delegate?.didReceiveError(error: .peripheralDisconnected)
+        if let error = error {
+            DispatchQueue.main.async { [weak self] in
+                print(error.localizedDescription)
+                self?.delegate?.didReceiveError(error: .peripheralDisconnected)
+            }
         }
     }
     
@@ -181,7 +191,7 @@ extension BLEManager: CBPeripheralDelegate {
         }
         adcDataPoint = characteristics.first!
         // at this point, cancel the timeout error message
-        timeOutTimer?.invalidate()
+        connectingTimeoutTimer?.invalidate()
         // listen for values sent from the BLE module
         adc?.setNotifyValue(true, for: adcDataPoint!)
         DispatchQueue.main.async { [weak self] in

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -377,6 +377,12 @@
                                 <rect key="frame" x="0.0" y="30" width="350" height="149"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Doors Discovered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyb-jK-2Bu">
+                                <rect key="frame" x="91" y="94.5" width="168" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -384,13 +390,16 @@
                             <constraint firstItem="3Bb-v1-hOB" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="5sW-Cc-4ng"/>
                             <constraint firstItem="ToW-XY-pFm" firstAttribute="top" secondItem="sfp-PP-qyc" secondAttribute="top" constant="10" id="DOn-CO-FhK"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="3Bb-v1-hOB" secondAttribute="trailing" id="ITB-D6-Vk8"/>
+                            <constraint firstItem="Cyb-jK-2Bu" firstAttribute="centerY" secondItem="3Bb-v1-hOB" secondAttribute="centerY" id="ZCY-rK-Tnd"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="bottom" secondItem="3Bb-v1-hOB" secondAttribute="bottom" id="eyX-rc-3m6"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="ToW-XY-pFm" secondAttribute="trailing" id="iwh-rJ-n5e"/>
                             <constraint firstItem="3Bb-v1-hOB" firstAttribute="top" secondItem="ToW-XY-pFm" secondAttribute="bottom" id="lHk-rv-SLy"/>
+                            <constraint firstItem="Cyb-jK-2Bu" firstAttribute="centerX" secondItem="3Bb-v1-hOB" secondAttribute="centerX" id="wzE-hN-anm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sfp-PP-qyc"/>
                     </view>
                     <connections>
+                        <outlet property="noBLEWarning" destination="Cyb-jK-2Bu" id="5Te-1D-u2d"/>
                         <outlet property="slideBar" destination="ToW-XY-pFm" id="YSl-5t-8nS"/>
                         <outlet property="slideBarHandle" destination="Zn4-qG-E5V" id="5MZ-wJ-KeL"/>
                         <outlet property="tableView" destination="3Bb-v1-hOB" id="8Yz-f1-NGR"/>
