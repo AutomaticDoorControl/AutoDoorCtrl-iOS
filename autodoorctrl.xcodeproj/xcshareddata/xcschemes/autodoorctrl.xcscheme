@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "1010"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,21 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42E9C45F7368F27D3DB080955F0B01D7"
-               BuildableName = "JLActivityIndicator.framework"
-               BlueprintName = "JLActivityIndicator"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B80C330727B006661E2A5BA42839CDA"
+               BlueprintIdentifier = "0AEFFEB4CAE80F9E1FD44F0AA5A4D2F1"
                BuildableName = "Pods_autodoorctrl.framework"
                BlueprintName = "Pods-autodoorctrl"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06153D45DC52937593AE55288D9DA33B"
+               BlueprintIdentifier = "44551E71960E65FCDA880AF4027ADAFD"
                BuildableName = "SwiftMessages.framework"
                BlueprintName = "SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -70,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "608D2E6809974D6AF13D94A665CEE527"
+               BlueprintIdentifier = "28E17D8B8EC8A00B8F5E184641DA3BD3"
                BuildableName = "SwiftMessages.bundle"
                BlueprintName = "SwiftMessages-SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

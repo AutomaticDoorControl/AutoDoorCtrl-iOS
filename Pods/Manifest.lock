@@ -1,26 +1,22 @@
 PODS:
   - Alamofire (4.7.3)
-  - JLActivityIndicator (1.2.1)
   - SwiftMessages (6.0.0):
     - SwiftMessages/App (= 6.0.0)
   - SwiftMessages/App (6.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - JLActivityIndicator
   - SwiftMessages
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - JLActivityIndicator
     - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  JLActivityIndicator: 99423d33ffe54d5ef8dddd6a652a4dc75a54919b
   SwiftMessages: da7c981256a65b3e58022d9027a36584cf4eccf5
 
-PODFILE CHECKSUM: 993e69e50164412034896bf5834109cc80b80fff
+PODFILE CHECKSUM: 0c331f81dd2e206ea797235f99a8ebf6e7aab994
 
 COCOAPODS: 1.5.3
