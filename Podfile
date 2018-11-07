@@ -6,5 +6,6 @@ target 'autodoorctrl' do
   use_frameworks!
      pod 'Alamofire'
      pod 'SwiftMessages'
+     pod 'JLActivityIndicator'
     
 end

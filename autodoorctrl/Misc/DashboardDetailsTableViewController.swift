@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import JLActivityIndicator
 
 class DashboardDetailsTableViewController: UITableViewController {
     var mode: ServicesAPI.StatusOperations = .showActive
     private var details: [User] = []
+    private var activityIndicator: JLActivityIndicator?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("Active Students", comment: "")
         tableView.rowHeight = 50.0
+        
+        activityIndicator = JLActivityIndicator(on: view, mode: .path)
+        activityIndicator?.start()
+
     
         ServicesAPI.showUserInfo(method: mode, successHandler: { [weak self] users in
             self?.details = users
             self?.tableView.reloadData()
+            self?.activityIndicator?.stop()
         }, errorHandler: { $0.handleError() })
     }
 

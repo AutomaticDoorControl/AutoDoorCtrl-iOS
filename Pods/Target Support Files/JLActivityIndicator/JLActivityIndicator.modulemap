@@ -1,0 +1,6 @@
+framework module JLActivityIndicator {
+  umbrella header "JLActivityIndicator-umbrella.h"
+
+  export *
+  module * { export * }
+}
