@@ -10,15 +10,22 @@ import UIKit
 
 class SwitchViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var signalStrengthIndicator: UIImageView!
     
     private let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
     fileprivate var isOn = false
-    fileprivate let orangeColor = UIColor(red: 244/255, green: 176/255, blue: 62/255, alpha: 1)
+    fileprivate let orangeColor = UIColor(red: 254/255, green: 179/255, blue: 54/255, alpha: 1)
     fileprivate let greenColor = UIColor(red: 142/255, green: 202/255, blue: 67/255, alpha: 1)
+    fileprivate var signalStrengthTimer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         BLEManager.current.delegate = self
+        
+        signalStrengthTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+            BLEManager.current.readSignalStrength()
+        }
+        signalStrengthTimer?.tolerance = 1.0
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -29,6 +36,7 @@ class SwitchViewController: UIViewController {
     
     @IBAction func dismiss(_ sender: UIButton) {
         BLEManager.current.disconnect()
+        signalStrengthTimer?.invalidate()
         dismiss(animated: true, completion: nil)
     }
     
@@ -42,6 +50,7 @@ class SwitchViewController: UIViewController {
 extension SwitchViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
     func didReceiveError(error: BLEError?) {
+        signalStrengthTimer?.invalidate()
         dismiss(animated: true) {
             error?.showErrorMessage()
         }
@@ -57,9 +66,12 @@ extension SwitchViewController: BLEManagerDelegate {
         }
         
         UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: { [weak self] in
-            self?.view.backgroundColor = (self?.isOn ?? false)
-                ? self?.greenColor
-                : self?.orangeColor
-            }, completion: nil)
+            guard let strongSelf = self else { return }
+            self?.view.backgroundColor = strongSelf.isOn ? strongSelf.greenColor : strongSelf.orangeColor
+        }, completion: nil)
+    }
+    
+    func didReceiveRSSIReading(reading: Int, status: String) {
+        signalStrengthIndicator.image = UIImage(named: "BLESignal\(status)")
     }
 }

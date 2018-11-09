@@ -194,14 +194,23 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BLESignalAmazing" translatesAutoresizingMaskIntoConstraints="NO" id="F3g-Xj-z7p">
+                                <rect key="frame" x="309" y="33" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="k23-wA-4Rn"/>
+                                    <constraint firstAttribute="width" constant="40" id="yZA-nj-4a5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99534016849999996" green="0.70009559389999998" blue="0.2115490139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="trailing" secondItem="F3g-Xj-z7p" secondAttribute="trailing" constant="26" id="ABZ-Ao-yEA"/>
                             <constraint firstItem="wpK-og-TAA" firstAttribute="top" secondItem="BRZ-ZF-lvJ" secondAttribute="top" constant="13" id="CS0-tf-e2R"/>
                             <constraint firstItem="OQd-9N-shr" firstAttribute="centerX" secondItem="BRZ-ZF-lvJ" secondAttribute="centerX" id="Unz-Vx-7al"/>
                             <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="bottom" secondItem="OQd-9N-shr" secondAttribute="bottom" multiplier="10:7" id="VaU-IR-M7C"/>
                             <constraint firstItem="wpK-og-TAA" firstAttribute="leading" secondItem="BRZ-ZF-lvJ" secondAttribute="leading" constant="26" id="hBU-01-ljE"/>
+                            <constraint firstItem="F3g-Xj-z7p" firstAttribute="top" secondItem="BRZ-ZF-lvJ" secondAttribute="top" constant="13" id="mkF-k9-aRL"/>
                             <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wpK-og-TAA" secondAttribute="trailing" constant="244" id="r1V-8I-q8g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BRZ-ZF-lvJ"/>
@@ -210,6 +219,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="signalStrengthIndicator" destination="F3g-Xj-z7p" id="dnj-SQ-7fL"/>
                         <outlet property="statusLabel" destination="OQd-9N-shr" id="DhB-sN-fAP"/>
                     </connections>
                 </viewController>
@@ -220,7 +230,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1755" y="26"/>
+            <point key="canvasLocation" x="1754.4000000000001" y="25.637181409295355"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="TFc-WX-nWt">
@@ -242,9 +252,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-aJ-A99">
-                                <rect key="frame" x="25" y="30" width="102" height="40"/>
+                                <rect key="frame" x="25" y="30" width="140" height="40"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PPk-nQ-uBP">
-                                    <rect key="frame" x="0.0" y="0.0" width="102" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAB-UN-0zY">
@@ -272,13 +282,27 @@
                                                 <segue destination="h1Z-Ui-OYl" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="crossDissolve" id="1Ty-ff-l6e"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBp-Co-RNq">
+                                            <rect key="frame" x="102" y="7.5" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="IBA-Ab-xBp"/>
+                                                <constraint firstAttribute="height" constant="25" id="gqW-Cg-7vy"/>
+                                            </constraints>
+                                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="LocationArrow"/>
+                                            <connections>
+                                                <action selector="centerUser:" destination="iJ9-w2-gnX" eventType="touchUpInside" id="ySf-HG-HuL"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="iAB-UN-0zY" secondAttribute="bottom" constant="9" id="77L-a0-Iwx"/>
+                                        <constraint firstItem="TBp-Co-RNq" firstAttribute="centerY" secondItem="PPk-nQ-uBP" secondAttribute="centerY" id="CDJ-hu-rmN"/>
+                                        <constraint firstAttribute="trailing" secondItem="TBp-Co-RNq" secondAttribute="trailing" constant="13" id="DlU-kt-mJZ"/>
                                         <constraint firstItem="iAB-UN-0zY" firstAttribute="leading" secondItem="PPk-nQ-uBP" secondAttribute="leading" constant="15" id="IdD-CG-4PU"/>
                                         <constraint firstItem="OvO-qr-qoy" firstAttribute="leading" secondItem="iAB-UN-0zY" secondAttribute="trailing" constant="13" id="O7I-1X-C9W"/>
+                                        <constraint firstItem="TBp-Co-RNq" firstAttribute="leading" secondItem="OvO-qr-qoy" secondAttribute="trailing" constant="13" id="bEm-zE-Lit"/>
                                         <constraint firstItem="OvO-qr-qoy" firstAttribute="centerY" secondItem="PPk-nQ-uBP" secondAttribute="centerY" id="gzc-6k-Hd8"/>
-                                        <constraint firstAttribute="trailing" secondItem="OvO-qr-qoy" secondAttribute="trailing" constant="13" id="m2u-t9-NwI"/>
                                         <constraint firstItem="iAB-UN-0zY" firstAttribute="top" secondItem="PPk-nQ-uBP" secondAttribute="top" constant="9" id="vc8-ru-7K8"/>
                                     </constraints>
                                 </view>
@@ -421,7 +445,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BLESignalAmazing" width="32" height="32"/>
         <image name="FingerprintIcon" width="64" height="64"/>
+        <image name="LocationArrow" width="64" height="64"/>
         <image name="SettingsIcon" width="64" height="64"/>
     </resources>
 </document>
