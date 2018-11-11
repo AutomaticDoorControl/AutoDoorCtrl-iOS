@@ -28,7 +28,10 @@ class DashboardDetailsTableViewController: UITableViewController {
             self?.details = users
             self?.tableView.reloadData()
             self?.activityIndicator?.stop()
-        }, errorHandler: { $0.handleError() })
+        }, errorHandler: { [weak self] in
+            $0.handleError()
+            self?.activityIndicator?.stop()
+        })
     }
 
     // MARK: - Table view data source

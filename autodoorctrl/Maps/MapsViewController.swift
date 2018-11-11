@@ -44,6 +44,11 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         adjustDoorListWidth()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        adjustDoorListWidth(using: size.width)
+    }
+    
     // MARK: - MapKit Methods
     
     func centerMapOnUserLocation(from coordinate: CLLocationCoordinate2D) {
@@ -139,12 +144,15 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func centerUser(_ sender: UIButton) {
+        determineCurrentLocation()
+    }
+    
     // MARK - Private
     
-    private func adjustDoorListWidth() {
+    private func adjustDoorListWidth(using width: CGFloat = UIScreen.main.bounds.width) {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            let screenWidth = UIScreen.main.bounds.width
-            doorsListWidth.constant = screenWidth - Constants.kMapListRightConstraintLength * 2
+            doorsListWidth.constant = width - Constants.kMapListRightConstraintLength * 2
         }
     }
 }
@@ -156,5 +164,6 @@ extension MapsViewController: BLEManagerDelegate {
     
     func didReceiveError(error: BLEError?) {
         error?.showErrorMessage()
+        mapView.removeAnnotations(mapView.annotations)
     }
 }
