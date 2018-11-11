@@ -44,6 +44,15 @@ class SwitchViewController: UIViewController {
     @IBAction func lockOrUnlock(_ sender: UITapGestureRecognizer) {
         hapticFeedback.impactOccurred()
         BLEManager.current.send(string: Constants.toggleCommand)
+        showProcessingState()
+    }
+    
+    func showProcessingState() {
+        statusLabel.text = isOn ? NSLocalizedString("ClosingDoorTitle", comment: "")
+            : NSLocalizedString("OpeningDoorTitle", comment: "")
+        UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: { [weak self] in
+            self?.view.backgroundColor = UIColor.gray
+        }, completion: nil)
     }
 }
 
@@ -57,6 +66,7 @@ extension SwitchViewController: BLEManagerDelegate {
     }
     
     func didReceiveMessage(message: String) {
+        hapticFeedback.impactOccurred()
         if message == Constants.IncomingCommands.onCommand {
             isOn = true
             statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")

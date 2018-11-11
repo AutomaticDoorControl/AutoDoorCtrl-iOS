@@ -19,18 +19,12 @@ class DoorsListController: NSObject {
     func fetchDoorsInfo(from location: CLLocationCoordinate2D?,
                         successHandler: @escaping () -> Void,
                         errorHandler: @escaping (Error?) -> Void) {
-        DoorsAPI.fetchDoorsInfo(from: location,
-                                onSuccess: { doors in
-                                    self.doors = doors
-                                    DispatchQueue.main.async {
-                                        successHandler()
-                                    }
-        },
-                                onError: { error in
-                                        errorHandler(error)
+        DoorsAPI.fetchDoorsInfo(from: location, onSuccess: { doors in
+            self.doors = doors
+            DispatchQueue.main.async { successHandler() }
+        }, onError: { error in
+            errorHandler(error)
         })
     }
     
-    
-
 }

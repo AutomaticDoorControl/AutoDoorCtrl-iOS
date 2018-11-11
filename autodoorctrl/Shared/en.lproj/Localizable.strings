@@ -44,6 +44,9 @@
 "OpenDoorTitle" = "Open";
 "CloseDoorTitle" = "Closed";
 
+"OpeningDoorTitle" = "Opening";
+"ClosingDoorTitle" = "Closing";
+
 // Services
 "ShowActiveTitle" = "Show Active Students";
 "AddToActiveTitle" = "Add RCSID to Active";
