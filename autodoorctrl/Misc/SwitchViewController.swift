@@ -50,6 +50,7 @@ class SwitchViewController: UIViewController {
     func showProcessingState() {
         statusLabel.text = isOn ? NSLocalizedString("ClosingDoorTitle", comment: "")
             : NSLocalizedString("OpeningDoorTitle", comment: "")
+        view.isUserInteractionEnabled = false
         UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: { [weak self] in
             self?.view.backgroundColor = UIColor.gray
         }, completion: nil)
@@ -60,6 +61,7 @@ extension SwitchViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
     func didReceiveError(error: BLEError?) {
         signalStrengthTimer?.invalidate()
+        view.isUserInteractionEnabled = true
         dismiss(animated: true) {
             error?.showErrorMessage()
         }
@@ -69,9 +71,11 @@ extension SwitchViewController: BLEManagerDelegate {
         hapticFeedback.impactOccurred()
         if message == Constants.IncomingCommands.onCommand {
             isOn = true
+            view.isUserInteractionEnabled = true
             statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")
         } else if message == Constants.IncomingCommands.offCommand {
             isOn = false
+            view.isUserInteractionEnabled = true
             statusLabel.text = NSLocalizedString("CloseDoorTitle", comment: "")
         }
         
