@@ -13,6 +13,7 @@ class DashboardDetailsTableViewController: UITableViewController {
     var mode: ServicesAPI.StatusOperations = .showActive
     private var details: [User] = []
     private var activityIndicator: JLActivityIndicator?
+    private var lottieAnimator: LottieSubtitledView?
 
 
     override func viewDidLoad() {
@@ -31,7 +32,13 @@ class DashboardDetailsTableViewController: UITableViewController {
         }, errorHandler: { [weak self] in
             $0.handleError()
             self?.activityIndicator?.stop()
+            self?.showLottieAnimator()
         })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        lottieAnimator?.dismiss()
     }
 
     // MARK: - Table view data source
@@ -45,6 +52,15 @@ class DashboardDetailsTableViewController: UITableViewController {
         cell.textLabel?.text = details[indexPath.row].rcsID
         cell.detailTextLabel?.text = details[indexPath.row].isActive ? "Active" : "Inactive"
         return cell
+    }
+    
+    // MARK: Lottie
+    private func showLottieAnimator() {
+        lottieAnimator = LottieSubtitledView(frame: CGRect(x: 0, y: 0, width: 264, height: 264))
+        lottieAnimator?.center = view.center
+        lottieAnimator?.animationName = "WifiOffAnimation"
+        lottieAnimator?.subtitleName = "No Information Available"
+        view.addSubview(lottieAnimator!)
     }
 
 }

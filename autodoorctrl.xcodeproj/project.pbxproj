@@ -32,6 +32,9 @@
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
 		04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */; };
+		04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */; };
+		04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */; };
+		04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */; };
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
 		04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */; };
 		04C2D1C6216197D00082C9C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C5216197D00082C9C8 /* User.swift */; };
@@ -91,6 +94,9 @@
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
+		04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieSubtitledView.xib; sourceTree = "<group>"; };
+		04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieSubtitledView.swift; sourceTree = "<group>"; };
+		04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WifiOffAnimation.json; sourceTree = "<group>"; };
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		04C2D1C5216197D00082C9C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -187,6 +193,16 @@
 			path = BLE;
 			sourceTree = "<group>";
 		};
+		04C1BE0021B2338700B58E1D /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */,
+				04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */,
+				04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		04C288BA2155E4DD00561798 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +268,7 @@
 		04E829BD214323ED000BC96D /* autodoorctrl */ = {
 			isa = PBXGroup;
 			children = (
+				04C1BE0021B2338700B58E1D /* Animations */,
 				04B47AB721862EA700731C5B /* BLE */,
 				04C2D1C4216197980082C9C8 /* Model Classes */,
 				04670177215600D8007DF2BE /* Custom Views */,
@@ -400,7 +417,9 @@
 				0485F29C215F56D900742978 /* InfoPlist.strings in Resources */,
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
+				04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
+				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
 				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
 			);
@@ -426,12 +445,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JLActivityIndicator/JLActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -479,6 +500,7 @@
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,
+				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
 				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,

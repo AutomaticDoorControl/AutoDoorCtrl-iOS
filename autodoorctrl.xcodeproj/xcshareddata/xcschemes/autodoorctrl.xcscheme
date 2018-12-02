@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B80C330727B006661E2A5BA42839CDA"
+               BlueprintIdentifier = "824BCA32FBDBE48B629FD41F033D9F10"
                BuildableName = "Pods_autodoorctrl.framework"
                BlueprintName = "Pods-autodoorctrl"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06153D45DC52937593AE55288D9DA33B"
+               BlueprintIdentifier = "D2690DD5576E481ED6A432482CC57674"
                BuildableName = "SwiftMessages.framework"
                BlueprintName = "SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "608D2E6809974D6AF13D94A665CEE527"
+               BlueprintIdentifier = "3BBC0DD4499AA76B214D3FA90AFE1477"
                BuildableName = "SwiftMessages.bundle"
                BlueprintName = "SwiftMessages-SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

@@ -7,5 +7,6 @@ target 'autodoorctrl' do
      pod 'Alamofire'
      pod 'SwiftMessages'
      pod 'JLActivityIndicator'
+     pod 'lottie-ios'
     
 end
