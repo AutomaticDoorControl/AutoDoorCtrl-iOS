@@ -5,8 +5,8 @@ iOS Version of the AutomaticDoorControl Project.
 
 ## Manual Installation
 * **In order to proceed you'll need access to a Mac.**
-* Clone this repository: [https://github.com/AutomaticDoorControl/AutoDoorCtrlWeb.git](https://github.com/AutomaticDoorControl/AutoDoorCtrlWeb.git)
-* Download and install `Xcode` and it's latest CLI tools if you haven't.
+* Clone this repository: [https://github.com/AutomaticDoorControl/AutoDoorCtrl-iOS.git](https://github.com/AutomaticDoorControl/AutoDoorCtrl-iOS.git)
+* Download and install `Xcode` and its latest CLI tools if you haven't.
 * Open the **workspace** file in Xcode: `autodoorctrl.xcworkspace`
     * Do not work with the `autodoorctrl.xcodeproj` file.
     
