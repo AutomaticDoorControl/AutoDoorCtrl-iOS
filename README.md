@@ -3,6 +3,9 @@
 # AutomaticDoorControl - iOS
 iOS Version of the AutomaticDoorControl Project.
 
+## Travis CI
+![Link to Travis CI](https://travis-ci.org/AutomaticDoorControl/AutoDoorCtrl-iOS)
+
 ## Manual Installation
 * **In order to proceed you'll need access to a Mac.**
 * Clone this repository: [https://github.com/AutomaticDoorControl/AutoDoorCtrl-iOS.git](https://github.com/AutomaticDoorControl/AutoDoorCtrl-iOS.git)
