@@ -16,6 +16,8 @@ enum Constants {
     
     static let toggleCommand = "a"
     
+    static let adcRed = UIColor(red: 238/255, green: 50/255, blue: 35/255, alpha: 1)
+    
     enum IncomingCommands {
         static let offCommand = "OFF"
         static let onCommand = "ON"

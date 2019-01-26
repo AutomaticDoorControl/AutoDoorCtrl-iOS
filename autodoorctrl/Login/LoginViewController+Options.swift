@@ -38,7 +38,7 @@ extension LoginViewController {
         alertController.addAction(adminLoginAction)
         alertController.addAction(resetBioAction)
         alertController.addAction(cancelAction)
-        alertController.view.tintColor = UIColor.red
+        alertController.view.tintColor = Constants.adcRed
         
         alertController.popoverPresentationController?.sourceView = button
         alertController.popoverPresentationController?.sourceRect = button.bounds
@@ -51,7 +51,7 @@ extension LoginViewController {
         let resetBioAlert = UIAlertController(title: String(format: NSLocalizedString("ResetBioTitle", comment: ""), bioString),
                                               message: String(format: NSLocalizedString("ResetBioMessage", comment: ""), bioString),
                                               preferredStyle: .alert)
-        resetBioAlert.view.tintColor = UIColor.red
+        resetBioAlert.view.tintColor = Constants.adcRed
         resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             BiometricsController.resetBiometrics()
             self?.resetBioButton.isHidden = true
