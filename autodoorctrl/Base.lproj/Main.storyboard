@@ -631,8 +631,7 @@
                                     <constraint firstItem="Zn4-qG-E5V" firstAttribute="centerY" secondItem="ToW-XY-pFm" secondAttribute="centerY" id="utN-9V-id1"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="jM1-Hy-1fg" appends="YES" id="JD1-fm-dCv"/>
-                                    <outletCollection property="gestureRecognizers" destination="ZcO-Od-7F9" appends="YES" id="XQj-0m-p5a"/>
+                                    <outletCollection property="gestureRecognizers" destination="La3-Sp-3oJ" appends="YES" id="SGs-xa-aJH"/>
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Bb-v1-hOB">
@@ -650,7 +649,7 @@
                         <constraints>
                             <constraint firstItem="ToW-XY-pFm" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="0br-Ba-dGX"/>
                             <constraint firstItem="3Bb-v1-hOB" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="5sW-Cc-4ng"/>
-                            <constraint firstItem="ToW-XY-pFm" firstAttribute="top" secondItem="sfp-PP-qyc" secondAttribute="top" constant="10" id="DOn-CO-FhK"/>
+                            <constraint firstItem="ToW-XY-pFm" firstAttribute="top" secondItem="gj5-tt-Hna" secondAttribute="top" constant="10" id="DOn-CO-FhK"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="3Bb-v1-hOB" secondAttribute="trailing" id="ITB-D6-Vk8"/>
                             <constraint firstItem="Cyb-jK-2Bu" firstAttribute="centerY" secondItem="3Bb-v1-hOB" secondAttribute="centerY" id="ZCY-rK-Tnd"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="bottom" secondItem="3Bb-v1-hOB" secondAttribute="bottom" id="eyX-rc-3m6"/>
@@ -668,16 +667,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1H-xW-DWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="jM1-Hy-1fg">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="La3-Sp-3oJ">
                     <connections>
-                        <action selector="collapse:" destination="FkV-AC-UCr" id="k3P-Ka-CAW"/>
+                        <action selector="animateBottomSheet:" destination="FkV-AC-UCr" id="kMl-If-xGt"/>
                     </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="ZcO-Od-7F9">
-                    <connections>
-                        <action selector="expand:" destination="FkV-AC-UCr" id="Y8q-Fs-7yZ"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="732.79999999999995" y="542.87856071964018"/>
         </scene>

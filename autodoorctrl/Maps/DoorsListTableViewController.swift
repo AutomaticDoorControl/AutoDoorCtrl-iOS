@@ -16,6 +16,7 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var noBLEWarning: UILabel!
     private let controller = DoorsListController()
     private let haptic = UIImpactFeedbackGenerator(style: .medium)
+    private let scrollVelocityCutoff: CGFloat = 500
     
     weak var delegate: MapToDoorCommDelegate?
 
@@ -58,10 +59,6 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
 
     // MARK: - Table view data source
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller.doors.count
     }
@@ -78,10 +75,46 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     // MARK: IBActions
-    
-    @IBAction func expand(_ sender: UISwipeGestureRecognizer) { delegate?.expandList() }
-    
-     @IBAction func collapse(_ sender: UISwipeGestureRecognizer) { delegate?.collapseList() }
+    @IBAction func animateBottomSheet(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        guard view.frame.height - translation.y >= 170,
+            view.frame.height - translation.y <= UIScreen.main.bounds.height * 0.6 else { return }
+        // down: +, up: -
+        switch sender.state {
+        case .ended:
+            let midLine = 170 + (UIScreen.main.bounds.height * 0.6 - 170) / 2
+            if sender.velocity(in: view).y > 0 { //down
+                // directly collapse if fast enough
+                if abs(sender.velocity(in: view).y) >= scrollVelocityCutoff {
+                    delegate?.collapseList()
+                    return
+                }
+                if view.frame.height < midLine { // scroll to bottom
+                    delegate?.animateBottomSheet(amount: view.frame.height - 170, scrollToEdge: true)
+                } else { // scroll back to top
+                    delegate?.animateBottomSheet(amount: view.frame.height - UIScreen.main.bounds.height * 0.6,
+                                                 scrollToEdge: true)
+                }
+            } else  { // up
+                // directly expand if fast enough
+                if abs(sender.velocity(in: view).y) >= scrollVelocityCutoff {
+                    delegate?.expandList()
+                    return
+                }
+                if view.frame.height > midLine { // scroll to top
+                    delegate?.animateBottomSheet(amount: view.frame.height - UIScreen.main.bounds.height * 0.6,
+                                                 scrollToEdge: true)
+                } else { // scroll back to bottom
+                    delegate?.animateBottomSheet(amount: view.frame.height - 170, scrollToEdge: true)
+                }
+            }
+            return
+        default: break
+        }
+        
+        sender.setTranslation(CGPoint.zero, in: view)
+        delegate?.animateBottomSheet(amount: translation.y, scrollToEdge: false)
+    }
     
     // MARK: BLEManagerDelegate
     
