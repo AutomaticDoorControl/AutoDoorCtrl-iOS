@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MapToDoorCommDelegate: class {
     func didReceiveDoorsData(with doors: [Door])
@@ -14,4 +15,5 @@ protocol MapToDoorCommDelegate: class {
     
     func expandList()
     func collapseList()
+    func animateBottomSheet(amount: CGFloat, scrollToEdge: Bool)
 }

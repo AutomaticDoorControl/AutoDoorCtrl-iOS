@@ -47,6 +47,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         adjustDoorListWidth(using: size.width)
+        if doorsListView.frame.height >= size.height * 0.6 {
+            collapseList()
+        }
     }
     
     // MARK: - MapKit Methods
@@ -81,29 +84,29 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func didSelectSingleDoor(with door: Door) {
         keepingRegionScale = true
-        if isDoorsListExpanded && UIDevice.current.userInterfaceIdiom == .phone { collapseList() }
+        if UIDevice.current.userInterfaceIdiom == .phone { collapseList() }
         centerMapOnUserLocation(from: door.coordinate)
         mapView.selectAnnotation(door, animated: true)
     }
     
     func collapseList() {
-        guard doorsListHeight.constant != 170 else { return }
-        doorsListView.layoutIfNeeded()
-        isDoorsListExpanded = !isDoorsListExpanded
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.doorsListHeight.constant = 170
-            self?.doorsListView.layoutIfNeeded()
-        }
+        animateDoorListCollapsing(amount: doorsListView.frame.height - 170) // positive amount
     }
     
     func expandList() {
-        guard doorsListHeight.constant == 170 else { return }
-        doorsListView.layoutIfNeeded()
         isDoorsListExpanded = !isDoorsListExpanded
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.doorsListHeight.constant = UIScreen.main.bounds.height * 0.6
-            self?.doorsListView.layoutIfNeeded()
+        // negative amount
+        animateDoorListCollapsing(amount: doorsListView.frame.height - UIScreen.main.bounds.height * 0.6)
+    }
+    
+    func animateBottomSheet(amount: CGFloat, scrollToEdge: Bool) {
+        isDoorsListExpanded = true
+        if scrollToEdge {
+            animateDoorListCollapsing(amount: amount)
+            return
         }
+        doorsListHeight.constant -= amount
+        doorsListView.layoutIfNeeded()
     }
     
     // MARK: - MKMapViewDelegate
@@ -154,6 +157,25 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         if UIDevice.current.userInterfaceIdiom == .phone {
             doorsListWidth.constant = width - Constants.kMapListRightConstraintLength * 2
         }
+    }
+    
+    /**
+     Expand or collapse the door list with the given `amount`.
+        - move down the list with positive `amount`
+        - move up the list with negative `amount`
+     - parameter amount: amount of points to animate the list.
+     */
+    private func animateDoorListCollapsing(amount: CGFloat) {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.doorsListView.frame =
+                CGRect(x: strongSelf.doorsListView.frame.origin.x,
+                       y: strongSelf.doorsListView.frame.origin.y + amount,
+                       width: strongSelf.doorsListView.frame.width,
+                       height: strongSelf.doorsListView.frame.height - amount)
+            strongSelf.doorsListHeight.constant -= amount
+            strongSelf.doorsListView.layoutIfNeeded()
+        })
     }
 }
 
