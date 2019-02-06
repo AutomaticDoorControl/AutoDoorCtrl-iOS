@@ -183,6 +183,16 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		049A5950220A4C9100F89B91 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
+				04C2D1C7216199B30082C9C8 /* DashboardController.swift */,
+				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		04B47AB721862EA700731C5B /* BLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				04E089FB21433A9000E72A85 /* SwitchViewController.swift */,
-				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
-				04C2D1C7216199B30082C9C8 /* DashboardController.swift */,
-				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				04F882F821436EFE005306AF /* Login */,
 				04C288BA2155E4DD00561798 /* Maps */,
 				04C2D1C1216193170082C9C8 /* Misc */,
+				049A5950220A4C9100F89B91 /* Settings */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
 				04E829C2214323ED000BC96D /* Main.storyboard */,

@@ -6,7 +6,6 @@
   Copyright © 2018 Jing Wei Li. All rights reserved.
 */
 
-
 // Shared
 "Yes" = "Oui";
 "No" = "Non";
@@ -56,3 +55,13 @@
 
 "enterRCSIDTitle" = "Entrer RCSID";
 "myInfoTitle" = "Mes infos";
+
+// support & fixx
+"supportTitle" = "Soutien";
+"contactFixxTitle" = "Contactez Fixx";
+"contactFixxSubject" = "Problème avec une unité de commande de porte automatique";
+"mailNotSupportedTitle" = "Mail non supporté";
+"mailComposingCancelled" = "Courrier en composition annulé";
+"mailSavedTitle" = "Courrier enregistré";
+"mailSuccessfulTitle" = "Mail envoyé avec succès";
+"mailFailedTitle" = "Échec d'envoi du courrier";

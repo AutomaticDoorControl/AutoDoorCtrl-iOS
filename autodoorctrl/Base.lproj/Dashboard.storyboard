@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard-->
+        <!--Settings-->
         <scene sceneID="yeH-OG-xCH">
             <objects>
                 <tableViewController id="yrr-0e-Bdg" customClass="DashboardTableViewController" customModule="autodoorctrl" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="yrr-0e-Bdg" id="VwG-uy-c1W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dashboard" id="bBQ-Xu-7S7">
+                    <navigationItem key="navigationItem" title="Settings" id="bBQ-Xu-7S7">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="t5w-rn-bTr">
                             <connections>
                                 <action selector="dismiss:" destination="yrr-0e-Bdg" id="3WJ-kd-gUy"/>
