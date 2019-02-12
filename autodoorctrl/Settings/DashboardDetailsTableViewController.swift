@@ -24,7 +24,6 @@ class DashboardDetailsTableViewController: UITableViewController {
         activityIndicator = JLActivityIndicator(on: view, mode: .path)
         activityIndicator?.start()
 
-    
         ServicesAPI.showUserInfo(method: mode, successHandler: { [weak self] users in
             self?.details = users
             self?.tableView.reloadData()

@@ -47,6 +47,8 @@
 "OpeningDoorTitle" = "Opening";
 "ClosingDoorTitle" = "Closing";
 
+"ClosingTimerTitle" = "Closing in %@s";
+
 // Services
 "ShowActiveTitle" = "Show Active Students";
 "AddToActiveTitle" = "Add RCSID to Active";
@@ -55,3 +57,13 @@
 
 "enterRCSIDTitle" = "Enter RCSID";
 "myInfoTitle" = "My Info";
+
+// support & fixx
+"supportTitle" = "Support";
+"contactFixxTitle" = "Contact Fixx";
+"contactFixxSubject" = "Issue with an Automatic Door Control Unit";
+"mailNotSupportedTitle" = "Mail not supported";
+"mailComposingCancelled" = "Mail composing cancelled";
+"mailSavedTitle" = "Saved Mail";
+"mailSuccessfulTitle" = "Mail sent successfully";
+"mailFailedTitle" = "Mail failed to send";

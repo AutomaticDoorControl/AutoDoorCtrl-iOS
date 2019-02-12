@@ -11,12 +11,14 @@ import UIKit
 class SwitchViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var signalStrengthIndicator: UIImageView!
+    @IBOutlet weak var closingTimerLabel: UILabel!
     
-    private let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
     fileprivate var isOn = false
     fileprivate let orangeColor = UIColor(red: 254/255, green: 179/255, blue: 54/255, alpha: 1)
     fileprivate let greenColor = UIColor(red: 142/255, green: 202/255, blue: 67/255, alpha: 1)
     fileprivate var signalStrengthTimer: Timer?
+    fileprivate var closingTimer: Timer?
+    fileprivate var countdown: Int = Constants.doorClosingTime
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,7 @@ class SwitchViewController: UIViewController {
             BLEManager.current.readSignalStrength()
         }
         signalStrengthTimer?.tolerance = 1.0
+        closingTimerLabel.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -37,16 +40,16 @@ class SwitchViewController: UIViewController {
     @IBAction func dismiss(_ sender: UIButton) {
         BLEManager.current.disconnect()
         signalStrengthTimer?.invalidate()
+        closingTimer?.invalidate()
         dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func lockOrUnlock(_ sender: UITapGestureRecognizer) {
-        hapticFeedback.impactOccurred()
         BLEManager.current.send(string: Constants.toggleCommand)
-        showProcessingState()
     }
     
+    /*
     func showProcessingState() {
         statusLabel.text = isOn ? NSLocalizedString("ClosingDoorTitle", comment: "")
             : NSLocalizedString("OpeningDoorTitle", comment: "")
@@ -55,6 +58,7 @@ class SwitchViewController: UIViewController {
             self?.view.backgroundColor = UIColor.gray
         }, completion: nil)
     }
+    */
 }
 
 extension SwitchViewController: BLEManagerDelegate {
@@ -68,15 +72,28 @@ extension SwitchViewController: BLEManagerDelegate {
     }
     
     func didReceiveMessage(message: String) {
-        hapticFeedback.impactOccurred()
+        Haptic.current.generateHardHaptic()
         if message == Constants.IncomingCommands.onCommand {
             isOn = true
-            view.isUserInteractionEnabled = true
+            closingTimerLabel.isHidden = false
+            view.isUserInteractionEnabled = false
             statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")
+            closingTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+                self?.closingTimerLabel.text =
+                    "Closing in \(self?.countdown ?? 0)s"
+                    // currently the localized stirng crashes
+                    //String(format: NSLocalizedString("ClosingTimerTitle", comment: ""), self?.countdown ?? 0)
+                self?.countdown -= 1
+                Haptic.current.generateLightHaptic()
+            }
         } else if message == Constants.IncomingCommands.offCommand {
             isOn = false
+            closingTimerLabel.isHidden = true
             view.isUserInteractionEnabled = true
             statusLabel.text = NSLocalizedString("CloseDoorTitle", comment: "")
+            closingTimer?.invalidate()
+            closingTimerLabel.text = "Closing in \(Constants.doorClosingTime)s"
+            countdown = Constants.doorClosingTime
         }
         
         UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: { [weak self] in
