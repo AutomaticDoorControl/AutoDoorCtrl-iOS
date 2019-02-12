@@ -439,17 +439,25 @@
                                     <constraint firstAttribute="width" constant="40" id="yZA-nj-4a5"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing in 20s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cin-O4-lo5">
+                                <rect key="frame" x="111" y="528" width="153" height="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99534016849999996" green="0.70009559389999998" blue="0.2115490139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="trailing" secondItem="F3g-Xj-z7p" secondAttribute="trailing" constant="26" id="ABZ-Ao-yEA"/>
                             <constraint firstItem="wpK-og-TAA" firstAttribute="top" secondItem="BRZ-ZF-lvJ" secondAttribute="top" constant="13" id="CS0-tf-e2R"/>
+                            <constraint firstItem="cin-O4-lo5" firstAttribute="centerX" secondItem="BRZ-ZF-lvJ" secondAttribute="centerX" id="FA5-xM-xJU"/>
                             <constraint firstItem="OQd-9N-shr" firstAttribute="centerX" secondItem="BRZ-ZF-lvJ" secondAttribute="centerX" id="Unz-Vx-7al"/>
                             <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="bottom" secondItem="OQd-9N-shr" secondAttribute="bottom" multiplier="10:7" id="VaU-IR-M7C"/>
                             <constraint firstItem="wpK-og-TAA" firstAttribute="leading" secondItem="BRZ-ZF-lvJ" secondAttribute="leading" constant="26" id="hBU-01-ljE"/>
                             <constraint firstItem="F3g-Xj-z7p" firstAttribute="top" secondItem="BRZ-ZF-lvJ" secondAttribute="top" constant="13" id="mkF-k9-aRL"/>
                             <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wpK-og-TAA" secondAttribute="trailing" constant="244" id="r1V-8I-q8g"/>
+                            <constraint firstItem="BRZ-ZF-lvJ" firstAttribute="bottom" secondItem="cin-O4-lo5" secondAttribute="bottom" multiplier="6:5" id="zpr-iu-zMj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BRZ-ZF-lvJ"/>
                         <connections>
@@ -457,6 +465,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="closingTimerLabel" destination="cin-O4-lo5" id="Uhh-gu-Hvl"/>
                         <outlet property="signalStrengthIndicator" destination="F3g-Xj-z7p" id="dnj-SQ-7fL"/>
                         <outlet property="statusLabel" destination="OQd-9N-shr" id="DhB-sN-fAP"/>
                     </connections>

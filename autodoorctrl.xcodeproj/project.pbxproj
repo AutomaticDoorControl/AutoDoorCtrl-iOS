@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */; };
+		0415B0492213849A0086BA21 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415B048221384990086BA21 /* Haptic.swift */; };
 		0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0433F0A92165D94000F63E50 /* Dashboard.storyboard */; };
 		0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */; };
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0415B048221384990086BA21 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				04D2DB18215CA5B20061E72D /* Constants.swift */,
 				0485F298215F508200742978 /* Localizable.strings */,
 				0485F29E215F56D900742978 /* InfoPlist.strings */,
+				0415B048221384990086BA21 /* Haptic.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
+				0415B0492213849A0086BA21 /* Haptic.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,

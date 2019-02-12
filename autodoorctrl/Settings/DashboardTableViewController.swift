@@ -75,11 +75,11 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "showDashboardDetails", sender: self)
             } else if indexPath.row == 1 {
-                present(controller.studentOperations(for: .register), animated: true, completion: nil)
+                present(controller.studentOperationsAlert(for: .register), animated: true, completion: nil)
             } else if indexPath.row == 2 {
-                present(controller.studentOperations(for: .addToActive), animated: true, completion: nil)
+                present(controller.studentOperationsAlert(for: .addToActive), animated: true, completion: nil)
             } else if indexPath.row == 3 {
-                present(controller.studentOperations(for: .remove), animated: true, completion: nil)
+                present(controller.studentOperationsAlert(for: .remove), animated: true, completion: nil)
             }
         }
     }
@@ -101,6 +101,10 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true) {
+            if let error = error {
+                SwiftMessagesWrapper.showErrorMessage(title: error.localizedDescription, body: "")
+                return
+            }
             switch result {
             case .cancelled:
                 SwiftMessagesWrapper.showWarningMessage(title: NSLocalizedString("mailComposingCancelled", comment: ""), body: "")

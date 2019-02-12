@@ -53,7 +53,7 @@ class DashboardController: NSObject {
     
     // MARK: - Private
     
-    func studentOperations(for mode: ServicesAPI.StudentOperations) -> UIViewController {
+    func studentOperationsAlert(for mode: ServicesAPI.StudentOperations) -> UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("enterRCSIDTitle", comment: ""),
                                       message: nil, preferredStyle: .alert)
         alert.addTextField { $0.placeholder = "RCSID" }
