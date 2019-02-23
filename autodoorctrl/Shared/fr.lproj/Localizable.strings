@@ -43,6 +43,7 @@
 // Opening + Closing Doors
 "OpenDoorTitle" = "Ouvrir";
 "CloseDoorTitle" = "Fermer";
+"PasswordTitle" = "Mot de Passe";
 
 "OpeningDoorTitle" = "Ouverture";
 "ClosingDoorTitle" = "Fermeture";
@@ -67,3 +68,16 @@
 "mailSavedTitle" = "Courrier enregistré";
 "mailSuccessfulTitle" = "Mail envoyé avec succès";
 "mailFailedTitle" = "Échec d'envoi du courrier";
+
+// accessibility
+"SettingsIconTitle" = "Reglages";
+"CenterUserButtonTitle" = "centrer l'utilisateur sur la carte";
+"openDoorHint" = "taper deux fois pour ouvrir la porte";
+"signalStrengthHint" = "Puissance du signal Bluetooth";
+
+// BLE + Accessibility
+"BLESignalOK" = "D'accord";
+"BLESignalUnusable" = "Inutilisable";
+"BLESignalBad" = "Mal";
+"BLESignalGood" = "Bien";
+"BLESignalAmazing" = "Incroyable";

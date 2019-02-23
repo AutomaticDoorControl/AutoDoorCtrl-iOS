@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 class DashboardTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-    private let controller = DashboardController()
+    private let viewModel = DashboardViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +23,24 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return controller.sectionTitles.count
+        return viewModel.sectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return controller.sectionTitles[section]
+        return viewModel.sectionTitles[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.sectionCounts[section]
+        return viewModel.sectionCounts[section]
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        let identifier = indexPath.section == 0 ? controller.userInfoIdentifer : controller.actionIdentifier
+        let identifier = indexPath.section == 0 ? viewModel.userInfoIdentifer : viewModel.actionIdentifier
         
         cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let title: String, subtitle: String?, image: UIImage?
-        (title, subtitle, image) = controller.loadCells(from: indexPath)
+        (title, subtitle, image) = viewModel.loadCells(from: indexPath)
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = subtitle
         cell.imageView?.image = image
@@ -75,11 +75,11 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "showDashboardDetails", sender: self)
             } else if indexPath.row == 1 {
-                present(controller.studentOperationsAlert(for: .register), animated: true, completion: nil)
+                present(viewModel.studentOperationsAlert(for: .register), animated: true, completion: nil)
             } else if indexPath.row == 2 {
-                present(controller.studentOperationsAlert(for: .addToActive), animated: true, completion: nil)
+                present(viewModel.studentOperationsAlert(for: .addToActive), animated: true, completion: nil)
             } else if indexPath.row == 3 {
-                present(controller.studentOperationsAlert(for: .remove), animated: true, completion: nil)
+                present(viewModel.studentOperationsAlert(for: .remove), animated: true, completion: nil)
             }
         }
     }

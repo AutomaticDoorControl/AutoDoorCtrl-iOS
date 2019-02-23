@@ -16,6 +16,8 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var doorsListView: UIView!
     @IBOutlet weak var doorsListHeight: NSLayoutConstraint!
     @IBOutlet weak var doorsListWidth: NSLayoutConstraint!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var centerLocationButton: UIButton!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
@@ -28,6 +30,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         backButtonBackground.addRoundedCorner()
         doorsListView.addRoundedCorner()
         doorsListView.addBorders(width: 0.3)
+        
+        settingsButton.accessibilityLabel = NSLocalizedString("SettingsIconTitle", comment: "")
+        centerLocationButton.accessibilityHint = NSLocalizedString("CenterUserButtonTitle", comment: "")
         
         mapView.showsUserLocation = true
         mapView.delegate = self

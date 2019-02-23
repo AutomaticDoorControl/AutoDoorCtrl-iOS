@@ -26,6 +26,7 @@
 // Log In
 "LogInTitle" = "Log In";
 "LoggingInTitle" = "Logging In";
+"PasswordTitle" = "Password";
 
 "AdminLoginTitle" = "Admin Login";
 
@@ -67,3 +68,16 @@
 "mailSavedTitle" = "Saved Mail";
 "mailSuccessfulTitle" = "Mail sent successfully";
 "mailFailedTitle" = "Mail failed to send";
+
+// accessibility
+"SettingsIconTitle" = "Settings";
+"CenterUserButtonTitle" = "center user on map";
+"openDoorHint" = "Double tap to open the door";
+"signalStrengthHint" = "Bluetooth Signal Strength";
+
+// BLE + Accessibility
+"BLESignalOK" = "OK";
+"BLESignalUnusable" = "Unusable";
+"BLESignalBad" = "Bad";
+"BLESignalGood" = "Good";
+"BLESignalAmazing" = "Amazing";

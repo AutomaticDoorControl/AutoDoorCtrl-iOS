@@ -223,23 +223,8 @@ extension BLEManager: CBPeripheralDelegate {
         let dbm = RSSI.intValue
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-             strongSelf.delegate?.didReceiveRSSIReading(reading: dbm,
-                                                        status: strongSelf.signalStrengthString(from: dbm))
+             strongSelf.delegate?.didReceiveRSSIReading(reading: BLESignalStrength(rssi: dbm))
         }
-    }
-    
-    /** Metrics obtained from https://www.metageek.com/training/resources/understanding-rssi.html*/
-    private func signalStrengthString(from dbm: Int) -> String {
-        if dbm < -90 {
-            return "Unusable"
-        } else if dbm < -80 {
-            return "Bad"
-        } else if dbm < -70 {
-            return "OK"
-        } else if dbm < -67 {
-            return "Good"
-        }
-        return "Amazing"
     }
 }
 

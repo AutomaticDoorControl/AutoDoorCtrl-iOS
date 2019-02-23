@@ -29,6 +29,9 @@ class SwitchViewController: UIViewController {
         }
         signalStrengthTimer?.tolerance = 1.0
         closingTimerLabel.isHidden = true
+        
+        statusLabel.accessibilityHint = NSLocalizedString("openDoorHint", comment: "")
+        configureSignalStrengthAccessiblity()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -59,12 +62,22 @@ class SwitchViewController: UIViewController {
         }, completion: nil)
     }
     */
+    
+    // MARK: - Accessibility
+    func configureSignalStrengthAccessiblity() {
+        signalStrengthIndicator.isAccessibilityElement = true
+        signalStrengthIndicator.accessibilityTraits = .none
+        signalStrengthIndicator.accessibilityLabel =
+            NSLocalizedString("signalStrengthHint", comment: "")
+        signalStrengthIndicator.accessibilityValue = BLESignalStrength.amazing.strengthDescription
+    }
 }
 
 extension SwitchViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
     func didReceiveError(error: BLEError?) {
         signalStrengthTimer?.invalidate()
+        closingTimer?.invalidate()
         view.isUserInteractionEnabled = true
         dismiss(animated: true) {
             error?.showErrorMessage()
@@ -102,7 +115,8 @@ extension SwitchViewController: BLEManagerDelegate {
         }, completion: nil)
     }
     
-    func didReceiveRSSIReading(reading: Int, status: String) {
-        signalStrengthIndicator.image = UIImage(named: "BLESignal\(status)")
+    func didReceiveRSSIReading(reading: BLESignalStrength) {
+        signalStrengthIndicator.image = reading.strengthImage
+        signalStrengthIndicator.accessibilityValue = reading.strengthDescription
     }
 }
