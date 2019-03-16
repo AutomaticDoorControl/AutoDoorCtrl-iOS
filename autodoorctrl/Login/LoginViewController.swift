@@ -34,7 +34,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         rcsIDTextField.accessibilityLabel = "RCSID"
         passwordTextField.accessibilityLabel = NSLocalizedString("PasswordTitle", comment: "")
-        //biometricsButton.accessibilityLabel = 
+        biometricsButton.accessibilityLabel = NSLocalizedString("biometricsButtonTitle", comment: "")
+        biometricsButton.accessibilityHint = NSLocalizedString("biometricsHint", comment: "")
         
         configureUI()
         

@@ -71,6 +71,14 @@ class SwitchViewController: UIViewController {
             NSLocalizedString("signalStrengthHint", comment: "")
         signalStrengthIndicator.accessibilityValue = BLESignalStrength.amazing.strengthDescription
     }
+    
+    func processDoorClosingSubtitle(from countdown: Int) -> String {
+        return [
+            NSLocalizedString("closingAnnouncement", comment: ""),
+            "\(countdown)",
+            NSLocalizedString("secondTitle", comment: "")
+        ].joined(separator: " ")
+    }
 }
 
 extension SwitchViewController: BLEManagerDelegate {
@@ -92,11 +100,15 @@ extension SwitchViewController: BLEManagerDelegate {
             view.isUserInteractionEnabled = false
             statusLabel.text = NSLocalizedString("OpenDoorTitle", comment: "")
             closingTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-                self?.closingTimerLabel.text =
-                    "Closing in \(self?.countdown ?? 0)s"
-                    // currently the localized stirng crashes
-                    //String(format: NSLocalizedString("ClosingTimerTitle", comment: ""), self?.countdown ?? 0)
-                self?.countdown -= 1
+                guard let strongSelf = self else { return }
+                strongSelf.closingTimerLabel.text =
+                    strongSelf.processDoorClosingSubtitle(from: strongSelf.countdown)
+                
+                strongSelf.countdown -= 1
+                if strongSelf.countdown % 5 == 0 {
+                    let countdownAnnouncement = strongSelf.processDoorClosingSubtitle(from: strongSelf.countdown)
+                    UIAccessibility.post(notification: .announcement, argument: countdownAnnouncement)
+                }
                 Haptic.current.generateLightHaptic()
             }
         } else if message == Constants.IncomingCommands.offCommand {
@@ -107,6 +119,8 @@ extension SwitchViewController: BLEManagerDelegate {
             closingTimer?.invalidate()
             closingTimerLabel.text = "Closing in \(Constants.doorClosingTime)s"
             countdown = Constants.doorClosingTime
+            UIAccessibility.post(notification: .announcement,
+                                 argument: NSLocalizedString("doorClosedAnnouncement", comment: ""))
         }
         
         UIView.transition(with: view, duration: 0.5, options: .curveEaseInOut, animations: { [weak self] in

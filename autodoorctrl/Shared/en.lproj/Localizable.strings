@@ -74,6 +74,13 @@
 "CenterUserButtonTitle" = "center user on map";
 "openDoorHint" = "Double tap to open the door";
 "signalStrengthHint" = "Bluetooth Signal Strength";
+"closingAnnouncement" = "Closing in";
+"doorClosedAnnouncement" = "Door closed";
+"secondTitle" = "seconds";
+
+// Biometrics + Accessibility
+"biometricsButtonTitle" = "Biometrics";
+"biometricsHint" = "Double tap to login with biometrics";
 
 // BLE + Accessibility
 "BLESignalOK" = "OK";
@@ -81,3 +88,6 @@
 "BLESignalBad" = "Bad";
 "BLESignalGood" = "Good";
 "BLESignalAmazing" = "Amazing";
+
+// Map + Accessibility
+"shakeHint" = "Shake the device to connect to the door opening hardware";

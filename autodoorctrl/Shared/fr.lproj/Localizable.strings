@@ -74,6 +74,13 @@
 "CenterUserButtonTitle" = "centrer l'utilisateur sur la carte";
 "openDoorHint" = "taper deux fois pour ouvrir la porte";
 "signalStrengthHint" = "Puissance du signal Bluetooth";
+"closingAnnouncement" = "fermeture dans";
+"doorClosedAnnouncement" = "porte fermée";
+"secondTitle" = "seconds";
+
+// Biometrics + Accessibility
+"biometricsButtonTitle" = "biométrie";
+"biometricsHint" = "Appuyez deux fois pour vous connecter avec la biométrie";
 
 // BLE + Accessibility
 "BLESignalOK" = "D'accord";
@@ -81,3 +88,6 @@
 "BLESignalBad" = "Mal";
 "BLESignalGood" = "Bien";
 "BLESignalAmazing" = "Incroyable";
+
+// Map + Accessibility
+"shakeHint" = "Secouez l'appareil pour le connecter au matériel de la porte";
