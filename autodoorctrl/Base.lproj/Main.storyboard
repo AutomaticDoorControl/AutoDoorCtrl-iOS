@@ -439,8 +439,8 @@
                                     <constraint firstAttribute="width" constant="40" id="yZA-nj-4a5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing in 20s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cin-O4-lo5">
-                                <rect key="frame" x="111" y="528" width="153" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cin-O4-lo5">
+                                <rect key="frame" x="185" y="528" width="5" height="28"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -601,10 +601,12 @@
                     </view>
                     <connections>
                         <outlet property="backButtonBackground" destination="FPv-aJ-A99" id="Fo6-O9-rHc"/>
+                        <outlet property="centerLocationButton" destination="TBp-Co-RNq" id="lgu-PP-jCt"/>
                         <outlet property="doorsListHeight" destination="9TZ-87-8SZ" id="Ktx-az-L6I"/>
                         <outlet property="doorsListView" destination="qp0-eY-2jj" id="WYs-ot-xzH"/>
                         <outlet property="doorsListWidth" destination="deo-9i-EkA" id="sls-JV-6y0"/>
                         <outlet property="mapView" destination="fzM-Xb-rfk" id="m7w-rQ-mb1"/>
+                        <outlet property="settingsButton" destination="OvO-qr-qoy" id="aaC-Rh-pLx"/>
                         <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="mrr-Ow-DGD"/>
                     </connections>
                 </viewController>

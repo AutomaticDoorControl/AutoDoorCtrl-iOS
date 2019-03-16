@@ -26,6 +26,7 @@
 // Log In
 "LogInTitle" = "Log In";
 "LoggingInTitle" = "Logging In";
+"PasswordTitle" = "Password";
 
 "AdminLoginTitle" = "Admin Login";
 
@@ -67,3 +68,26 @@
 "mailSavedTitle" = "Saved Mail";
 "mailSuccessfulTitle" = "Mail sent successfully";
 "mailFailedTitle" = "Mail failed to send";
+
+// accessibility
+"SettingsIconTitle" = "Settings";
+"CenterUserButtonTitle" = "center user on map";
+"openDoorHint" = "Double tap to open the door";
+"signalStrengthHint" = "Bluetooth Signal Strength";
+"closingAnnouncement" = "Closing in";
+"doorClosedAnnouncement" = "Door closed";
+"secondTitle" = "seconds";
+
+// Biometrics + Accessibility
+"biometricsButtonTitle" = "Biometrics";
+"biometricsHint" = "Double tap to login with biometrics";
+
+// BLE + Accessibility
+"BLESignalOK" = "OK";
+"BLESignalUnusable" = "Unusable";
+"BLESignalBad" = "Bad";
+"BLESignalGood" = "Good";
+"BLESignalAmazing" = "Amazing";
+
+// Map + Accessibility
+"shakeHint" = "Shake the device to connect to the door opening hardware";

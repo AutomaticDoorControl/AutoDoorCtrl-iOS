@@ -13,7 +13,7 @@ protocol BLEManagerDelegate: class {
     func didDisconnectFromSmartDesk()
     func readyToSendData()
     func didReceiveError(error: BLEError?)
-    func didReceiveRSSIReading(reading: Int, status: String)
+    func didReceiveRSSIReading(reading: BLESignalStrength)
     func didReceiveMessage(message: String)
     func didDiscoverDoors(doors: [Door])
 }
@@ -23,7 +23,7 @@ extension BLEManagerDelegate {
     func didDisconnectFromSmartDesk() {}
     func readyToSendData() {}
     func didReceiveError(error: BLEError?) {}
-    func didReceiveRSSIReading(reading: Int, status: String) {}
+    func didReceiveRSSIReading(reading: BLESignalStrength) {}
     func didReceiveMessage(message: String) {}
     func didDiscoverDoors(doors: [Door]) {}
 }

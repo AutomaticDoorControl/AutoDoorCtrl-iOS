@@ -30,6 +30,7 @@
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
+		04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5D0AE2221112300774489 /* BLESignalStrength.swift */; };
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
 		04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */; };
@@ -39,7 +40,7 @@
 		04C288BC2155E50900561798 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C288BB2155E50900561798 /* MapsViewController.swift */; };
 		04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */; };
 		04C2D1C6216197D00082C9C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C5216197D00082C9C8 /* User.swift */; };
-		04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C7216199B30082C9C8 /* DashboardController.swift */; };
+		04C2D1C8216199B30082C9C8 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2D1C7216199B30082C9C8 /* DashboardViewModel.swift */; };
 		04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */; };
 		04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */; };
 		04D2DB19215CA5B20061E72D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2DB18215CA5B20061E72D /* Constants.swift */; };
@@ -93,6 +94,7 @@
 		0485F297215F508200742978 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04A5D0AE2221112300774489 /* BLESignalStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStrength.swift; sourceTree = "<group>"; };
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		04C288BB2155E50900561798 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		04C2D1C5216197D00082C9C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		04C2D1C7216199B30082C9C8 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		04C2D1C7216199B30082C9C8 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Options.swift"; sourceTree = "<group>"; };
 		04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPI.swift; sourceTree = "<group>"; };
 		04D2DB18215CA5B20061E72D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
-				04C2D1C7216199B30082C9C8 /* DashboardController.swift */,
+				04C2D1C7216199B30082C9C8 /* DashboardViewModel.swift */,
 				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
 			);
 			path = Settings;
@@ -202,6 +204,7 @@
 				04B47AB821862EBC00731C5B /* BLEError.swift */,
 				04B47AB921862EBC00731C5B /* BLEManager.swift */,
 				04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */,
+				04A5D0AE2221112300774489 /* BLESignalStrength.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -501,7 +504,7 @@
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
 				0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */,
 				04C2D1C6216197D00082C9C8 /* User.swift in Sources */,
-				04C2D1C8216199B30082C9C8 /* DashboardController.swift in Sources */,
+				04C2D1C8216199B30082C9C8 /* DashboardViewModel.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */,
 				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
@@ -522,6 +525,7 @@
 				0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */,
 				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
 				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
+				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04F882FA214370B0005306AF /* NetworkingError.swift in Sources */,
 				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,

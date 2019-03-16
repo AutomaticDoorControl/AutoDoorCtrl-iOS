@@ -1,15 +1,14 @@
 //
-//  DashboardController.swift
+//  DashboardViewModel.swift
 //  autodoorctrl
 //
 //  Created by Jing Wei Li on 9/30/18.
 //  Copyright © 2018 Jing Wei Li. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class DashboardController: NSObject {
+class DashboardViewModel: NSObject {
     
     let userInfoIdentifer = "userInfoCell"
     let actionIdentifier = "dashboardActionCell"

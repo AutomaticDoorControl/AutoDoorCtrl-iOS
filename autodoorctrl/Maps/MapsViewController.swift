@@ -16,10 +16,13 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var doorsListView: UIView!
     @IBOutlet weak var doorsListHeight: NSLayoutConstraint!
     @IBOutlet weak var doorsListWidth: NSLayoutConstraint!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var centerLocationButton: UIButton!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
+    private var currentAnnotation: Door?
     
     // MARK: - View Controller Lifecycle
     
@@ -29,12 +32,17 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         doorsListView.addRoundedCorner()
         doorsListView.addBorders(width: 0.3)
         
+        settingsButton.accessibilityLabel = NSLocalizedString("SettingsIconTitle", comment: "")
+        centerLocationButton.accessibilityHint = NSLocalizedString("CenterUserButtonTitle", comment: "")
+        
         mapView.showsUserLocation = true
         mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
         (children.first as? DoorsListTableViewController)?.delegate = self
+        
+        becomeFirstResponder()
         
         determineCurrentLocation()
     }
@@ -113,6 +121,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let doorAnnotation = annotation as? Door else { return nil }
+        currentAnnotation = doorAnnotation
         var view: MKAnnotationView
         if #available(iOS 11.0, *) {
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: Door.identifier)
@@ -122,6 +131,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             } else {
                 view = MKMarkerAnnotationView(annotation: doorAnnotation, reuseIdentifier: Door.identifier)
                 view.canShowCallout = true
+                view.accessibilityValue = NSLocalizedString("shakeHint", comment: "")
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 let doorButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 doorButton.setImage(UIImage(named: "UnlockIcon"), for: .normal)
@@ -176,6 +186,20 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             strongSelf.doorsListHeight.constant -= amount
             strongSelf.doorsListView.layoutIfNeeded()
         })
+    }
+    
+    // MARK: - Shake gesture for accessibility
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            if let annotation = currentAnnotation, let peripheral = annotation.peripheral {
+                BLEManager.current.delegate = self
+                BLEManager.current.connect(peripheral: peripheral)
+            }
+        }
     }
 }
 
