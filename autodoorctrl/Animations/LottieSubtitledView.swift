@@ -10,31 +10,27 @@ import UIKit
 import Lottie
 
 class LottieSubtitledView: UIView {
-    @IBOutlet weak var animationView: LOTAnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var subtitle: UILabel!
-    var animationName: String = ""
+    var animationName: String
     var subtitleName: String = ""
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, animationName: String) {
+        self.animationName = animationName
         super.init(frame: frame)
-        commonInit()
+        Bundle.main.loadNibNamed("LottieSubtitledView", owner: self, options: nil)
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        Bundle.main.loadNibNamed("LottieSubtitledView", owner: self, options: nil)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        fatalError("Not supported")
     }
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if newSuperview != nil {
-            animationView.setAnimation(named: animationName)
-            animationView.loopAnimation = true
+            animationView.animation = Animation.named(animationName)
+            animationView.loopMode = .loop
             animationView.play()
             subtitle.text = subtitleName
         }
@@ -70,16 +66,18 @@ class LottieSubtitledView: UIView {
     }
     
     func dismiss() {
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
-            self?.animationView.alpha = 0
-            self?.subtitle.alpha = 0
-        }, completion: { [weak self] _ in
-            self?.animationView.stop()
-            self?.animationView.removeFromSuperview()
-            self?.subtitle.removeFromSuperview()
-            self?.removeFromSuperview()
-        })
- 
+        if animationView != nil {
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations:
+                { [weak self] in
+                    self?.animationView.alpha = 0
+                    self?.subtitle.alpha = 0
+                }, completion: { [weak self] _ in
+                    self?.animationView.stop()
+                    self?.animationView.removeFromSuperview()
+                    self?.subtitle.removeFromSuperview()
+                    self?.removeFromSuperview()
+            })
+        }
     }
     
 }
