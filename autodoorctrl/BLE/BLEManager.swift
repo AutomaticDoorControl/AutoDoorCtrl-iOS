@@ -93,7 +93,7 @@ class BLEManager: NSObject {
             return
         }
         // send 4 bytes of color information to the peripheral
-        peripheral.writeValue(Data(bytes: BLEManager.generateByteArray(for: colorCommand, color: color)),
+        peripheral.writeValue(Data(BLEManager.generateByteArray(for: colorCommand, color: color)),
                               for: characteristic, type: .withoutResponse)
     }
     

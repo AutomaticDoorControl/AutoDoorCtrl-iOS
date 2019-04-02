@@ -99,7 +99,11 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
     }
     
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?)
+    {
         controller.dismiss(animated: true) {
             if let error = error {
                 SwiftMessagesWrapper.showErrorMessage(title: error.localizedDescription, body: "")
@@ -114,6 +118,7 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
                 SwiftMessagesWrapper.showSuccessMessage(title: NSLocalizedString("mailSuccessfulTitle", comment: ""), body: "")
             case .failed:
                 SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("mailFailedTitle", comment: ""), body: "")
+            @unknown default: break
             }
         }
     }

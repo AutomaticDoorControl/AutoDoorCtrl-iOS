@@ -55,9 +55,10 @@ class DashboardDetailsTableViewController: UITableViewController {
     
     // MARK: Lottie
     private func showLottieAnimator() {
-        lottieAnimator = LottieSubtitledView(frame: CGRect(x: 0, y: 0, width: 264, height: 264))
+        lottieAnimator = LottieSubtitledView(
+            frame: CGRect(x: 0, y: 0, width: 264, height: 264),
+            animationName: "WifiOffAnimation")
         lottieAnimator?.center = view.center
-        lottieAnimator?.animationName = "WifiOffAnimation"
         lottieAnimator?.subtitleName = "No Information Available"
         view.addSubview(lottieAnimator!)
     }
