@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.8.1)
-  - JLActivityIndicator (2.0)
+  - Alamofire (4.8.2)
+  - JLActivityIndicator (2.1)
   - lottie-ios (3.0.3)
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
@@ -20,11 +20,11 @@ SPEC REPOS:
     - SwiftMessages
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  JLActivityIndicator: 124d283ff57a0d2d942871eb64a2f4b3ca7492eb
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  JLActivityIndicator: b26ace7e4e8e3102337020d408c2d509d5b64bf2
   lottie-ios: 06e0b54aab85ba128e332687d7f4ac4861a7a7ae
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
 
 PODFILE CHECKSUM: a03d4a084d1e1fd486e41645f010a83fe6d3c020
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

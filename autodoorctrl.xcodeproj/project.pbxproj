@@ -393,11 +393,11 @@
 				TargetAttributes = {
 					04E829BA214323ED000BC96D = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					04E829CE214323EF000BC96D = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 04E829BA214323ED000BC96D;
 					};
 				};
@@ -455,7 +455,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JLActivityIndicator/JLActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -470,7 +470,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		249DAC1B834C0BB95FEFCAC0 /* [CP] Check Pods Manifest.lock */ = {
@@ -739,7 +739,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -762,7 +762,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -782,7 +782,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
 			};
@@ -803,7 +803,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
 			};

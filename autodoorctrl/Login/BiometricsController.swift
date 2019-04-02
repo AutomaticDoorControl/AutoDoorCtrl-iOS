@@ -62,6 +62,7 @@ enum BiometricsController {
             // the rest shouldn't be localized as they are names of Apple Services
             case .touchID: return "Touch ID"
             case .faceID: return "Face ID"
+            @unknown default: break
             }
         }
         return "Touch ID"
