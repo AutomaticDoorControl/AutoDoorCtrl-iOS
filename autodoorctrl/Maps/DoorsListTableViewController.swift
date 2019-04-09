@@ -14,8 +14,7 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var slideBarHandle: UIView!
     @IBOutlet weak var noBLEWarning: UILabel!
-    private let controller = DoorsListController()
-    private let haptic = UIImpactFeedbackGenerator(style: .medium)
+    private let viewModel = DoorListViewModel()
     private let scrollVelocityCutoff: CGFloat = 500
     
     weak var delegate: MapToDoorCommDelegate?
@@ -44,31 +43,35 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         refreshControl.tintColor = UIColor.black
         tableView.refreshControl = refreshControl
         
-        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.5) {
+        viewModel.fetchDoorsInfo(successHandler: {
             BLEManager.current.scan()
-        }
+        }, errorHandler: { error in
+            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: error.localizedDescription)
+        })
+        
     }
     
     // MARK: - Table View Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        haptic.impactOccurred()
-        delegate?.didSelectSingleDoor(with: controller.doors[indexPath.row])
+        Haptic.current.generateHardHaptic()
+        delegate?.didSelectSingleDoor(with: viewModel.doors[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.doors.count
+        return viewModel.doors.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DoorsListTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: DoorsListTableViewCell.identifier,
+                                                 for: indexPath)
 
         if let doorsCell = cell as? DoorsListTableViewCell {
-            doorsCell.setup(from: controller.doors[indexPath.row])
+            doorsCell.setup(from: viewModel.doors[indexPath.row])
         }
 
         return cell
@@ -119,9 +122,9 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: BLEManagerDelegate
     
     func didDiscoverDoors(doors: [Door]) {
-        noBLEWarning.isHidden = true
+        noBLEWarning.isHidden = !doors.isEmpty
         delegate?.didReceiveDoorsData(with: doors)
-        controller.doors = doors
+        viewModel.doors = doors
         tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
@@ -131,7 +134,7 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         noBLEWarning.isHidden = false
         error?.showErrorMessage()
         if let error = error, case .scanningTimeout = error {
-            controller.doors.removeAll()
+            viewModel.doors.removeAll()
             tableView.reloadData()
         }
     }

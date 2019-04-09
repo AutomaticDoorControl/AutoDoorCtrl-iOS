@@ -20,7 +20,7 @@
 		046701742155FA66007DF2BE /* DoorsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046701732155FA66007DF2BE /* DoorsListTableViewController.swift */; };
 		046701762155FFEF007DF2BE /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046701752155FFEF007DF2BE /* Door.swift */; };
 		0467017921560123007DF2BE /* DoorsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017821560123007DF2BE /* DoorsAPI.swift */; };
-		0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017B215602F7007DF2BE /* DoorsListController.swift */; };
+		0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017B215602F7007DF2BE /* DoorListViewModel.swift */; };
 		0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */; };
 		0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467018021560631007DF2BE /* DoorsListTableViewCell.xib */; };
 		0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */; };
@@ -44,6 +44,7 @@
 		04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */; };
 		04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */; };
 		04D2DB19215CA5B20061E72D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2DB18215CA5B20061E72D /* Constants.swift */; };
+		04DDAC582257DE82004752B0 /* DoorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DDAC572257DE82004752B0 /* DoorResponse.swift */; };
 		04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E089FB21433A9000E72A85 /* SwitchViewController.swift */; };
 		04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829BE214323ED000BC96D /* AppDelegate.swift */; };
 		04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E829C0214323ED000BC96D /* LoginViewController.swift */; };
@@ -82,7 +83,7 @@
 		046701732155FA66007DF2BE /* DoorsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListTableViewController.swift; sourceTree = "<group>"; };
 		046701752155FFEF007DF2BE /* Door.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		0467017821560123007DF2BE /* DoorsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsAPI.swift; sourceTree = "<group>"; };
-		0467017B215602F7007DF2BE /* DoorsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListController.swift; sourceTree = "<group>"; };
+		0467017B215602F7007DF2BE /* DoorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorListViewModel.swift; sourceTree = "<group>"; };
 		0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListTableViewCell.swift; sourceTree = "<group>"; };
 		0467018021560631007DF2BE /* DoorsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoorsListTableViewCell.xib; sourceTree = "<group>"; };
 		0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToDoorCommDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		04C8C7B22160329F005D61C6 /* LoginViewController+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Options.swift"; sourceTree = "<group>"; };
 		04C8C7B4216039D8005D61C6 /* ServicesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPI.swift; sourceTree = "<group>"; };
 		04D2DB18215CA5B20061E72D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04DDAC572257DE82004752B0 /* DoorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorResponse.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829BE214323ED000BC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -224,7 +226,7 @@
 			children = (
 				04C288BB2155E50900561798 /* MapsViewController.swift */,
 				046701732155FA66007DF2BE /* DoorsListTableViewController.swift */,
-				0467017B215602F7007DF2BE /* DoorsListController.swift */,
+				0467017B215602F7007DF2BE /* DoorListViewModel.swift */,
 				0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */,
 			);
 			path = Maps;
@@ -243,6 +245,7 @@
 			children = (
 				046701752155FFEF007DF2BE /* Door.swift */,
 				04C2D1C5216197D00082C9C8 /* User.swift */,
+				04DDAC572257DE82004752B0 /* DoorResponse.swift */,
 			);
 			path = "Model Classes";
 			sourceTree = "<group>";
@@ -514,7 +517,7 @@
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
 				0415B0492213849A0086BA21 /* Haptic.swift in Sources */,
-				0467017C215602F7007DF2BE /* DoorsListController.swift in Sources */,
+				0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
@@ -525,6 +528,7 @@
 				0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */,
 				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
 				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
+				04DDAC582257DE82004752B0 /* DoorResponse.swift in Sources */,
 				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04F882FA214370B0005306AF /* NetworkingError.swift in Sources */,

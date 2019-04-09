@@ -18,8 +18,7 @@ class DoorsListTableViewCell: UITableViewCell {
     func setup(from door: Door) {
         doorsImageView.image = UIImage(named: "UnlockIcon")
         masterLabel.text = door.name
-        detailLabel.text = String(format: NSLocalizedString("DoorSubtitle", comment: ""),
-                                  door.coordinate.latitude, door.coordinate.longitude)
+        detailLabel.text = door.subtitle
     }
 
     override func awakeFromNib() {

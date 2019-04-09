@@ -123,8 +123,9 @@ extension BLEManager: CBCentralManagerDelegate {
         scanningTimeoutTimer?.invalidate()
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.delegate?.didDiscoverDoors(doors:
-                Array(strongSelf.availableBLEs).map { Door(peripheral: $0) })
+            strongSelf.delegate?.didDiscoverDoors(
+                doors: Array(strongSelf.availableBLEs)
+                    .compactMap { Door(peripheral: $0, prefetchedDoors: DoorsAPI.prefetchedDoors) })
         }
     }
     

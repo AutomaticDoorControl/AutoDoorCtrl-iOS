@@ -11,16 +11,35 @@ import CoreLocation
 import Alamofire
 
 enum DoorsAPI {
+    private static let dataURL = "https://raw.githubusercontent.com/AutomaticDoorControl/AutomaticDoorControl/master/DoorsData.json"
     
-    static func fetchDoorsInfo(from currentLocation: CLLocationCoordinate2D?,
-                               onSuccess: @escaping ([Door]) -> Void,
-                               onError: @escaping (Error?) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let doors = [Door(name: "Church I", longitude: -73.6780, latitude: 42.7306),
-                         Door(name: "Hunt III", longitude: -73.6777, latitude: 42.7302),
-                         Door(name: "White IV", longitude: -73.6778, latitude: 42.7296)]
-            onSuccess(doors)
+    static var prefetchedDoors: [String: DoorResponse.DoorResponseData] = [:]
+    
+    static func prefetchDoorsData(
+        success: @escaping () -> Void,
+        error: @escaping (Error) -> Void)
+    {
+        Alamofire.request(
+            dataURL,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: nil).responseJSON
+        { json in
+            if let data = json.data {
+                do {
+                    let doorData = try JSONDecoder().decode(DoorResponse.self, from: data)
+                    prefetchedDoors = Dictionary(uniqueKeysWithValues:
+                        doorData.data.map { ($0.name, $0) })
+                    DispatchQueue.main.async {
+                        success()
+                    }
+                } catch let err {
+                    error(err)
+                }
+            } else {
+                error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil))
+            }
         }
     }
-    
 }
