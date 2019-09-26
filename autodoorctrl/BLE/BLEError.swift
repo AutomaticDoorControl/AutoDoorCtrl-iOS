@@ -16,6 +16,24 @@ enum BLEError {
     case scanningTimeout
     case peripheralDisconnected
     case unexpected
+    case inactiveConnection
+    
+    init?(managerState: CBManagerState) {
+        switch managerState {
+        case .unknown:
+            self = .genericError(error: NSError(domain: "Unknown error", code: 0, userInfo: [:]))
+        case .resetting:
+            self = .genericError(error: NSError(domain: "Resetting", code: 0, userInfo: [:]))
+        case .unsupported:
+            self = .genericError(error: NSError(domain: "Unsupported", code: 0, userInfo: [:]))
+        case .unauthorized:
+            self = .genericError(error: NSError(domain: "Unauthorized", code: 0, userInfo: [:]))
+        case .poweredOff:
+            self = .bluetoothOff
+        default:
+            return nil
+        }
+    }
     
     var errorDesctription: String {
         switch self {
@@ -31,27 +49,12 @@ enum BLEError {
             return "Unexpected Error Encountered"
         case .scanningTimeout:
             return "Scanning timed out"
+        case .inactiveConnection:
+            return "No BLE device is currently connected"
         }
     }
     
     func showErrorMessage() {
         SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
-    }
-    
-    static func error(fromBLEState state: CBManagerState) -> BLEError? {
-        switch state {
-        case .unknown:
-            return .genericError(error: NSError(domain: "Unknown error", code: 0, userInfo: [:]))
-        case .resetting:
-            return .genericError(error: NSError(domain: "Resetting", code: 0, userInfo: [:]))
-        case .unsupported:
-            return .genericError(error: NSError(domain: "Unsupported", code: 0, userInfo: [:]))
-        case .unauthorized:
-            return .genericError(error: NSError(domain: "Unauthorized", code: 0, userInfo: [:]))
-        case .poweredOff:
-            return .bluetoothOff
-        default:
-            return nil
-        }
     }
 }

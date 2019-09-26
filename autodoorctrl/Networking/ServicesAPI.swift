@@ -10,46 +10,34 @@ import Foundation
 import Alamofire
 
 enum ServicesAPI {
-    private static let activeUserString = Constants.apiStart + "api/active_user"
-    private static let addStudentsString = Constants.apiStart + "api/addtoActive"
-    private static let registerStudentString = Constants.apiStart + "api/request-access"
-    private static let removeStudentString = Constants.apiStart + "api/remove"
     
     // MARK: - Enums
-    
-    enum StudentOperations {
-        case addToActive
-        case register
-        case remove
+    enum StudentOperations: String {
+        case addToActive = "api/addtoActive"
+        case register = "api/request-access"
+        case remove = "api/remove"
         
-        /** Return the server string needed to fetch json. */
+        /// Return the server string needed to fetch json.
         var serverString: String {
-            switch self {
-            case .addToActive:
-                return ServicesAPI.addStudentsString
-            case .register:
-                return ServicesAPI.registerStudentString
-            case .remove:
-                return ServicesAPI.removeStudentString
-            }
+            return Constants.apiStart + rawValue
         }
     }
     
-    enum StatusOperations {
-        case showActive
+    enum StatusOperations: String {
+        case showActive = "api/active_user"
         
         var serverString: String {
-            switch self {
-            case .showActive:
-                return ServicesAPI.activeUserString
-            }
+           return Constants.apiStart + rawValue
         }
     }
     
     // MARK: - Methods
     
-    static func showUserInfo(method: StatusOperations, successHandler: @escaping ([User]) -> Void,
-                             errorHandler: @escaping (NetworkingError) -> Void) {
+    static func showUserInfo(
+        method: StatusOperations,
+        successHandler: @escaping ([User]) -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
         Alamofire.request(method.serverString).responseJSON { response in
             if !response.result.isSuccess {
                 errorHandler(.genericError(error: response.error))
@@ -68,9 +56,12 @@ enum ServicesAPI {
     /**
      Perform 3 types of operations on an RCSID: addToActive, register or remove
      */
-    static func performOperationOnStudent(with rcsID: String, method: StudentOperations,
-                                          successHandler: @escaping () -> Void,
-                                          errorHandler: @escaping (NetworkingError) -> Void) {
+    static func performOperationOnStudent(
+        with rcsID: String,
+        method: StudentOperations,
+        successHandler: @escaping () -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
         let params = ["RCSid": rcsID]
         let headers = ["Content-Type": "application/json"]
         
