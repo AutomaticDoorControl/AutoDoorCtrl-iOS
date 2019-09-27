@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class DashboardTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class DashboardTableViewController: UITableViewController {
     private let viewModel = DashboardViewModel()
 
     override func viewDidLoad() {
@@ -17,6 +17,7 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.view.backgroundColor = Constants.adcRed
         }
     }
 
@@ -83,22 +84,10 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             }
         }
     }
-    
+}
+
+extension DashboardTableViewController: MFMailComposeViewControllerDelegate {
     // MARK: Mail Compose
-    func composeMail() {
-        guard MFMailComposeViewController.canSendMail() else {
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("mailNotSupportedTitle", comment: ""))
-            return
-        }
-        let mailVC = MFMailComposeViewController()
-        mailVC.mailComposeDelegate = self
-        mailVC.setToRecipients(["fixx@rpi.edu"])
-        mailVC.setSubject(NSLocalizedString("contactFixxSubject", comment: ""))
-        present(mailVC, animated: true, completion: nil)
-    }
-    
-    
     func mailComposeController(
         _ controller: MFMailComposeViewController,
         didFinishWith result: MFMailComposeResult,
@@ -122,5 +111,17 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             }
         }
     }
-
+    
+    func composeMail() {
+        guard MFMailComposeViewController.canSendMail() else {
+            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: NSLocalizedString("mailNotSupportedTitle", comment: ""))
+            return
+        }
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients(["fixx@rpi.edu"])
+        mailVC.setSubject(NSLocalizedString("contactFixxSubject", comment: ""))
+        present(mailVC, animated: true, completion: nil)
+    }
 }

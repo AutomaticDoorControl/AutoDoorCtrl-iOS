@@ -38,9 +38,11 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshBLEs), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "Scan for Doors",
-                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0),      NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        refreshControl.tintColor = UIColor.black
+        refreshControl.attributedTitle = NSAttributedString(string: "Scan for Doors", attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0),
+            NSAttributedString.Key.foregroundColor: UIColor.systemGray
+        ])
+        refreshControl.tintColor = UIColor.systemGray
         tableView.refreshControl = refreshControl
         
         viewModel.fetchDoorsInfo(successHandler: {
