@@ -32,6 +32,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.tag = passwordTextFieldTag
         passwordTextField.isSecureTextEntry = true
         
+        rcsIDTextField.textColor = UIColor.systemGray
+        passwordTextField.textColor = UIColor.systemGray
+        
         rcsIDTextField.accessibilityLabel = "RCSID"
         passwordTextField.accessibilityLabel = NSLocalizedString("PasswordTitle", comment: "")
         biometricsButton.accessibilityLabel = NSLocalizedString("biometricsButtonTitle", comment: "")
@@ -51,6 +54,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         let shouldHideBiometricButton = !BiometricsController.isBiometricAvailable() || UserDefaults.isFirstLogin()
         biometricsButton.isHidden = shouldHideBiometricButton
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *) {
+            if let previousTraitCollection = previousTraitCollection, traitCollection.userInterfaceStyle != previousTraitCollection.userInterfaceStyle {
+                passwordTextField.setBottomBorder()
+                rcsIDTextField.setBottomBorder()
+            }
+        }
     }
     
     // MARK: - UITextFieldDelegate
