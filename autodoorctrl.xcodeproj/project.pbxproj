@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */; };
+		04106D222347E0E40091CCCE /* AdminSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04106D212347E0E40091CCCE /* AdminSettingsDataSource.swift */; };
 		0415B0492213849A0086BA21 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415B048221384990086BA21 /* Haptic.swift */; };
 		0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0433F0A92165D94000F63E50 /* Dashboard.storyboard */; };
 		0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */; };
@@ -51,6 +52,7 @@
 		04E829C4214323ED000BC96D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C2214323ED000BC96D /* Main.storyboard */; };
 		04E829C6214323EF000BC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C5214323EF000BC96D /* Assets.xcassets */; };
 		04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C7214323EF000BC96D /* LaunchScreen.storyboard */; };
+		04EAB1342347E33200CCACA8 /* StandardSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */; };
 		04F882F721436D67005306AF /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F621436D67005306AF /* LoginAPI.swift */; };
 		04F882FA214370B0005306AF /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F9214370B0005306AF /* NetworkingError.swift */; };
 		37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */; };
@@ -68,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		04106D212347E0E40091CCCE /* AdminSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsDataSource.swift; sourceTree = "<group>"; };
 		0415B048221384990086BA21 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		04E829CA214323EF000BC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = autodoorctrlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829D5214323EF000BC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSettingsDataSource.swift; sourceTree = "<group>"; };
 		04F882F621436D67005306AF /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		04F882F9214370B0005306AF /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		2152557AA9808F5B2656DCB1 /* Pods_autodoorctrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04106D232347E15B0091CCCE /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				04106D212347E0E40091CCCE /* AdminSettingsDataSource.swift */,
+				04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		04633FBE21438D65007B3358 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 		049A5950220A4C9100F89B91 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				04106D232347E15B0091CCCE /* DataSources */,
 				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
 				04C2D1C7216199B30082C9C8 /* DashboardViewModel.swift */,
 				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
@@ -531,9 +545,11 @@
 				04DDAC582257DE82004752B0 /* DoorResponse.swift in Sources */,
 				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
+				04EAB1342347E33200CCACA8 /* StandardSettingsDataSource.swift in Sources */,
 				04F882FA214370B0005306AF /* NetworkingError.swift in Sources */,
 				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
+				04106D222347E0E40091CCCE /* AdminSettingsDataSource.swift in Sources */,
 				04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */,
 				0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */,
 			);

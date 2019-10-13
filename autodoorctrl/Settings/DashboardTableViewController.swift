@@ -24,28 +24,19 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionTitles.count
+        return viewModel.dataSource.numberOfSections?(in: tableView) ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.sectionTitles[section]
+        return viewModel.dataSource.tableView?(tableView, titleForHeaderInSection: section) ?? ""
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.sectionCounts[section]
+        return viewModel.dataSource.tableView(tableView, numberOfRowsInSection: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-        let identifier = indexPath.section == 0 ? viewModel.userInfoIdentifer : viewModel.actionIdentifier
-        
-        cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        let title: String, subtitle: String?, image: UIImage?
-        (title, subtitle, image) = viewModel.loadCells(from: indexPath)
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = subtitle
-        cell.imageView?.image = image
-        return cell
+        return viewModel.dataSource.tableView(tableView, cellForRowAt: indexPath)
     }
     
     // MARK: - UITableViewDelegate
