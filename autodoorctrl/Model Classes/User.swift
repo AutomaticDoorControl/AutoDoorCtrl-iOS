@@ -18,6 +18,7 @@ class User: NSObject, Codable {
     
     var rcsID: String = ""
     var isActive: Bool = false
+    var isAdmin: Bool = false
     
     override init() {
         super.init()
@@ -32,6 +33,8 @@ class User: NSObject, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         rcsID = (try container.decode(String.self, forKey: .rcsID)).trimmingCharacters(in: .whitespaces)
         isActive = (try container.decode(String.self, forKey: .isActive)).hasPrefix("Active")
+        // TODO: Get this property from the json
+        isAdmin = false
     }
     
     override var debugDescription: String {

@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class DashboardTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class DashboardTableViewController: UITableViewController {
     private let viewModel = DashboardViewModel()
 
     override func viewDidLoad() {
@@ -17,34 +17,26 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.view.backgroundColor = Constants.adcRed
         }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionTitles.count
+        return viewModel.dataSource.numberOfSections?(in: tableView) ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.sectionTitles[section]
+        return viewModel.dataSource.tableView?(tableView, titleForHeaderInSection: section) ?? ""
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.sectionCounts[section]
+        return viewModel.dataSource.tableView(tableView, numberOfRowsInSection: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-        let identifier = indexPath.section == 0 ? viewModel.userInfoIdentifer : viewModel.actionIdentifier
-        
-        cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        let title: String, subtitle: String?, image: UIImage?
-        (title, subtitle, image) = viewModel.loadCells(from: indexPath)
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = subtitle
-        cell.imageView?.image = image
-        return cell
+        return viewModel.dataSource.tableView(tableView, cellForRowAt: indexPath)
     }
     
     // MARK: - UITableViewDelegate
@@ -83,22 +75,10 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             }
         }
     }
-    
+}
+
+extension DashboardTableViewController: MFMailComposeViewControllerDelegate {
     // MARK: Mail Compose
-    func composeMail() {
-        guard MFMailComposeViewController.canSendMail() else {
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("mailNotSupportedTitle", comment: ""))
-            return
-        }
-        let mailVC = MFMailComposeViewController()
-        mailVC.mailComposeDelegate = self
-        mailVC.setToRecipients(["fixx@rpi.edu"])
-        mailVC.setSubject(NSLocalizedString("contactFixxSubject", comment: ""))
-        present(mailVC, animated: true, completion: nil)
-    }
-    
-    
     func mailComposeController(
         _ controller: MFMailComposeViewController,
         didFinishWith result: MFMailComposeResult,
@@ -122,5 +102,17 @@ class DashboardTableViewController: UITableViewController, MFMailComposeViewCont
             }
         }
     }
-
+    
+    func composeMail() {
+        guard MFMailComposeViewController.canSendMail() else {
+            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
+                                                  body: NSLocalizedString("mailNotSupportedTitle", comment: ""))
+            return
+        }
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients(["fixx@rpi.edu"])
+        mailVC.setSubject(NSLocalizedString("contactFixxSubject", comment: ""))
+        present(mailVC, animated: true, completion: nil)
+    }
 }

@@ -1,15 +1,14 @@
 //
-//  DashboardViewModel.swift
+//  AdminSettingsDataSource.swift
 //  autodoorctrl
 //
-//  Created by Jing Wei Li on 9/30/18.
-//  Copyright © 2018 Jing Wei Li. All rights reserved.
+//  Created by Jing Wei Li on 10/4/19.
+//  Copyright © 2019 Jing Wei Li. All rights reserved.
 //
 
 import UIKit
 
-class DashboardViewModel: NSObject {
-    
+class AdminSettingsDataSource: NSObject {
     let userInfoIdentifer = "userInfoCell"
     let actionIdentifier = "dashboardActionCell"
     
@@ -30,13 +29,6 @@ class DashboardViewModel: NSObject {
         return [2, supportTitles.count, actionTitles.count]
     }()
     
-    var dataSource: UITableViewDataSource = User.current.isAdmin ? AdminSettingsDataSource() : StandardSettingsDataSource()
-    
-    override init () {
-        super.init()
-    }
-    
-    
     func loadCells(from indexPath: IndexPath) -> (String, String?, UIImage?) {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
@@ -51,30 +43,31 @@ class DashboardViewModel: NSObject {
         }
         return ("", nil, nil)
     }
-    
-    // MARK: - Private
-    
-    func studentOperationsAlert(for mode: ServicesAPI.StudentOperations) -> UIViewController {
-        let alert = UIAlertController(title: NSLocalizedString("enterRCSIDTitle", comment: ""),
-                                      message: nil, preferredStyle: .alert)
-        alert.addTextField { $0.placeholder = "RCSID" }
-        
-        alert.addAction(UIAlertAction(
-            title: NSLocalizedString("Continue", comment: ""),
-            style: .destructive, handler:
-        { _ in
-            guard let rcsID = alert.textFields?.first?.text else { return }
-            ServicesAPI.performOperationOnStudent(with: rcsID, method: mode, successHandler: {
-                SwiftMessagesWrapper.showSuccessMessage(title: NSLocalizedString("Message", comment: ""),
-                                                        body: NSLocalizedString("Done", comment: ""))
-            }, errorHandler: { $0.handleError() })
-        }))
-        
-        alert.addAction(UIAlertAction(
-            title: NSLocalizedString("Cancel", comment: ""),
-            style: .cancel,
-            handler: nil))
-        return alert
+}
+
+extension AdminSettingsDataSource: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sectionCounts[section]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        let identifier = indexPath.section == 0 ? userInfoIdentifer : actionIdentifier
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let title: String, subtitle: String?, image: UIImage?
+        (title, subtitle, image) = loadCells(from: indexPath)
+        cell.textLabel?.text = title
+        cell.detailTextLabel?.text = subtitle
+        cell.imageView?.image = image
+        return cell
+    }
 }

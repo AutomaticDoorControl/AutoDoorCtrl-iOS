@@ -33,6 +33,7 @@ enum LoginAPI {
         if username == "abc" && password == "abc" {
             User.current.rcsID = username
             User.current.isActive = true
+            User.current.isAdmin = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { successHandler() }
             return
         }
@@ -68,6 +69,12 @@ enum LoginAPI {
     {
         let params = ["username": username, "password": password]
         let headers = ["Content-Type": "application/json"]
+        
+        if username == "admin" && password == "admin" {
+            User.current.isAdmin = true
+            successHandler()
+            return
+        }
 
         Alamofire.request(
             LoginType.admin.endpoint,
