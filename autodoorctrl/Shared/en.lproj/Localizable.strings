@@ -13,6 +13,9 @@
 "Message" = "Message";
 "Actions" = "Actions";
 "Continue" = "Continue";
+"noneTitle" = "None";
+"doneTitle" = "Done";
+"successTitle" = "Success";
 
 // Biometrics
 "BioCancelTitle" = "Enter RCS ID or Password";
@@ -59,7 +62,7 @@
 "enterRCSIDTitle" = "Enter RCSID";
 "myInfoTitle" = "My Info";
 
-// support & fixx
+// support & fixx & complaints
 "supportTitle" = "Support";
 "contactFixxTitle" = "Contact Fixx";
 "contactFixxSubject" = "Issue with an Automatic Door Control Unit";
@@ -68,6 +71,14 @@
 "mailSavedTitle" = "Saved Mail";
 "mailSuccessfulTitle" = "Mail sent successfully";
 "mailFailedTitle" = "Mail failed to send";
+"submitComplaintsTitle" = "Submit Complaints";
+"selectDoorLocationTitle" = "Select Door Location";
+"submitTitle" = "Submit";
+"mustSelectDoorTitle" = "Must select a door location";
+"submitComplaintScreenTitle" = "Submit Complaint";
+"complaintsPlaceholderTitle" = "Enter your complaint here";
+"sendComplaintsSuccessfulTitle" = "Complaints sent successfully";
+
 
 // accessibility
 "SettingsIconTitle" = "Settings";

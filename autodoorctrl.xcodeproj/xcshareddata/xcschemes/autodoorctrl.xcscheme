@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E76458C58C9140B6A16D60547E68E80C"
+               BlueprintIdentifier = "3383968E74B5371B20BB519B170DC7FD"
                BuildableName = "Alamofire.framework"
                BlueprintName = "Alamofire"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "167038FBB40C3129F6CE6941569B2CD6"
+               BlueprintIdentifier = "E3BAD26D40F8F9CE3C2A89A701A171A2"
                BuildableName = "Pods_autodoorctrl.framework"
                BlueprintName = "Pods-autodoorctrl"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1AF6D414ED3A2EF2C3F45D2735F788A2"
+               BlueprintIdentifier = "6ED591417B703C183C21C8C742228FFD"
                BuildableName = "SwiftMessages.framework"
                BlueprintName = "SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B877D6865AD66410E78CBFA9F6803946"
+               BlueprintIdentifier = "C3B7BBB3B703F918FD4792DC96B48243"
                BuildableName = "JLActivityIndicator.framework"
                BlueprintName = "JLActivityIndicator"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF14B4E60AEC16654449784DC7B7418B"
+               BlueprintIdentifier = "675F37B74BA6EBA8A4DC1748FF5BB6BF"
                BuildableName = "SwiftMessages.bundle"
                BlueprintName = "SwiftMessages-SwiftMessages"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -97,6 +97,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "04E829BA214323ED000BC96D"
+            BuildableName = "autodoorctrl.app"
+            BlueprintName = "autodoorctrl"
+            ReferencedContainer = "container:autodoorctrl.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -109,17 +118,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04E829BA214323ED000BC96D"
-            BuildableName = "autodoorctrl.app"
-            BlueprintName = "autodoorctrl"
-            ReferencedContainer = "container:autodoorctrl.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -141,8 +139,6 @@
             ReferencedContainer = "container:autodoorctrl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

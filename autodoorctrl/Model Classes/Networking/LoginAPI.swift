@@ -10,14 +10,23 @@ import Foundation
 import Alamofire
 
 enum LoginAPI {
-    private static let loginString = Constants.apiStart + "api/login"
-    private static let adminLoginString = Constants.apiStart + "api/admin/login"
+    enum LoginType: String {
+        case normal = "api/login"
+        case admin = "api/admin/login"
+        
+        var endpoint: String {
+            return Constants.apiStart + self.rawValue
+        }
+    }
     
     // MARK: - Public
     
-    static func loginUser(username: String, password: String,
-                          successHandler: @escaping () -> Void,
-                          errorHandler: @escaping (NetworkingError) -> Void) {
+    static func loginUser(
+        username: String,
+        password: String,
+        successHandler: @escaping () -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
         let params = ["RCSid": username]
         let headers = ["Content-Type": "application/json"]
         
@@ -29,17 +38,22 @@ enum LoginAPI {
             return
         }
         
-        Alamofire.request(loginString, method: .post, parameters: params, encoding: JSONEncoding.default,
-                          headers: headers).responseJSON { json in
-                            if let error = json.error {
-                                errorHandler(.genericError(error: error))
-                            } else {
-                                if let error = parseJSONResponse(from: json.data, originalRCSID: username) {
-                                    errorHandler(error)
-                                } else {
-                                    successHandler()
-                                }
-                            }
+        Alamofire.request(
+            LoginType.normal.endpoint,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers).responseJSON
+        { json in
+            if let error = json.error {
+                errorHandler(.genericError(error: error))
+            } else {
+                if let error = parseJSONResponse(from: json.data, originalRCSID: username) {
+                    errorHandler(error)
+                } else {
+                    successHandler()
+                }
+            }
         }
     }
     
@@ -47,9 +61,12 @@ enum LoginAPI {
      * Not working atm.
      * TODO: Figure out what the admin username / password is.
      */
-    static func loginAdmin(username: String, password: String,
-                           successHandler: @escaping () -> Void,
-                           errorHandler: @escaping (NetworkingError) -> Void) {
+    static func loginAdmin(
+        username: String,
+        password: String,
+        successHandler: @escaping () -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
         let params = ["username": username, "password": password]
         let headers = ["Content-Type": "application/json"]
         
@@ -59,16 +76,21 @@ enum LoginAPI {
             return
         }
 
-        Alamofire.request(adminLoginString, method: .post, parameters: params, encoding: JSONEncoding.default,
-                          headers: headers).responseJSON { json in
-                            if let error = json.error {
-                                errorHandler(.genericError(error: error))
-                            } else {
-                                let jsonData = try? JSONSerialization.jsonObject(with: json.data!, options: [])
-                                if let dict = jsonData as? [Dictionary<String, Any>] {
-                                    print(dict)
-                                }
-                            }
+        Alamofire.request(
+            LoginType.admin.endpoint,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers).responseJSON
+        { json in
+            if let error = json.error {
+                errorHandler(.genericError(error: error))
+            } else {
+                let jsonData = try? JSONSerialization.jsonObject(with: json.data!, options: [])
+                if let dict = jsonData as? [Dictionary<String, Any>] {
+                    print(dict)
+                }
+            }
         }
     }
     

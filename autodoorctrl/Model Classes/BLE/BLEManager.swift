@@ -10,9 +10,7 @@ import Foundation
 import CoreBluetooth
 import UIKit
 
-/**
- * Note: dispatch to the main thread when calling delegate methods.
- */
+/// Note: dispatch to the main thread when calling delegate methods.
 class BLEManager: NSObject {
     
     static let current = BLEManager()
@@ -52,23 +50,25 @@ class BLEManager: NSObject {
             DispatchQueue.main.async { [weak self] in
                 if let strongSelf = self {
                     strongSelf.delegate?.didReceiveError(error:
-                        BLEError.error(fromBLEState: strongSelf.bluetoothManager.state))
+                        BLEError(managerState: strongSelf.bluetoothManager.state))
                 }
             }
         }
     }
     
     func connect(peripheral: CBPeripheral) {
-        connectingTimeoutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
-                                            repeats: false) { [weak self] _ in
-                                                self?.delegate?.didReceiveError(error: .connectionTimeout)
+        connectingTimeoutTimer = Timer.scheduledTimer(
+            withTimeInterval: timeOutInterval,
+            repeats: false)
+        { [weak self] _ in
+            self?.delegate?.didReceiveError(error: .connectionTimeout)
         }
         bluetoothManager.connect(peripheral)
     }
     
     func disconnect() {
-        if let smartDeskUnwrapped = adc {
-            bluetoothManager.cancelPeripheralConnection(smartDeskUnwrapped)
+        if let peripheral = adc {
+            bluetoothManager.cancelPeripheralConnection(peripheral)
             adc = nil
             adcDataPoint = nil
             DispatchQueue.main.async { [weak self] in
@@ -80,6 +80,7 @@ class BLEManager: NSObject {
     func send(string: String) {
         guard let peripheral = adc, let characteristic = adcDataPoint else {
             print("Not ready to send data")
+            delegate?.didReceiveError(error: .inactiveConnection)
             return
         }
         // note: will not work using the .withResponse type
@@ -90,6 +91,7 @@ class BLEManager: NSObject {
     func send(colorCommand: String, color: UIColor) {
         guard let peripheral = adc, let characteristic = adcDataPoint else {
             print("Not ready to send data")
+            delegate?.didReceiveError(error: .inactiveConnection)
             return
         }
         // send 4 bytes of color information to the peripheral
@@ -156,7 +158,7 @@ extension BLEManager: CBCentralManagerDelegate {
             case .poweredOn:
                 print("BLE Manager Powered on State")
             default:
-                if let error = BLEError.error(fromBLEState: state) {
+                if let error = BLEError(managerState: state) {
                     self?.delegate?.didReceiveError(error: error)
                 }
             }
@@ -169,12 +171,12 @@ extension BLEManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
-        guard services.count == 1 else {
+        guard let service = services.first, services.count == 1 else {
             delegate?.didReceiveError(error: .genericError(error:
-                NSError(domain: "Should only have 1 service", code: 0, userInfo: [:])))
+                NSError(domain: "Should only have 1 service or no service discovered", code: 0, userInfo: [:])))
             return
         }
-        peripheral.discoverCharacteristics([bleCharacteristicUUID], for: services.first!)
+        peripheral.discoverCharacteristics([bleCharacteristicUUID], for: service)
     }
     
     func peripheral(_ peripheral: CBPeripheral,
@@ -186,15 +188,17 @@ extension BLEManager: CBPeripheralDelegate {
             }
             return
         }
-        guard let characteristics = service.characteristics, characteristics.count == 1 else {
+        guard let characteristics = service.characteristics,
+            let dataPoint = characteristics.first,
+            characteristics.count == 1 else {
             delegate?.didReceiveError(error: .unexpected)
             return
         }
-        adcDataPoint = characteristics.first!
+        adcDataPoint = dataPoint
         // at this point, cancel the timeout error message
         connectingTimeoutTimer?.invalidate()
         // listen for values sent from the BLE module
-        adc?.setNotifyValue(true, for: adcDataPoint!)
+        adc?.setNotifyValue(true, for: dataPoint)
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
         }

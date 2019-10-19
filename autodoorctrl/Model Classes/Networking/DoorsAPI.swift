@@ -29,8 +29,7 @@ enum DoorsAPI {
             if let data = json.data {
                 do {
                     let doorData = try JSONDecoder().decode(DoorResponse.self, from: data)
-                    prefetchedDoors = Dictionary(uniqueKeysWithValues:
-                        doorData.data.map { ($0.name, $0) })
+                    prefetchedDoors = Dictionary(uniqueKeysWithValues: doorData.data.map { ($0.name, $0) })
                     DispatchQueue.main.async {
                         success()
                     }

@@ -23,7 +23,10 @@ class AdminSettingsDataSource: NSObject {
                         NSLocalizedString("AddToActiveTitle", comment: ""),
                         NSLocalizedString("removeTitle", comment: "")]
     
-    let supportTitles = [NSLocalizedString("contactFixxTitle", comment: "")]
+    let supportTitles = [
+        NSLocalizedString("contactFixxTitle", comment: ""),
+        NSLocalizedString("submitComplaintsTitle", comment: "")
+    ]
     
     lazy var sectionCounts: [Int] = {
         return [2, supportTitles.count, actionTitles.count]

@@ -17,7 +17,10 @@ class StandardSettingsDataSource: NSObject {
     let firstSectionCount = 2
     let secondSectionCount = 4
     
-    let supportTitles = [NSLocalizedString("contactFixxTitle", comment: "")]
+    let supportTitles = [
+        NSLocalizedString("contactFixxTitle", comment: ""),
+        NSLocalizedString("submitComplaintsTitle", comment: "")
+    ]
     
     lazy var sectionCounts: [Int] = {
         return [2, supportTitles.count]

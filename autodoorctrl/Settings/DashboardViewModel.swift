@@ -10,46 +10,10 @@ import UIKit
 
 class DashboardViewModel: NSObject {
     
-    let userInfoIdentifer = "userInfoCell"
-    let actionIdentifier = "dashboardActionCell"
-    
-    let sectionTitles = [NSLocalizedString("myInfoTitle", comment: ""),
-                         NSLocalizedString("supportTitle", comment: ""),
-                         NSLocalizedString("Actions", comment: "")]
-    let firstSectionCount = 2
-    let secondSectionCount = 4
-    
-    let actionTitles = [NSLocalizedString("ShowActiveTitle", comment: ""),
-                        NSLocalizedString("registerTitle", comment: ""),
-                        NSLocalizedString("AddToActiveTitle", comment: ""),
-                        NSLocalizedString("removeTitle", comment: "")]
-    
-    let supportTitles = [NSLocalizedString("contactFixxTitle", comment: "")]
-    
-    lazy var sectionCounts: [Int] = {
-        return [2, supportTitles.count, actionTitles.count]
-    }()
-    
     var dataSource: UITableViewDataSource = User.current.isAdmin ? AdminSettingsDataSource() : StandardSettingsDataSource()
     
     override init () {
         super.init()
-    }
-    
-    
-    func loadCells(from indexPath: IndexPath) -> (String, String?, UIImage?) {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                return ("RCSID", User.current.rcsID, nil)
-            } else if indexPath.row == 1 {
-                return ("Status", User.current.isActive ? "Active" : "Inactive", nil)
-            }
-        } else if indexPath.section == 1 {
-            return (supportTitles[indexPath.row], nil, UIImage(named: "wrenchIcon"))
-        } else if indexPath.section == 2 {
-            return (actionTitles[indexPath.row], nil, UIImage(named: "SettingsIcon"))
-        }
-        return ("", nil, nil)
     }
     
     // MARK: - Private
