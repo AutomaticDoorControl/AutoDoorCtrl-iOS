@@ -13,6 +13,8 @@
 "Message" = "Message";
 "Actions" = "Actes";
 "Continue" = "Continuer";
+"noneTitle" = "Aucun";
+"doneTitle" = "Terminé";
 
 // Biometrics
 "BioCancelTitle" = "Entrer RCS ID/Mot De Passe";
@@ -59,7 +61,7 @@
 "enterRCSIDTitle" = "Entrer RCSID";
 "myInfoTitle" = "Mes infos";
 
-// support & fixx
+// support & fixx & complaints
 "supportTitle" = "Soutien";
 "contactFixxTitle" = "Contactez Fixx";
 "contactFixxSubject" = "Problème avec une unité de commande de porte automatique";
@@ -68,6 +70,13 @@
 "mailSavedTitle" = "Courrier enregistré";
 "mailSuccessfulTitle" = "Mail envoyé avec succès";
 "mailFailedTitle" = "Échec d'envoi du courrier";
+"submitComplaintsTitle" = "Soumettre des plaintes";
+"selectDoorLocationTitle" = "Sélectionnez la porte";
+"submitTitle" = "Soumettre";
+"mustSelectDoorTitle" = "Doit choisir un emplacement de porte";
+"submitComplaintScreenTitle" = "Soumettre une plainte";
+"complaintsPlaceholderTitle" = "Entrez votre plainte ici";
+
 
 // accessibility
 "SettingsIconTitle" = "Reglages";

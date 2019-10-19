@@ -38,6 +38,8 @@ enum ServicesAPI {
         successHandler: @escaping ([User]) -> Void,
         errorHandler: @escaping (NetworkingError) -> Void)
     {
+        
+        //let header = ["Content-Type": "application/json", "Authorization": "Bearer \(token)"]
         Alamofire.request(method.serverString).responseJSON { response in
             if !response.result.isSuccess {
                 errorHandler(.genericError(error: response.error))

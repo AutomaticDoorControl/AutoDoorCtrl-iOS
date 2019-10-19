@@ -61,16 +61,19 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Action Handlers
     
     func handleActions(with indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            composeMail()
-        } else if indexPath.section == 2 {
-            if indexPath.row == 0 {
+        if let action = SettingsAction(indexPath: indexPath) {
+            switch action {
+            case .contactFixx:
+                composeMail()
+            case .submitComplaint:
+                navigationController?.pushViewController(SubmitComplaintsViewController(), animated: true)
+            case .showActiveStudents:
                 performSegue(withIdentifier: "showDashboardDetails", sender: self)
-            } else if indexPath.row == 1 {
+            case .register:
                 present(viewModel.studentOperationsAlert(for: .register), animated: true, completion: nil)
-            } else if indexPath.row == 2 {
+            case .activate:
                 present(viewModel.studentOperationsAlert(for: .addToActive), animated: true, completion: nil)
-            } else if indexPath.row == 3 {
+            case .remove:
                 present(viewModel.studentOperationsAlert(for: .remove), animated: true, completion: nil)
             }
         }

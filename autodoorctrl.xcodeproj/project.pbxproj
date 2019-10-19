@@ -26,6 +26,13 @@
 		0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467018021560631007DF2BE /* DoorsListTableViewCell.xib */; };
 		0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */; };
 		04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */; };
+		04799C14235407980006FF3C /* SettingsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C13235407980006FF3C /* SettingsAction.swift */; };
+		04799C18235411C90006FF3C /* SubmitComplaintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */; };
+		04799C19235411C90006FF3C /* SubmitComplaintsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */; };
+		04799C1D235421650006FF3C /* SubmitComplaintsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C1C235421650006FF3C /* SubmitComplaintsViewModel.swift */; };
+		04799C22235423160006FF3C /* GenericPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C1F235423160006FF3C /* GenericPickerViewController.swift */; };
+		04799C23235423160006FF3C /* GenericPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04799C20235423160006FF3C /* GenericPickerViewController.xib */; };
+		04799C24235423160006FF3C /* GenericPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C21235423160006FF3C /* GenericPickerViewDelegate.swift */; };
 		0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */; };
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
@@ -91,6 +98,13 @@
 		0467018021560631007DF2BE /* DoorsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoorsListTableViewCell.xib; sourceTree = "<group>"; };
 		0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToDoorCommDelegate.swift; sourceTree = "<group>"; };
 		04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+DynamicType.swift"; sourceTree = "<group>"; };
+		04799C13235407980006FF3C /* SettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAction.swift; sourceTree = "<group>"; };
+		04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitComplaintsViewController.swift; sourceTree = "<group>"; };
+		04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitComplaintsViewController.xib; sourceTree = "<group>"; };
+		04799C1C235421650006FF3C /* SubmitComplaintsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitComplaintsViewModel.swift; sourceTree = "<group>"; };
+		04799C1F235423160006FF3C /* GenericPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericPickerViewController.swift; sourceTree = "<group>"; };
+		04799C20235423160006FF3C /* GenericPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenericPickerViewController.xib; sourceTree = "<group>"; };
+		04799C21235423160006FF3C /* GenericPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericPickerViewDelegate.swift; sourceTree = "<group>"; };
 		0481C29F214C70E40078BAAA /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
 		0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKeychainOperations.swift; sourceTree = "<group>"; };
 		0485F285215ECABE00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -197,19 +211,42 @@
 		04670177215600D8007DF2BE /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				04799C1E235422FF0006FF3C /* GenericPickerView */,
 				0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */,
 				0467018021560631007DF2BE /* DoorsListTableViewCell.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		04799C15235410C40006FF3C /* Complaints */ = {
+			isa = PBXGroup;
+			children = (
+				04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */,
+				04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */,
+				04799C1C235421650006FF3C /* SubmitComplaintsViewModel.swift */,
+			);
+			path = Complaints;
+			sourceTree = "<group>";
+		};
+		04799C1E235422FF0006FF3C /* GenericPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				04799C1F235423160006FF3C /* GenericPickerViewController.swift */,
+				04799C20235423160006FF3C /* GenericPickerViewController.xib */,
+				04799C21235423160006FF3C /* GenericPickerViewDelegate.swift */,
+			);
+			path = GenericPickerView;
+			sourceTree = "<group>";
+		};
 		049A5950220A4C9100F89B91 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				04799C15235410C40006FF3C /* Complaints */,
 				04106D232347E15B0091CCCE /* DataSources */,
 				04C2D1C22161933B0082C9C8 /* DashboardTableViewController.swift */,
 				04C2D1C7216199B30082C9C8 /* DashboardViewModel.swift */,
 				0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */,
+				04799C13235407980006FF3C /* SettingsAction.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -452,6 +489,8 @@
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
 				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
 				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
+				04799C19235411C90006FF3C /* SubmitComplaintsViewController.xib in Resources */,
+				04799C23235423160006FF3C /* GenericPickerViewController.xib in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,19 +561,24 @@
 				0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */,
 				04C2D1C6216197D00082C9C8 /* User.swift in Sources */,
 				04C2D1C8216199B30082C9C8 /* DashboardViewModel.swift in Sources */,
+				04799C24235423160006FF3C /* GenericPickerViewDelegate.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
 				04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */,
 				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */,
 				04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */,
+				04799C22235423160006FF3C /* GenericPickerViewController.swift in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
+				04799C18235411C90006FF3C /* SubmitComplaintsViewController.swift in Sources */,
 				0415B0492213849A0086BA21 /* Haptic.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				04799C1D235421650006FF3C /* SubmitComplaintsViewModel.swift in Sources */,
 				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
+				04799C14235407980006FF3C /* SettingsAction.swift in Sources */,
 				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,
 				046701742155FA66007DF2BE /* DoorsListTableViewController.swift in Sources */,
 				04D2DB19215CA5B20061E72D /* Constants.swift in Sources */,
