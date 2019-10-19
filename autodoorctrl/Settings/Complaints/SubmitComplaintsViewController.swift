@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import JLActivityIndicator
 
 class SubmitComplaintsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var editLocationButton: UILabel!
     @IBOutlet weak var textView: UITextView!
+    
+    private var submitButton: UIBarButtonItem?
     
     let viewModel: SubmitComplaintsViewModel
     let pickerView = GenericPickerViewController<SubmitComplaintsViewController>(
@@ -35,8 +38,11 @@ class SubmitComplaintsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = viewModel.screenTitle
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("submitTitle", comment: ""), style: .plain, target: self, action: #selector(submitComplaint))
+        submitButton = UIBarButtonItem(title: NSLocalizedString("submitTitle", comment: ""), style: .plain, target: self, action: #selector(submitComplaint))
+        navigationItem.rightBarButtonItem = submitButton
+        navigationItem.rightBarButtonItem?.isEnabled = false
         
+        editLocationButton.text = NSLocalizedString("noneTitle", comment: "")
         textView.textContainerInset = UIEdgeInsets(top: 16, left: 12, bottom: 0, right: 12)
         textView.text = viewModel.textViewPlaceholder
         textView.delegate = self
@@ -49,15 +55,28 @@ class SubmitComplaintsViewController: UIViewController {
     func refreshLayout() {
         scrollView.contentSize = CGSize(width: view.frame.width, height: 613)
     }
+    
+    func enableOrDisableEditLocation() {
+        let none = NSLocalizedString("noneTitle", comment: "")
+        submitButton?.isEnabled = textView.text != none && !textView.text.isEmpty && editLocationButton.text != none
+    }
 
     // MARK: - Selectors
     @objc func submitComplaint() {
-        guard editLocationButton.text != "None" else {
-            SwiftMessagesWrapper.showErrorMessage(
-                title: NSLocalizedString("ErrorTitle", comment: ""),
-                body: NSLocalizedString("mustSelectDoorTitle", comment: ""))
-            return
-        }
+        let activityIndicator = JLActivityIndicator(on: view, mode: .path)
+        activityIndicator.enableBackDrop = true
+        activityIndicator.start()
+        viewModel.submitComplaint(success: { [weak self] in
+            SwiftMessagesWrapper.showSuccessMessage(
+                title: NSLocalizedString("successTitle", comment: ""),
+                body: NSLocalizedString("sendComplaintsSuccessfulTitle" , comment: ""))
+            activityIndicator.stop()
+            self?.navigationController?.popViewController(animated: true)
+        }, error: { e in
+            activityIndicator.stop()
+            e.handleError()
+        })
+        
     }
     
     // MARK: - IBActions
@@ -73,6 +92,11 @@ extension SubmitComplaintsViewController: UITextViewDelegate {
         if textView.text == viewModel.textViewPlaceholder {
             textView.text = ""
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        enableOrDisableEditLocation()
+        viewModel.complaint = textView.text
     }
 }
 

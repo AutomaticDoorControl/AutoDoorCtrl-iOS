@@ -12,4 +12,17 @@ class SubmitComplaintsViewModel {
     let screenTitle = NSLocalizedString("submitComplaintScreenTitle", comment: "")
     let textViewPlaceholder = NSLocalizedString("complaintsPlaceholderTitle", comment: "")
     var selectedLocation = NSLocalizedString("noneTitle", comment: "")
-}
+    var complaint: String = ""
+    
+    func submitComplaint(success: @escaping () -> Void, error: @escaping (NetworkingError) -> Void) {
+        ServicesAPI.submitComplaints(
+            location: selectedLocation,
+            complaint: complaint,
+            successHandler: {
+                success()
+            },
+            errorHandler: { err in
+                error(err)
+            })
+    }
+ }

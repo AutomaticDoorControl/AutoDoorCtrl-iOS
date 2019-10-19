@@ -15,6 +15,7 @@
 "Continue" = "Continuer";
 "noneTitle" = "Aucun";
 "doneTitle" = "Terminé";
+"successTitle" = "Succès";
 
 // Biometrics
 "BioCancelTitle" = "Entrer RCS ID/Mot De Passe";
@@ -76,6 +77,7 @@
 "mustSelectDoorTitle" = "Doit choisir un emplacement de porte";
 "submitComplaintScreenTitle" = "Soumettre une plainte";
 "complaintsPlaceholderTitle" = "Entrez votre plainte ici";
+"sendComplaintsSuccessfulTitle" = "Plaintes envoyées avec succès";
 
 
 // accessibility

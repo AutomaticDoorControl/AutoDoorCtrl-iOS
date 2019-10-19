@@ -31,6 +31,14 @@ enum ServicesAPI {
         }
     }
     
+    enum MiscOperations: String {
+        case submitComplaint = "api/submit-complaint"
+        
+        var serverString: String {
+           return Constants.apiStart + rawValue
+        }
+    }
+    
     // MARK: - Methods
     
     static func showUserInfo(
@@ -79,6 +87,33 @@ enum ServicesAPI {
             } else {
                 // server sends no response back. If there's no obvious error then we have to assume
                 // that the process has succeeded
+                successHandler()
+            }
+        }
+    }
+    
+    static func submitComplaints(
+        location: String,
+        complaint: String,
+        successHandler: @escaping () -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
+        let params = ["Location": location, "Message": complaint]
+        let headers = ["Content-Type": "application/json"]
+        
+        Alamofire.request(
+            MiscOperations.submitComplaint.serverString,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers).responseJSON
+        { json in
+            if let error = json.error {
+                errorHandler(.genericError(error: error))
+            } else {
+                if let data = json.data, let message = String(data: data, encoding: .utf8) {
+                    print(message)
+                }
                 successHandler()
             }
         }

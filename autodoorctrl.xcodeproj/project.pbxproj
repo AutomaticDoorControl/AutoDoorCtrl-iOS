@@ -128,7 +128,7 @@
 		04D2DB18215CA5B20061E72D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04DDAC572257DE82004752B0 /* DoorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorResponse.swift; sourceTree = "<group>"; };
 		04E089FB21433A9000E72A85 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
-		04E829BB214323ED000BC96D /* autodoorctrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autodoorctrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04E829BB214323ED000BC96D /* ADC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829BE214323ED000BC96D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04E829C0214323ED000BC96D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04E829C3214323ED000BC96D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -330,7 +330,7 @@
 		04E829BC214323ED000BC96D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04E829BB214323ED000BC96D /* autodoorctrl.app */,
+				04E829BB214323ED000BC96D /* ADC.app */,
 				04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */,
 			);
 			name = Products;
@@ -414,7 +414,7 @@
 			);
 			name = autodoorctrl;
 			productName = autodoorctrl;
-			productReference = 04E829BB214323ED000BC96D /* autodoorctrl.app */;
+			productReference = 04E829BB214323ED000BC96D /* ADC.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04E829CE214323EF000BC96D /* autodoorctrlTests */ = {
@@ -799,7 +799,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -823,7 +823,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADC;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "autodoorctrl/autodoorctrl-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
