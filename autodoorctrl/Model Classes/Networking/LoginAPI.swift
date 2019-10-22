@@ -6,8 +6,8 @@
 //  Copyright © 2018 Jing Wei Li. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import SwiftJWT
 
 enum LoginAPI {
     enum LoginType: String {
@@ -48,19 +48,19 @@ enum LoginAPI {
             if let error = json.error {
                 errorHandler(.genericError(error: error))
             } else {
-                if let error = parseJSONResponse(from: json.data, originalRCSID: username) {
-                    errorHandler(error)
-                } else {
-                    successHandler()
+                if let data = json.data {
+                    do {
+                        let session = try JSONDecoder().decode(Session.self, from: data)
+                        let _ = try User(session: session, isAdmin: false)
+                        successHandler()
+                    } catch let error {
+                        errorHandler(.genericError(error: error))
+                    }
                 }
             }
         }
     }
     
-    /**
-     * Not working atm.
-     * TODO: Figure out what the admin username / password is.
-     */
     static func loginAdmin(
         username: String,
         password: String,
@@ -68,7 +68,7 @@ enum LoginAPI {
         errorHandler: @escaping (NetworkingError) -> Void)
     {
         let params = ["username": username, "password": password]
-        let headers = ["Content-Type": "application/json"]
+        let headers = ["Content-Type": "application/json;charset=UTF-8"]
         
         if username == "admin" && password == "admin" {
             User.current.isAdmin = true
@@ -86,31 +86,17 @@ enum LoginAPI {
             if let error = json.error {
                 errorHandler(.genericError(error: error))
             } else {
-                let jsonData = try? JSONSerialization.jsonObject(with: json.data!, options: [])
-                if let dict = jsonData as? [Dictionary<String, Any>] {
-                    print(dict)
+                if let data = json.data {
+                    do {
+                        let session = try JSONDecoder().decode(Session.self, from: data)
+                        let _ = try User(session: session, isAdmin: true)
+                        successHandler()
+                    } catch let error {
+                        errorHandler(.genericError(error: error))
+                    }
                 }
             }
         }
-    }
-    
-    // MARK: - Private
-    
-    /**
-     * The response must contain an active student!
-     * Using Codable instead of JSONSerialization reduced the amount of lines needed to parse json!
-     */
-    private static func parseJSONResponse(from json: Data?, originalRCSID rcsID: String) -> NetworkingError? {
-        if let data = json,
-            let user = (try? JSONDecoder().decode([User].self, from: data))?.first {
-                User.current = user
-                print(User.current.debugDescription)
-                guard User.current.isActive else {
-                    return .genericError(error: NSError(domain: "Student is inactive", code: 0, userInfo: [:]))
-                }
-                return nil
-        }
-        return .genericError(error: NSError(domain: "Student does not exist in DB", code: 0, userInfo: [:]))
     }
     
 }
