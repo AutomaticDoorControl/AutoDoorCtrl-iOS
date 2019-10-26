@@ -7,6 +7,7 @@
 //
 
 import SwiftJWT
+import Foundation
 
 struct ADCClaim: Claims {
     let iat: Date

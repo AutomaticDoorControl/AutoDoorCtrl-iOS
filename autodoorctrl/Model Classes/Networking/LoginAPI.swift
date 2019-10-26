@@ -27,7 +27,7 @@ enum LoginAPI {
         successHandler: @escaping () -> Void,
         errorHandler: @escaping (NetworkingError) -> Void)
     {
-        let params = ["RCSid": username]
+        let params = ["RCSid": username, "password": password]
         let headers = ["Content-Type": "application/json"]
         
         if username == "abc" && password == "abc" {

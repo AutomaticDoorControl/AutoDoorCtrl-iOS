@@ -9,7 +9,7 @@
 import UIKit
 import CoreBluetooth
 
-class DoorsListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BLEManagerDelegate {
+class DoorsListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var slideBar: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var slideBarHandle: UIView!
@@ -51,6 +51,12 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
             SwiftMessagesWrapper.showErrorMessage(title: "Error", body: error.localizedDescription)
         })
         
+    }
+    
+    @objc func refreshBLEs() {
+        BLEManager.current.delegate = self
+        noBLEWarning.isHidden = true
+        BLEManager.current.scan()
     }
     
     // MARK: - Table View Delegate
@@ -120,30 +126,26 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
         sender.setTranslation(CGPoint.zero, in: view)
         delegate?.animateBottomSheet(amount: translation.y, scrollToEdge: false)
     }
-    
+}
+
+extension DoorsListTableViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
-    
-    func didDiscoverDoors(doors: [Door]) {
-        noBLEWarning.isHidden = !doors.isEmpty
-        delegate?.didReceiveDoorsData(with: doors)
-        viewModel.doors = doors
-        tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
-    
-    func didReceiveError(error: BLEError?) {
-        tableView.refreshControl?.endRefreshing()
-        noBLEWarning.isHidden = false
-        error?.showErrorMessage()
-        if let error = error, case .scanningTimeout = error {
-            viewModel.doors.removeAll()
-            tableView.reloadData()
-        }
-    }
-    
-    @objc func refreshBLEs() {
-        BLEManager.current.delegate = self
-        noBLEWarning.isHidden = true
-        BLEManager.current.scan()
-    }
+       
+       func didDiscoverDoors(doors: [Door]) {
+           noBLEWarning.isHidden = !doors.isEmpty
+           delegate?.didReceiveDoorsData(with: doors)
+           viewModel.doors = doors
+           tableView.refreshControl?.endRefreshing()
+           tableView.reloadData()
+       }
+       
+       func didReceiveError(error: BLEError?) {
+           tableView.refreshControl?.endRefreshing()
+           noBLEWarning.isHidden = false
+           error?.showErrorMessage()
+           if let error = error, case .scanningTimeout = error {
+               viewModel.doors.removeAll()
+               tableView.reloadData()
+           }
+       }
 }

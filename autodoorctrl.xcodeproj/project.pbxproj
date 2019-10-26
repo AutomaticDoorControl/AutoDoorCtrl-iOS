@@ -875,7 +875,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADC.app/ADC";
 			};
 			name = Debug;
 		};
@@ -896,7 +896,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/autodoorctrl.app/autodoorctrl";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADC.app/ADC";
 			};
 			name = Release;
 		};
