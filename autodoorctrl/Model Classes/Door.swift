@@ -21,7 +21,7 @@ class Door: NSObject, MKAnnotation {
     var peripheral: CBPeripheral?
     
     init?(peripheral: CBPeripheral,
-          prefetchedDoors: [String: DoorResponse.DoorResponseData]) {
+          prefetchedDoors: [String: DoorResponse]) {
         if let name = peripheral.name?.trimmingCharacters(in: .whitespacesAndNewlines),
             let prefetchedReponse = prefetchedDoors[name] {
             self.peripheral = peripheral

@@ -8,13 +8,27 @@
 
 import Foundation
 
-struct DoorResponse: Codable {
-    let data: [DoorResponseData]
+class DoorResponse: Codable {
+    let name: String
+    let location: String
+    let latitude: Double
+    let longitude: Double
+    let mac: String
     
-    struct DoorResponseData: Codable {
-        let name: String
-        let location: String
-        let latitude: Double
-        let longitude: Double
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        location = try container.decode(String.self, forKey: .location)
+        mac = try container.decode(String.self, forKey: .mac)
+        
+        guard let latitude = Double(try container.decode(String.self, forKey: .latitude)) else {
+            throw NSError(domain: "Invalid latitude", code: 0, userInfo: nil)
+        }
+        self.latitude = latitude
+        
+        guard let longitude = Double(try container.decode(String.self, forKey: .longitude)) else {
+            throw NSError(domain: "Invalid longitude", code: 0, userInfo: nil)
+        }
+        self.longitude = longitude
     }
 }

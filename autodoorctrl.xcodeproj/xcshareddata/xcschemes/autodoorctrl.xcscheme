@@ -85,7 +85,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "04E829BA214323ED000BC96D"
-               BuildableName = "autodoorctrl.app"
+               BuildableName = "ADC.app"
                BlueprintName = "autodoorctrl"
                ReferencedContainer = "container:autodoorctrl.xcodeproj">
             </BuildableReference>
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04E829BA214323ED000BC96D"
-            BuildableName = "autodoorctrl.app"
+            BuildableName = "ADC.app"
             BlueprintName = "autodoorctrl"
             ReferencedContainer = "container:autodoorctrl.xcodeproj">
          </BuildableReference>
@@ -134,7 +134,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04E829BA214323ED000BC96D"
-            BuildableName = "autodoorctrl.app"
+            BuildableName = "ADC.app"
             BlueprintName = "autodoorctrl"
             ReferencedContainer = "container:autodoorctrl.xcodeproj">
          </BuildableReference>
@@ -151,7 +151,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04E829BA214323ED000BC96D"
-            BuildableName = "autodoorctrl.app"
+            BuildableName = "ADC.app"
             BlueprintName = "autodoorctrl"
             ReferencedContainer = "container:autodoorctrl.xcodeproj">
          </BuildableReference>

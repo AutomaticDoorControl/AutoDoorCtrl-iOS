@@ -39,6 +39,17 @@ enum ServicesAPI {
         }
     }
     
+    // MARK: - Structs
+    struct UserResponse: Codable {
+        let status: String
+        let rcsID: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case status = "Status"
+            case rcsID = "RCSid"
+        }
+    }
+    
     // MARK: - Methods
     
     static func showUserInfo(
@@ -47,21 +58,30 @@ enum ServicesAPI {
         errorHandler: @escaping (NetworkingError) -> Void)
     {
         
-        //let header = ["Content-Type": "application/json", "Authorization": "Bearer \(token)"]
-        Alamofire.request(method.serverString).responseJSON { response in
-            if !response.result.isSuccess {
-                errorHandler(.genericError(error: response.error))
+        let header = ["Content-Type": "application/json", "Authorization": "Bearer \(User.current.session.sessionID)"]
+        Alamofire.request(
+            method.serverString,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: header).responseJSON
+        { json in
+            if let error = json.error {
+                errorHandler(.genericError(error: error))
             } else {
-                guard let data  = response.data,
-                    let details = try? JSONDecoder().decode([User].self, from: data) else {
-                        errorHandler(.genericError(error: NSError(domain: "Unexpected Error", code: 0, userInfo: [:])))
-                        return
+                do {
+                    if let data = json.data {
+                        let users = try JSONDecoder().decode([UserResponse].self, from: data)
+                        successHandler(users.map { User(userResponse: $0) })
+                    } else {
+                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                    }
+                } catch let error {
+                    errorHandler(.genericError(error: error))
                 }
-                successHandler(details)
             }
         }
     }
-    
     
     /**
      Perform 3 types of operations on an RCSID: addToActive, register or remove
@@ -73,20 +93,18 @@ enum ServicesAPI {
         errorHandler: @escaping (NetworkingError) -> Void)
     {
         let params = ["RCSid": rcsID]
-        let headers = ["Content-Type": "application/json"]
+        let header = ["Content-Type": "application/json", "Authorization": "Bearer \(User.current.session.sessionID)"]
         
-        Alamofire.request(method.serverString, method: .post, parameters: params, encoding: JSONEncoding.default,
-                          headers: headers).responseJSON { json in
+        Alamofire.request(
+            method.serverString,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header).responseJSON
+        { json in
             if let error = json.error {
-                // as it stands now, this actually signals the success of operations
-                if error.localizedDescription == "Response could not be serialized, input data was nil or zero length." {
-                    successHandler()
-                } else {
-                    errorHandler(.genericError(error: error))
-                }
+                errorHandler(.genericError(error: error))
             } else {
-                // server sends no response back. If there's no obvious error then we have to assume
-                // that the process has succeeded
                 successHandler()
             }
         }

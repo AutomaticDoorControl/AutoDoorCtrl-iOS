@@ -11,9 +11,9 @@ import CoreLocation
 import Alamofire
 
 enum DoorsAPI {
-    private static let dataURL = "https://raw.githubusercontent.com/AutomaticDoorControl/AutomaticDoorControl/master/DoorsData.json"
+    private static let dataURL = Constants.apiStart + "api/get-doors"
     
-    static var prefetchedDoors: [String: DoorResponse.DoorResponseData] = [:]
+    static var prefetchedDoors: [String: DoorResponse] = [:]
     
     static func prefetchDoorsData(
         success: @escaping () -> Void,
@@ -28,8 +28,8 @@ enum DoorsAPI {
         { json in
             if let data = json.data {
                 do {
-                    let doorData = try JSONDecoder().decode(DoorResponse.self, from: data)
-                    prefetchedDoors = Dictionary(uniqueKeysWithValues: doorData.data.map { ($0.name, $0) })
+                    let doorData = try JSONDecoder().decode([DoorResponse].self, from: data)
+                    prefetchedDoors = Dictionary(uniqueKeysWithValues: doorData.map { ($0.name, $0) })
                     DispatchQueue.main.async {
                         success()
                     }

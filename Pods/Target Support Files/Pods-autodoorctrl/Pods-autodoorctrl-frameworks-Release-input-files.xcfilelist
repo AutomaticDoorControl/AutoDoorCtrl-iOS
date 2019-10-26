@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/JLActivityIndicator/JLActivityIndicator.framework
+${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

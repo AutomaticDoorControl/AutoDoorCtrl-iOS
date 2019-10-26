@@ -246,12 +246,15 @@ extension BLEManager {
         let asciiArr = asciiStr.components(separatedBy: "\r\n")
         print(asciiArr)
         // remove the 10 and empty string
-        return asciiArr.filter { $0 != "10" && $0 != "" }.map { element -> String in
-            guard let asciiNum = Int(element), let unicodeScalar = UnicodeScalar(asciiNum) else {
-                return ""
+        return asciiArr
+            .filter { $0 != "10" && $0 != "" }
+            .map { element -> String in
+                guard let asciiNum = Int(element), let unicodeScalar = UnicodeScalar(asciiNum) else {
+                    return ""
+                }
+                return "\(Character(unicodeScalar))"
             }
-            return "\(Character(unicodeScalar))"
-        }.joined().trimmingCharacters(in: .whitespacesAndNewlines)
+            .joined().trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     /**

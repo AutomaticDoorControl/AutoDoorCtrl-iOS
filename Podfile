@@ -8,5 +8,4 @@ target 'autodoorctrl' do
      pod 'SwiftMessages'
      pod 'JLActivityIndicator'
      pod 'lottie-ios'
-    
 end

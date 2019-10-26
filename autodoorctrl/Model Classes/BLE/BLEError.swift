@@ -48,7 +48,7 @@ enum BLEError {
         case .unexpected:
             return "Unexpected Error Encountered"
         case .scanningTimeout:
-            return "Scanning timed out"
+            return "No Doors Found Near You"
         case .inactiveConnection:
             return "No BLE device is currently connected"
         }
