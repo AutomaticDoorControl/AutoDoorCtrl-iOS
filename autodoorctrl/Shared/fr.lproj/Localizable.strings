@@ -78,6 +78,8 @@
 "submitComplaintScreenTitle" = "Soumettre une plainte";
 "complaintsPlaceholderTitle" = "Entrez votre plainte ici";
 "sendComplaintsSuccessfulTitle" = "Plaintes envoyées avec succès";
+"viewComplaintsTitle" = "Afficher les réclamations";
+"complaintsTitle" = "Les plaintes";
 
 
 // accessibility

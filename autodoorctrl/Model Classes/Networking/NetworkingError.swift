@@ -26,8 +26,8 @@ enum NetworkingError {
             SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
                                                   body: NSLocalizedString("ErrorNoInternetTitle", comment: ""))
         case .genericError(let error):
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: error?.localizedDescription ?? "")
+            let body = (error as NSError?)?.localizedDescription ?? ""
+            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""), body: body)
         }
     }
 }

@@ -15,10 +15,8 @@ class DashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationController?.view.backgroundColor = Constants.adcRed
-        }
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.view.backgroundColor = Constants.adcRed
     }
 
     // MARK: - Table view data source
@@ -75,6 +73,8 @@ class DashboardTableViewController: UITableViewController {
                 present(viewModel.studentOperationsAlert(for: .addToActive), animated: true, completion: nil)
             case .remove:
                 present(viewModel.studentOperationsAlert(for: .remove), animated: true, completion: nil)
+            case .viewComplaints:
+                navigationController?.pushViewController(ViewComplaintsTableViewController(), animated: true)
             }
         }
     }
@@ -93,15 +93,13 @@ extension DashboardTableViewController: MFMailComposeViewControllerDelegate {
                 return
             }
             switch result {
-            case .cancelled:
-                SwiftMessagesWrapper.showWarningMessage(title: NSLocalizedString("mailComposingCancelled", comment: ""), body: "")
             case .saved:
                 SwiftMessagesWrapper.showSuccessMessage(title: NSLocalizedString("mailSavedTitle" , comment: ""), body: "")
             case .sent:
                 SwiftMessagesWrapper.showSuccessMessage(title: NSLocalizedString("mailSuccessfulTitle", comment: ""), body: "")
             case .failed:
                 SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("mailFailedTitle", comment: ""), body: "")
-            @unknown default: break
+            default: break
             }
         }
     }

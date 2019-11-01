@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, MapToDoorCommDelegate {
+class MapsViewController: UIViewController {
     @IBOutlet weak var backButtonBackground: UIVisualEffectView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var doorsListView: UIView!
@@ -76,81 +76,6 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
     
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let userLocation = locations.first else { return }
-        centerMapOnUserLocation(from: userLocation.coordinate)
-        locationManager.stopUpdatingLocation()
-    }
-    
-    // MARK: - MapToDoorCommDelegate
-    
-    func didReceiveDoorsData(with doors: [Door]) {
-        mapView.addAnnotations(doors)
-    }
-    
-    func didSelectSingleDoor(with door: Door) {
-        keepingRegionScale = true
-        if UIDevice.current.userInterfaceIdiom == .phone { collapseList() }
-        centerMapOnUserLocation(from: door.coordinate)
-        mapView.selectAnnotation(door, animated: true)
-    }
-    
-    func collapseList() {
-        animateDoorListCollapsing(amount: doorsListView.frame.height - 170) // positive amount
-    }
-    
-    func expandList() {
-        isDoorsListExpanded = !isDoorsListExpanded
-        // negative amount
-        animateDoorListCollapsing(amount: doorsListView.frame.height - UIScreen.main.bounds.height * 0.6)
-    }
-    
-    func animateBottomSheet(amount: CGFloat, scrollToEdge: Bool) {
-        isDoorsListExpanded = true
-        if scrollToEdge {
-            animateDoorListCollapsing(amount: amount)
-            return
-        }
-        doorsListHeight.constant -= amount
-        doorsListView.layoutIfNeeded()
-    }
-    
-    // MARK: - MKMapViewDelegate
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let doorAnnotation = annotation as? Door else { return nil }
-        currentAnnotation = doorAnnotation
-        var view: MKAnnotationView
-        if #available(iOS 11.0, *) {
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: Door.identifier)
-            as? MKMarkerAnnotationView {
-                dequeuedView.annotation = doorAnnotation
-                view = dequeuedView
-            } else {
-                view = MKMarkerAnnotationView(annotation: doorAnnotation, reuseIdentifier: Door.identifier)
-                view.canShowCallout = true
-                view.accessibilityValue = NSLocalizedString("shakeHint", comment: "")
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                let doorButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-                doorButton.setImage(UIImage(named: "UnlockIcon"), for: .normal)
-                view.rightCalloutAccessoryView = doorButton
-            }
-            return view
-        }
-        return MKAnnotationView(annotation: annotation, reuseIdentifier: Door.identifier)
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let door = view.annotation as? Door, let peripheral = door.peripheral {
-            BLEManager.current.delegate = nil
-            BLEManager.current.delegate = self
-            BLEManager.current.connect(peripheral: peripheral)
-        }
-    }
-    
-    
     // MARK: - IBActions
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -203,6 +128,51 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     }
 }
 
+extension MapsViewController: CLLocationManagerDelegate {
+    // MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let userLocation = locations.first else { return }
+        centerMapOnUserLocation(from: userLocation.coordinate)
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+extension MapsViewController: MKMapViewDelegate {
+    // MARK: - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let doorAnnotation = annotation as? Door else { return nil }
+        currentAnnotation = doorAnnotation
+        var view: MKAnnotationView
+        if #available(iOS 11.0, *) {
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: Door.identifier)
+            as? MKMarkerAnnotationView {
+                dequeuedView.annotation = doorAnnotation
+                view = dequeuedView
+            } else {
+                view = MKMarkerAnnotationView(annotation: doorAnnotation, reuseIdentifier: Door.identifier)
+                view.canShowCallout = true
+                view.accessibilityValue = NSLocalizedString("shakeHint", comment: "")
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                let doorButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                doorButton.setImage(UIImage(named: "UnlockIcon"), for: .normal)
+                view.rightCalloutAccessoryView = doorButton
+            }
+            return view
+        }
+        return MKAnnotationView(annotation: annotation, reuseIdentifier: Door.identifier)
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let door = view.annotation as? Door, let peripheral = door.peripheral {
+            BLEManager.current.delegate = nil
+            BLEManager.current.delegate = self
+            BLEManager.current.connect(peripheral: peripheral)
+        }
+    }
+}
+
 extension MapsViewController: BLEManagerDelegate {
     func readyToSendData() {
         performSegue(withIdentifier: "showSwitchVC", sender: self)
@@ -211,5 +181,40 @@ extension MapsViewController: BLEManagerDelegate {
     func didReceiveError(error: BLEError?) {
         error?.showErrorMessage()
         mapView.removeAnnotations(mapView.annotations)
+    }
+}
+
+extension MapsViewController: MapToDoorCommDelegate {
+    // MARK: - MapToDoorCommDelegate
+    
+    func didReceiveDoorsData(with doors: [Door]) {
+        mapView.addAnnotations(doors)
+    }
+    
+    func didSelectSingleDoor(with door: Door) {
+        keepingRegionScale = true
+        if UIDevice.current.userInterfaceIdiom == .phone { collapseList() }
+        centerMapOnUserLocation(from: door.coordinate)
+        mapView.selectAnnotation(door, animated: true)
+    }
+    
+    func collapseList() {
+        animateDoorListCollapsing(amount: doorsListView.frame.height - 170) // positive amount
+    }
+    
+    func expandList() {
+        isDoorsListExpanded = !isDoorsListExpanded
+        // negative amount
+        animateDoorListCollapsing(amount: doorsListView.frame.height - UIScreen.main.bounds.height * 0.6)
+    }
+    
+    func animateBottomSheet(amount: CGFloat, scrollToEdge: Bool) {
+        isDoorsListExpanded = true
+        if scrollToEdge {
+            animateDoorListCollapsing(amount: amount)
+            return
+        }
+        doorsListHeight.constant -= amount
+        doorsListView.layoutIfNeeded()
     }
 }

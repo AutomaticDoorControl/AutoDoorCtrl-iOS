@@ -18,10 +18,13 @@ class AdminSettingsDataSource: NSObject {
     let firstSectionCount = 2
     let secondSectionCount = 4
     
-    let actionTitles = [NSLocalizedString("ShowActiveTitle", comment: ""),
-                        NSLocalizedString("registerTitle", comment: ""),
-                        NSLocalizedString("AddToActiveTitle", comment: ""),
-                        NSLocalizedString("removeTitle", comment: "")]
+    let actionTitles = [
+        NSLocalizedString("ShowActiveTitle", comment: ""),
+        NSLocalizedString("registerTitle", comment: ""),
+        NSLocalizedString("AddToActiveTitle", comment: ""),
+        NSLocalizedString("removeTitle", comment: ""),
+        NSLocalizedString("viewComplaintsTitle", comment: "")
+    ]
     
     let supportTitles = [
         NSLocalizedString("contactFixxTitle", comment: ""),
