@@ -65,8 +65,12 @@
 		04E829C6214323EF000BC96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C5214323EF000BC96D /* Assets.xcassets */; };
 		04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E829C7214323EF000BC96D /* LaunchScreen.storyboard */; };
 		04EAB1342347E33200CCACA8 /* StandardSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */; };
+		04F130322364E1F70072C964 /* ViewComplaintsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F130302364E1F70072C964 /* ViewComplaintsTableViewController.swift */; };
+		04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F130312364E1F70072C964 /* ViewComplaintsTableViewController.xib */; };
 		04F882F721436D67005306AF /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F621436D67005306AF /* LoginAPI.swift */; };
 		04F882FA214370B0005306AF /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F882F9214370B0005306AF /* NetworkingError.swift */; };
+		04FEC9522364E83900FA7480 /* ComplaintsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEC9502364E83900FA7480 /* ComplaintsTableViewCell.swift */; };
+		04FEC9532364E83900FA7480 /* ComplaintsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FEC9512364E83900FA7480 /* ComplaintsTableViewCell.xib */; };
 		37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */; };
 /* End PBXBuildFile section */
 
@@ -147,8 +151,12 @@
 		04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = autodoorctrlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E829D5214323EF000BC96D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSettingsDataSource.swift; sourceTree = "<group>"; };
+		04F130302364E1F70072C964 /* ViewComplaintsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComplaintsTableViewController.swift; sourceTree = "<group>"; };
+		04F130312364E1F70072C964 /* ViewComplaintsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewComplaintsTableViewController.xib; sourceTree = "<group>"; };
 		04F882F621436D67005306AF /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		04F882F9214370B0005306AF /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		04FEC9502364E83900FA7480 /* ComplaintsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsTableViewCell.swift; sourceTree = "<group>"; };
+		04FEC9512364E83900FA7480 /* ComplaintsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintsTableViewCell.xib; sourceTree = "<group>"; };
 		2152557AA9808F5B2656DCB1 /* Pods_autodoorctrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F29A1E8397778149C470102 /* Pods-autodoorctrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autodoorctrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-autodoorctrl/Pods-autodoorctrl.debug.xcconfig"; sourceTree = "<group>"; };
 		4A24DDF21729A8813D1DBF99 /* Pods_autodoorctrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autodoorctrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +252,10 @@
 				04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */,
 				04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */,
 				04799C1C235421650006FF3C /* SubmitComplaintsViewModel.swift */,
+				04F130302364E1F70072C964 /* ViewComplaintsTableViewController.swift */,
+				04F130312364E1F70072C964 /* ViewComplaintsTableViewController.xib */,
+				04FEC9502364E83900FA7480 /* ComplaintsTableViewCell.swift */,
+				04FEC9512364E83900FA7480 /* ComplaintsTableViewCell.xib */,
 			);
 			path = Complaints;
 			sourceTree = "<group>";
@@ -513,8 +525,10 @@
 				0485F29C215F56D900742978 /* InfoPlist.strings in Resources */,
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
+				04FEC9532364E83900FA7480 /* ComplaintsTableViewCell.xib in Resources */,
 				04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
+				04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */,
 				041F643E235B7CF10057F48F /* adminPublic.key in Resources */,
 				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
 				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
@@ -615,8 +629,10 @@
 				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04EAB1342347E33200CCACA8 /* StandardSettingsDataSource.swift in Sources */,
+				04F130322364E1F70072C964 /* ViewComplaintsTableViewController.swift in Sources */,
 				04F882FA214370B0005306AF /* NetworkingError.swift in Sources */,
 				0467017921560123007DF2BE /* DoorsAPI.swift in Sources */,
+				04FEC9522364E83900FA7480 /* ComplaintsTableViewCell.swift in Sources */,
 				040F689C214B734700F66C94 /* UserDefaults+Extensions.swift in Sources */,
 				04106D222347E0E40091CCCE /* AdminSettingsDataSource.swift in Sources */,
 				04C8C7B5216039D8005D61C6 /* ServicesAPI.swift in Sources */,
@@ -743,7 +759,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -799,7 +815,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

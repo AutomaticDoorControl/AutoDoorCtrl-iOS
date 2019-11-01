@@ -38,7 +38,7 @@ enum BLEError {
     var errorDesctription: String {
         switch self {
         case .genericError(let error):
-            return error?.localizedDescription ?? ""
+            return (error as NSError?)?.domain ?? ""
         case .bluetoothOff:
             return  "Bluetooth is off"
         case .connectionTimeout:
@@ -55,6 +55,12 @@ enum BLEError {
     }
     
     func showErrorMessage() {
-        SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
+        switch self {
+        case .scanningTimeout:
+            // more subtle, less in-your-face type of presentation
+            SwiftMessagesWrapper.showWarningMessage(title: "Oops", body: errorDesctription)
+        default:
+            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
+        }
     }
 }

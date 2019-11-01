@@ -49,7 +49,9 @@ class User: NSObject {
         } else {
             throw NSError(domain: "Invalid public key", code: 0, userInfo: nil)
         }
-        let newJWT = try JWT<ADCClaim>(jwtString: session.sessionID, verifier: JWTVerifier.rs256(publicKey: keyString.data(using: .utf8)!))
+        let newJWT = try JWT<ADCClaim>(
+            jwtString: session.sessionID,
+            verifier: JWTVerifier.rs256(publicKey: keyString.data(using: .utf8)!))
         let claim = newJWT.claims
         
         rcsID = claim.sub

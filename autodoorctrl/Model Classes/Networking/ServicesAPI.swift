@@ -33,6 +33,7 @@ enum ServicesAPI {
     
     enum MiscOperations: String {
         case submitComplaint = "api/submit-complaint"
+        case getComplaints = "api/get-complaints"
         
         var serverString: String {
            return Constants.apiStart + rawValue
@@ -48,6 +49,11 @@ enum ServicesAPI {
             case status = "Status"
             case rcsID = "RCSid"
         }
+    }
+    
+    struct ComplaintResponse: Codable {
+        let location: String
+        let message: String
     }
     
     // MARK: - Methods
@@ -83,9 +89,7 @@ enum ServicesAPI {
         }
     }
     
-    /**
-     Perform 3 types of operations on an RCSID: addToActive, register or remove
-     */
+    /// Perform 3 types of operations on an RCSID: addToActive, register or remove
     static func performOperationOnStudent(
         with rcsID: String,
         method: StudentOperations,
@@ -133,6 +137,38 @@ enum ServicesAPI {
                     print(message)
                 }
                 successHandler()
+            }
+        }
+    }
+    
+    static func getComplaints(
+        successHandler: @escaping ([ComplaintResponse]) -> Void,
+        errorHandler: @escaping (NetworkingError) -> Void)
+    {
+        let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(User.current.session.sessionID)"]
+        Alamofire.request(
+            MiscOperations.getComplaints.serverString,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: headers).responseJSON
+        { json in
+            if let error = json.error {
+                errorHandler(.genericError(error: error))
+            } else {
+                do {
+                    if let data = json.data {
+                        let complaints = try JSONDecoder()
+                                .decode([ComplaintResponse].self, from: data)
+                                .filter { !$0.location.isEmpty && !$0.message.isEmpty }
+                        successHandler(complaints)
+                    } else {
+                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                    }
+                    
+                } catch let error {
+                    errorHandler(.genericError(error: error))
+                }
             }
         }
     }

@@ -15,6 +15,7 @@ enum SettingsAction {
     case register
     case activate
     case remove
+    case viewComplaints
     
     init?(indexPath: IndexPath) {
         let row = indexPath.row
@@ -37,6 +38,8 @@ enum SettingsAction {
                 self = .activate
             case 3:
                 self = .remove
+            case 4:
+                self = .viewComplaints
             default:
                 return nil
             }
