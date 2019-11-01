@@ -1,4 +1,4 @@
-![](https://travis-ci.org/AutomaticDoorControl/AutoDoorCtrl-iOS.svg?branch=master)
+[![Build Status](https://travis-ci.org/AutomaticDoorControl/AutoDoorCtrl-iOS.svg?branch=master)](https://travis-ci.org/AutomaticDoorControl/AutoDoorCtrl-iOS)
 
 # AutomaticDoorControl - iOS
 iOS Version of the AutomaticDoorControl Project.
@@ -36,6 +36,7 @@ iOS Version of the AutomaticDoorControl Project.
 * `MapKit`
 * `LocalAuthentication`
 * `JLActivityIndicator`
+* `SwiftJWT` (Swift Packages Dependency)
 
 ### Thanks for stopping by! :+1::+1:
 
