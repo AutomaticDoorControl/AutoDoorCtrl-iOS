@@ -31,6 +31,8 @@
 		0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0467018021560631007DF2BE /* DoorsListTableViewCell.xib */; };
 		0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */; };
 		04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */; };
+		046DFBF7236E0C7000419CC8 /* TOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DFBF6236E0C7000419CC8 /* TOTP.swift */; };
+		046DFBF9236EA8AD00419CC8 /* TestDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DFBF8236EA8AD00419CC8 /* TestDecoding.swift */; };
 		04799C14235407980006FF3C /* SettingsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C13235407980006FF3C /* SettingsAction.swift */; };
 		04799C18235411C90006FF3C /* SubmitComplaintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */; };
 		04799C19235411C90006FF3C /* SubmitComplaintsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */; };
@@ -111,6 +113,8 @@
 		0467018021560631007DF2BE /* DoorsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoorsListTableViewCell.xib; sourceTree = "<group>"; };
 		0467018521561700007DF2BE /* MapToDoorCommDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToDoorCommDelegate.swift; sourceTree = "<group>"; };
 		04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+DynamicType.swift"; sourceTree = "<group>"; };
+		046DFBF6236E0C7000419CC8 /* TOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTP.swift; sourceTree = "<group>"; };
+		046DFBF8236EA8AD00419CC8 /* TestDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDecoding.swift; sourceTree = "<group>"; };
 		04799C13235407980006FF3C /* SettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAction.swift; sourceTree = "<group>"; };
 		04799C16235411C90006FF3C /* SubmitComplaintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitComplaintsViewController.swift; sourceTree = "<group>"; };
 		04799C17235411C90006FF3C /* SubmitComplaintsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitComplaintsViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +250,16 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		046DFBF5236E0BA100419CC8 /* Door */ = {
+			isa = PBXGroup;
+			children = (
+				046701752155FFEF007DF2BE /* Door.swift */,
+				04DDAC572257DE82004752B0 /* DoorResponse.swift */,
+				046DFBF6236E0C7000419CC8 /* TOTP.swift */,
+			);
+			path = Door;
+			sourceTree = "<group>";
+		};
 		04799C15235410C40006FF3C /* Complaints */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,9 +345,8 @@
 				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
 				0466DB8A21436690002583DB /* Networking */,
 				041F643A235AD9B90057F48F /* JWT */,
-				046701752155FFEF007DF2BE /* Door.swift */,
+				046DFBF5236E0BA100419CC8 /* Door */,
 				04C2D1C5216197D00082C9C8 /* User.swift */,
-				04DDAC572257DE82004752B0 /* DoorResponse.swift */,
 				041F6435235AD49B0057F48F /* Session.swift */,
 			);
 			path = "Model Classes";
@@ -396,6 +409,7 @@
 			children = (
 				04E829D5214323EF000BC96D /* Info.plist */,
 				0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */,
+				046DFBF8236EA8AD00419CC8 /* TestDecoding.swift */,
 			);
 			path = autodoorctrlTests;
 			sourceTree = "<group>";
@@ -610,6 +624,7 @@
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
 				04799C18235411C90006FF3C /* SubmitComplaintsViewController.swift in Sources */,
 				0415B0492213849A0086BA21 /* Haptic.swift in Sources */,
+				046DFBF7236E0C7000419CC8 /* TOTP.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -646,6 +661,7 @@
 			files = (
 				0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */,
 				0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */,
+				046DFBF9236EA8AD00419CC8 /* TestDecoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

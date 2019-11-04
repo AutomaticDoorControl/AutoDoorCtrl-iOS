@@ -164,11 +164,15 @@ extension MapsViewController: MKMapViewDelegate {
         return MKAnnotationView(annotation: annotation, reuseIdentifier: Door.identifier)
     }
     
+    /// When user taps the lock button to connect to a door
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let door = view.annotation as? Door, let peripheral = door.peripheral {
-            BLEManager.current.delegate = nil
-            BLEManager.current.delegate = self
-            BLEManager.current.connect(peripheral: peripheral)
+            DoorsAPI.openDoor(door, success: { totp in
+                print(totp)
+                BLEManager.current.delegate = nil
+                BLEManager.current.delegate = self
+                BLEManager.current.connect(peripheral: peripheral)
+            }, error: { $0.handleError() })
         }
     }
 }

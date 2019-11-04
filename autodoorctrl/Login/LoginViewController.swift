@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JLActivityIndicator
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -19,6 +20,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let rcsIDTextFieldTag = 1
     private let passwordTextFieldTag = 2
+    
+    lazy var activityIndicator: JLActivityIndicator = {
+        let ai = JLActivityIndicator(on: view, mode: .path)
+        ai.enableBackDrop = true
+        return ai
+    }()
     
     // MARK: - View Controller Lifecycle
     
@@ -43,8 +50,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         configureUI()
         
         #if DEBUG
-            rcsIDTextField.text = "abc"
-            passwordTextField.text = "abc"
+            rcsIDTextField.text = "test"
+            passwordTextField.text = "test"
         #endif
         
         loginUserWithBiometrics()
@@ -149,20 +156,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !BiometricsController.isUserAgreedToBiometrics() { resetBioButton.isHidden = true }
     }
     
-    private func disableUI() {
+    func disableUI() {
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
         loginButton.setTitle(NSLocalizedString("LoggingInTitle", comment: ""), for: .normal)
         resetBioButton.isEnabled = false
         resetBioButton.alpha = 0.5
+        activityIndicator.start()
     }
     
-    private func enableUI () {
+    func enableUI () {
         loginButton.isEnabled = true
         loginButton.alpha = 1.0
         loginButton.setTitle(NSLocalizedString("LogInTitle", comment: ""), for: .normal)
         resetBioButton.isEnabled = true
         resetBioButton.alpha = 1
+        activityIndicator.stop()
     }
     
     // MARK: - Private Methods: Biometrics

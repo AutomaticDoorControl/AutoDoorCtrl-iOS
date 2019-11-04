@@ -11,7 +11,14 @@ import CoreLocation
 import Alamofire
 
 enum DoorsAPI {
-    private static let dataURL = Constants.apiStart + "api/get-doors"
+    private enum RequestTypes: String {
+        case getDoors = "api/get-doors"
+        case openDoor = "api/open-door"
+        
+        var endpoint: String {
+            return Constants.apiStart + rawValue
+        }
+    }
     
     static var prefetchedDoors: [String: DoorResponse] = [:]
     
@@ -20,7 +27,7 @@ enum DoorsAPI {
         error: @escaping (Error) -> Void)
     {
         Alamofire.request(
-            dataURL,
+            RequestTypes.getDoors.endpoint,
             method: .get,
             parameters: nil,
             encoding: JSONEncoding.default,
@@ -38,6 +45,43 @@ enum DoorsAPI {
                 }
             } else {
                 error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil))
+            }
+        }
+    }
+    
+    static func openDoor(
+        _ door: Door,
+        success: @escaping (_ totp: TOTP) -> Void,
+        error: @escaping (NetworkingError) -> Void)
+    {
+        let params = ["door": door.name]
+        let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(User.current.session.sessionID)"]
+        
+        Alamofire.request(
+            RequestTypes.openDoor.endpoint,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers).responseJSON
+        { json in
+            if let err = json.error {
+                error(.genericError(error: err))
+            } else {
+                do {
+                    if let data = json.data {
+                        do {
+                            let totp = try JSONDecoder().decode(TOTP.self, from: data)
+                            success(totp)
+                        } catch let err {
+                            error(.genericError(error: err))
+                        }
+                    } else {
+                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                    }
+                    
+                } catch let err {
+                    error(.genericError(error: err))
+                }
             }
         }
     }
