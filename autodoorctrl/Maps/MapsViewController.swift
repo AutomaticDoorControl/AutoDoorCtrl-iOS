@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RxSwift
 
 class MapsViewController: UIViewController {
     @IBOutlet weak var backButtonBackground: UIVisualEffectView!
@@ -180,7 +181,7 @@ extension MapsViewController: BLEManagerDelegate {
         performSegue(withIdentifier: "showSwitchVC", sender: self)
     }
     
-    func didReceiveError(error: BLEError?) {
+    func didReceiveError(error: Error?) {
         error?.showErrorMessage()
         mapView.removeAnnotations(mapView.annotations)
     }

@@ -45,6 +45,10 @@
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
 		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
+		049D5FA4237279AC006D9712 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049D5FA3237279AC006D9712 /* RxSwift */; };
+		049D5FA6237279AC006D9712 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 049D5FA5237279AC006D9712 /* RxCocoa */; };
+		049D5FA823727A84006D9712 /* BLEManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FA723727A84006D9712 /* BLEManager+Rx.swift */; };
+		049D5FAA23728344006D9712 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FA923728344006D9712 /* Error+Extensions.swift */; };
 		04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5D0AE2221112300774489 /* BLESignalStrength.swift */; };
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
@@ -129,6 +133,8 @@
 		0485F297215F508200742978 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		049D5FA723727A84006D9712 /* BLEManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BLEManager+Rx.swift"; sourceTree = "<group>"; };
+		049D5FA923728344006D9712 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		04A5D0AE2221112300774489 /* BLESignalStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStrength.swift; sourceTree = "<group>"; };
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				041F6439235AD7D80057F48F /* SwiftJWT in Frameworks */,
+				049D5FA6237279AC006D9712 /* RxCocoa in Frameworks */,
+				049D5FA4237279AC006D9712 /* RxSwift in Frameworks */,
 				37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +221,7 @@
 				040F689B214B734700F66C94 /* UserDefaults+Extensions.swift */,
 				046701712155F2A7007DF2BE /* UIView+Customizations.swift */,
 				04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */,
+				049D5FA923728344006D9712 /* Error+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				04B47AB921862EBC00731C5B /* BLEManager.swift */,
 				04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */,
 				04A5D0AE2221112300774489 /* BLESignalStrength.swift */,
+				049D5FA723727A84006D9712 /* BLEManager+Rx.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -463,6 +473,8 @@
 			name = autodoorctrl;
 			packageProductDependencies = (
 				041F6438235AD7D80057F48F /* SwiftJWT */,
+				049D5FA3237279AC006D9712 /* RxSwift */,
+				049D5FA5237279AC006D9712 /* RxCocoa */,
 			);
 			productName = autodoorctrl;
 			productReference = 04E829BB214323ED000BC96D /* ADC.app */;
@@ -519,6 +531,7 @@
 			mainGroup = 04E829B2214323ED000BC96D;
 			packageReferences = (
 				041F6437235AD7D80057F48F /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+				049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 04E829BC214323ED000BC96D /* Products */;
 			projectDirPath = "";
@@ -606,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
+				049D5FA823727A84006D9712 /* BLEManager+Rx.swift in Sources */,
 				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
 				04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
@@ -642,6 +656,7 @@
 				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
 				04DDAC582257DE82004752B0 /* DoorResponse.swift in Sources */,
 				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,
+				049D5FAA23728344006D9712 /* Error+Extensions.swift in Sources */,
 				04E829BF214323ED000BC96D /* AppDelegate.swift in Sources */,
 				04EAB1342347E33200CCACA8 /* StandardSettingsDataSource.swift in Sources */,
 				04F130322364E1F70072C964 /* ViewComplaintsTableViewController.swift in Sources */,
@@ -973,6 +988,14 @@
 				minimumVersion = 3.6.0;
 			};
 		};
+		049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -980,6 +1003,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 041F6437235AD7D80057F48F /* XCRemoteSwiftPackageReference "Swift-JWT" */;
 			productName = SwiftJWT;
+		};
+		049D5FA3237279AC006D9712 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		049D5FA5237279AC006D9712 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

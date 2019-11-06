@@ -85,7 +85,7 @@ class SwitchViewController: UIViewController {
 
 extension SwitchViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
-    func didReceiveError(error: BLEError?) {
+    func didReceiveError(error: Error?) {
         signalStrengthTimer?.invalidate()
         closingTimer?.invalidate()
         view.isUserInteractionEnabled = true

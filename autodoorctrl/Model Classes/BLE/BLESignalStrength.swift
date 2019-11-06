@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum BLESignalStrength {
+@objc enum BLESignalStrength: Int {
     case unusable
     case bad
     case ok

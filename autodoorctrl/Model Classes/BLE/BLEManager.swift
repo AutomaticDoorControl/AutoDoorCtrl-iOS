@@ -44,12 +44,12 @@ class BLEManager: NSObject {
             scanningTimeoutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
                                                         repeats: false) { [weak self] _ in
                 self?.bluetoothManager.stopScan()
-                self?.delegate?.didReceiveError(error: .scanningTimeout)
+                self?.delegate?.didReceiveError?(error: BLEError.scanningTimeout)
             }
         } else {
             DispatchQueue.main.async { [weak self] in
                 if let strongSelf = self {
-                    strongSelf.delegate?.didReceiveError(error:
+                    strongSelf.delegate?.didReceiveError?(error:
                         BLEError(managerState: strongSelf.bluetoothManager.state))
                 }
             }
@@ -61,7 +61,7 @@ class BLEManager: NSObject {
             withTimeInterval: timeOutInterval,
             repeats: false)
         { [weak self] _ in
-            self?.delegate?.didReceiveError(error: .connectionTimeout)
+            self?.delegate?.didReceiveError?(error: BLEError.connectionTimeout)
         }
         bluetoothManager.connect(peripheral)
     }
@@ -72,7 +72,7 @@ class BLEManager: NSObject {
             adc = nil
             adcDataPoint = nil
             DispatchQueue.main.async { [weak self] in
-                self?.delegate?.didDisconnectFromSmartDesk()
+                self?.delegate?.didDisconnectFromPeripheral?()
             }
         }
     }
@@ -80,7 +80,7 @@ class BLEManager: NSObject {
     func send(string: String) {
         guard let peripheral = adc, let characteristic = adcDataPoint else {
             print("Not ready to send data")
-            delegate?.didReceiveError(error: .inactiveConnection)
+            delegate?.didReceiveError?(error: BLEError.inactiveConnection)
             return
         }
         // note: will not work using the .withResponse type
@@ -91,7 +91,7 @@ class BLEManager: NSObject {
     func send(colorCommand: String, color: UIColor) {
         guard let peripheral = adc, let characteristic = adcDataPoint else {
             print("Not ready to send data")
-            delegate?.didReceiveError(error: .inactiveConnection)
+            delegate?.didReceiveError?(error: BLEError.inactiveConnection)
             return
         }
         // send 4 bytes of color information to the peripheral
@@ -125,7 +125,7 @@ extension BLEManager: CBCentralManagerDelegate {
         scanningTimeoutTimer?.invalidate()
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.delegate?.didDiscoverDoors(
+            strongSelf.delegate?.didDiscoverDoors?(
                 doors: Array(strongSelf.availableBLEs)
                     .compactMap { Door(peripheral: $0, prefetchedDoors: DoorsAPI.prefetchedDoors) })
         }
@@ -144,7 +144,7 @@ extension BLEManager: CBCentralManagerDelegate {
         if let error = error {
             DispatchQueue.main.async { [weak self] in
                 print(error.localizedDescription)
-                self?.delegate?.didReceiveError(error: .peripheralDisconnected)
+                self?.delegate?.didReceiveError?(error: BLEError.peripheralDisconnected)
             }
         }
     }
@@ -154,12 +154,12 @@ extension BLEManager: CBCentralManagerDelegate {
             switch state {
             case .poweredOff:
                 print("BLE Manager Powered off State")
-                self?.delegate?.didReceiveError(error: .bluetoothOff)
+                self?.delegate?.didReceiveError?(error: BLEError.bluetoothOff)
             case .poweredOn:
                 print("BLE Manager Powered on State")
             default:
                 if let error = BLEError(managerState: state) {
-                    self?.delegate?.didReceiveError(error: error)
+                    self?.delegate?.didReceiveError?(error: error)
                 }
             }
         }
@@ -172,8 +172,7 @@ extension BLEManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         guard let service = services.first, services.count == 1 else {
-            delegate?.didReceiveError(error: .genericError(error:
-                NSError(domain: "Should only have 1 service or no service discovered", code: 0, userInfo: [:])))
+            delegate?.didReceiveError?(error: NSError(domain: "Should only have 1 service or no service discovered", code: 0, userInfo: [:]))
             return
         }
         peripheral.discoverCharacteristics([bleCharacteristicUUID], for: service)
@@ -184,14 +183,14 @@ extension BLEManager: CBPeripheralDelegate {
                     error: Error?) {
         guard error == nil else {
             DispatchQueue.main.async { [weak self] in
-                self?.delegate?.didReceiveError(error: .genericError(error: error))
+                self?.delegate?.didReceiveError?(error: error)
             }
             return
         }
         guard let characteristics = service.characteristics,
             let dataPoint = characteristics.first,
             characteristics.count == 1 else {
-            delegate?.didReceiveError(error: .unexpected)
+            delegate?.didReceiveError?(error: BLEError.unexpected)
             return
         }
         adcDataPoint = dataPoint
@@ -200,7 +199,7 @@ extension BLEManager: CBPeripheralDelegate {
         // listen for values sent from the BLE module
         adc?.setNotifyValue(true, for: dataPoint)
         DispatchQueue.main.async { [weak self] in
-            self?.delegate?.readyToSendData()
+            self?.delegate?.readyToSendData?()
         }
     }
 
@@ -214,7 +213,7 @@ extension BLEManager: CBPeripheralDelegate {
             if let asciiStr = String(bytes: byteArray, encoding: String.Encoding.ascii) {
                 DispatchQueue.main.async { [weak self] in
                     print(asciiStr)
-                    self?.delegate?.didReceiveMessage(message: asciiStr.trimmingCharacters(in: .whitespacesAndNewlines))
+                    self?.delegate?.didReceiveMessage?(message: asciiStr.trimmingCharacters(in: .whitespacesAndNewlines))
                 }
             }
         }
@@ -222,13 +221,13 @@ extension BLEManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         guard error == nil else {
-            delegate?.didReceiveError(error: .genericError(error: error))
+            delegate?.didReceiveError?(error: error)
             return
         }
         let dbm = RSSI.intValue
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-             strongSelf.delegate?.didReceiveRSSIReading(reading: BLESignalStrength(rssi: dbm))
+             strongSelf.delegate?.didReceiveRSSIReading?(reading: BLESignalStrength(rssi: dbm))
         }
     }
 }
