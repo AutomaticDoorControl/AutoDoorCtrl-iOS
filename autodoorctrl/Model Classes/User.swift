@@ -64,6 +64,6 @@ class User: NSObject {
     }
     
     override var debugDescription: String {
-        return "User - rcsID:\(rcsID), active?: \(isActive)"
+        return "User - rcsID:\(rcsID), active?: \(isActive), admin: \(isAdmin), session: \(session.sessionID)"
     }
 }

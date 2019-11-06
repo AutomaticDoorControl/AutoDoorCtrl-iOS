@@ -16,11 +16,15 @@ extension LoginViewController {
         let password = self.passwordTextField.text ?? ""
         
         
-        let adminLoginAction = UIAlertAction(title: NSLocalizedString("AdminLoginTitle", comment: ""),
-                                             style: .default) { [weak self] _ in
+        let adminLoginAction = UIAlertAction(
+            title: NSLocalizedString("AdminLoginTitle", comment: ""),
+            style: .default)
+        { [weak self] _ in
             guard let strongSelf = self else { return }
+            strongSelf.disableUI()
             LoginAPI.loginAdmin(username: username, password: password, successHandler: {
                 strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
+                strongSelf.enableUI()
             }, errorHandler: { $0.handleError() })
         }
         
