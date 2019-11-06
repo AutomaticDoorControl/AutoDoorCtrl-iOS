@@ -23,6 +23,7 @@ class MapsViewController: UIViewController {
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
     private var currentAnnotation: Door?
+    fileprivate var totp: TOTP!
     
     // MARK: - View Controller Lifecycle
     
@@ -167,12 +168,9 @@ extension MapsViewController: MKMapViewDelegate {
     /// When user taps the lock button to connect to a door
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let door = view.annotation as? Door, let peripheral = door.peripheral {
-            DoorsAPI.openDoor(door, success: { totp in
-                print(totp)
-                BLEManager.current.delegate = nil
-                BLEManager.current.delegate = self
-                BLEManager.current.connect(peripheral: peripheral)
-            }, error: { $0.handleError() })
+            Constants.currentDoor = door
+            BLEManager.current.delegate = self
+            BLEManager.current.connect(peripheral: peripheral)
         }
     }
 }

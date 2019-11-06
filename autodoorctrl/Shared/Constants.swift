@@ -16,12 +16,12 @@ enum Constants {
     
     static let doorClosingTime = 20
     
-    static let toggleCommand = "a"
+    static var currentDoor: Door!
     
     static let adcRed = UIColor(red: 238/255, green: 50/255, blue: 35/255, alpha: 1)
     
     enum IncomingCommands {
-        static let offCommand = "OFF"
-        static let onCommand = "ON"
+        static let offCommand = "CLOSED"
+        static let onCommand = "OPEN"
     }
 }
