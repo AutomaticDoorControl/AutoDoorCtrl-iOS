@@ -49,6 +49,9 @@
 		049D5FA6237279AC006D9712 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 049D5FA5237279AC006D9712 /* RxCocoa */; };
 		049D5FA823727A84006D9712 /* BLEManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FA723727A84006D9712 /* BLEManager+Rx.swift */; };
 		049D5FAA23728344006D9712 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FA923728344006D9712 /* Error+Extensions.swift */; };
+		049D5FB023729CAE006D9712 /* OpeningDoorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */; };
+		049D5FB123729CAE006D9712 /* OpeningDoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D5FAF23729CAE006D9712 /* OpeningDoorsViewController.xib */; };
+		049D5FB42372AE99006D9712 /* Hexagons.json in Resources */ = {isa = PBXBuildFile; fileRef = 049D5FB32372AE99006D9712 /* Hexagons.json */; };
 		04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5D0AE2221112300774489 /* BLESignalStrength.swift */; };
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
@@ -135,6 +138,9 @@
 		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		049D5FA723727A84006D9712 /* BLEManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BLEManager+Rx.swift"; sourceTree = "<group>"; };
 		049D5FA923728344006D9712 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningDoorsViewController.swift; sourceTree = "<group>"; };
+		049D5FAF23729CAE006D9712 /* OpeningDoorsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpeningDoorsViewController.xib; sourceTree = "<group>"; };
+		049D5FB32372AE99006D9712 /* Hexagons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Hexagons.json; sourceTree = "<group>"; };
 		04A5D0AE2221112300774489 /* BLESignalStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStrength.swift; sourceTree = "<group>"; };
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
@@ -306,6 +312,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		049D5FAD23729C89006D9712 /* Opening Doors */ = {
+			isa = PBXGroup;
+			children = (
+				049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */,
+				049D5FAF23729CAE006D9712 /* OpeningDoorsViewController.xib */,
+			);
+			path = "Opening Doors";
+			sourceTree = "<group>";
+		};
 		04B47AB721862EA700731C5B /* BLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +336,7 @@
 		04C1BE0021B2338700B58E1D /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				049D5FB32372AE99006D9712 /* Hexagons.json */,
 				04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */,
 				04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */,
 				04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */,
@@ -404,6 +420,7 @@
 				04C288BA2155E4DD00561798 /* Maps */,
 				04C2D1C1216193170082C9C8 /* Misc */,
 				049A5950220A4C9100F89B91 /* Settings */,
+				049D5FAD23729C89006D9712 /* Opening Doors */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
 				04E829C2214323ED000BC96D /* Main.storyboard */,
@@ -556,6 +573,7 @@
 				04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
 				04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */,
+				049D5FB42372AE99006D9712 /* Hexagons.json in Resources */,
 				041F643E235B7CF10057F48F /* adminPublic.key in Resources */,
 				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
 				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
@@ -563,6 +581,7 @@
 				04799C23235423160006FF3C /* GenericPickerViewController.xib in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
 				041F6440235B7D0F0057F48F /* userPublic.key in Resources */,
+				049D5FB123729CAE006D9712 /* OpeningDoorsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +647,7 @@
 				04C2D1C8216199B30082C9C8 /* DashboardViewModel.swift in Sources */,
 				04799C24235423160006FF3C /* GenericPickerViewDelegate.swift in Sources */,
 				04E089FC21433A9000E72A85 /* SwitchViewController.swift in Sources */,
+				049D5FB023729CAE006D9712 /* OpeningDoorsViewController.swift in Sources */,
 				04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */,
 				04C2D1C32161933B0082C9C8 /* DashboardTableViewController.swift in Sources */,
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,

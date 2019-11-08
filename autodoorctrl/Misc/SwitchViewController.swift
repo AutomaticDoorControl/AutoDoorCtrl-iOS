@@ -49,9 +49,7 @@ class SwitchViewController: UIViewController {
     
     
     @IBAction func lockOrUnlock(_ sender: UITapGestureRecognizer) {
-        DoorsAPI.openDoor(Constants.currentDoor, success: { totp in
-            BLEManager.current.send(string: totp.totp)
-        }, error: { $0.handleError() })
+        //BLEManager.current.send(string: "a")
     }
     
     /*

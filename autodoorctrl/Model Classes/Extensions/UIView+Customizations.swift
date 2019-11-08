@@ -29,4 +29,36 @@ extension UIView {
         layer.borderColor = UIColor.darkGray.cgColor
         layer.borderWidth = width
     }
+    
+    /// Reduce the opacity to the designated value.
+    func dim(
+        toOpaciity opacity: CGFloat = 0.3,
+        duration: TimeInterval,
+        completion: @escaping (Bool) -> Void = { _ in })
+    {
+        UIView.animate(
+            withDuration: duration,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: { [weak self] in
+                self?.alpha = opacity
+            },
+            completion: { completed in
+                completion(completed)
+            })
+    }
+    
+    /// Increase the opacity to 100%.
+    func brighten(duration: TimeInterval, completion: @escaping (Bool) -> Void = { _ in }) {
+        UIView.animate(
+            withDuration: duration,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: { [weak self] in
+                self?.alpha = 1
+            },
+            completion: { completed in
+                completion(completed)
+            })
+    }
 }

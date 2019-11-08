@@ -32,6 +32,7 @@ class LottieSubtitledView: UIView {
             animationView.animation = Animation.named(animationName)
             animationView.loopMode = .loop
             animationView.play()
+            animationView.contentMode = .scaleAspectFill
             subtitle.text = subtitleName
         }
     }

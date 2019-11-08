@@ -168,10 +168,12 @@ extension MapsViewController: MKMapViewDelegate {
     
     /// When user taps the lock button to connect to a door
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let door = view.annotation as? Door, let peripheral = door.peripheral {
-            Constants.currentDoor = door
-            BLEManager.current.delegate = self
-            BLEManager.current.connect(peripheral: peripheral)
+        if let door = view.annotation as? Door {
+            let vc = OpeningDoorsViewController(door: door)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            present(vc, animated: true, completion: nil)
+            self.view.dim(duration: 0.3)
         }
     }
 }

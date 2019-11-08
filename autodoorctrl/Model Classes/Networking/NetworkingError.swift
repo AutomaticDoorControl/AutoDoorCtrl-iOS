@@ -14,20 +14,20 @@ enum NetworkingError {
     case networkFailure
     case genericError(error: Error?)
     
-    func handleError() {
+    var description: String {
         switch self {
         case .invalidCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorWrongCredsTitle", comment: ""))
+            return NSLocalizedString("ErrorWrongCredsTitle", comment: "")
         case .incompleteCredentials:
-            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorIncompleteCredsTitle", comment: ""))
+            return NSLocalizedString("ErrorIncompleteCredsTitle", comment: "")
         case .networkFailure:
-            SwiftMessagesWrapper.showErrorMessage(title:  NSLocalizedString("ErrorTitle", comment: ""),
-                                                  body: NSLocalizedString("ErrorNoInternetTitle", comment: ""))
+            return NSLocalizedString("ErrorNoInternetTitle", comment: "")
         case .genericError(let error):
-            let body = (error as NSError?)?.localizedDescription ?? ""
-            SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""), body: body)
+            return (error as NSError?)?.localizedDescription ?? ""
         }
+    }
+    
+    func handleError() {
+        SwiftMessagesWrapper.showErrorMessage(title: NSLocalizedString("ErrorTitle", comment: ""), body: description)
     }
 }
