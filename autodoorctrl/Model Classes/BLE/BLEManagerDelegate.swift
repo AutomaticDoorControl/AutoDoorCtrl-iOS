@@ -9,21 +9,11 @@
 import Foundation
 import CoreBluetooth
 
-protocol BLEManagerDelegate: class {
-    func didDisconnectFromSmartDesk()
-    func readyToSendData()
-    func didReceiveError(error: BLEError?)
-    func didReceiveRSSIReading(reading: BLESignalStrength)
-    func didReceiveMessage(message: String)
-    func didDiscoverDoors(doors: [Door])
-}
-
-/** Provides optional methods with protocol extensions */
-extension BLEManagerDelegate {
-    func didDisconnectFromSmartDesk() {}
-    func readyToSendData() {}
-    func didReceiveError(error: BLEError?) {}
-    func didReceiveRSSIReading(reading: BLESignalStrength) {}
-    func didReceiveMessage(message: String) {}
-    func didDiscoverDoors(doors: [Door]) {}
+@objc protocol BLEManagerDelegate: class {
+    @objc optional func didDisconnectFromPeripheral()
+    @objc optional func readyToSendData()
+    @objc optional func didReceiveError(error: Error?)
+    @objc optional func didReceiveRSSIReading(reading: BLESignalStrength)
+    @objc optional func didReceiveMessage(message: String)
+    @objc optional func didDiscoverDoors(doors: [Door])
 }

@@ -16,8 +16,6 @@ enum Constants {
     
     static let doorClosingTime = 20
     
-    static var currentDoor: Door!
-    
     static let adcRed = UIColor(red: 238/255, green: 50/255, blue: 35/255, alpha: 1)
     
     enum IncomingCommands {

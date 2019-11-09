@@ -14,6 +14,7 @@ class LottieSubtitledView: UIView {
     @IBOutlet weak var subtitle: UILabel!
     var animationName: String
     var subtitleName: String = ""
+    var loop = true
     
     init(frame: CGRect, animationName: String) {
         self.animationName = animationName
@@ -30,9 +31,12 @@ class LottieSubtitledView: UIView {
         super.willMove(toSuperview: newSuperview)
         if newSuperview != nil {
             animationView.animation = Animation.named(animationName)
-            animationView.loopMode = .loop
             animationView.play()
+            animationView.contentMode = .scaleAspectFill
             subtitle.text = subtitleName
+            if loop {
+                animationView.loopMode = .loop
+            }
         }
     }
     

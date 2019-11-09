@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import Alamofire
+import RxSwift
 
 enum DoorsAPI {
     private enum RequestTypes: String {
@@ -82,6 +83,22 @@ enum DoorsAPI {
                 } catch let err {
                     error(.genericError(error: err))
                 }
+            }
+        }
+    }
+}
+
+extension DoorsAPI {
+    // MARK: - RX
+    enum rx {
+        static func openDoor(_ door: Door) -> Observable<TOTP> {
+            Observable<TOTP>.create { observable in
+                DoorsAPI.openDoor(door, success: { totp in
+                    observable.onNext(totp)
+                }, error: { e in
+                    observable.onError(NSError(domain: e.description, code: 0, userInfo: nil))
+                })
+                return Disposables.create()
             }
         }
     }

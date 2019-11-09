@@ -130,22 +130,22 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
 
 extension DoorsListTableViewController: BLEManagerDelegate {
     // MARK: BLEManagerDelegate
-       
-       func didDiscoverDoors(doors: [Door]) {
-           noBLEWarning.isHidden = !doors.isEmpty
-           delegate?.didReceiveDoorsData(with: doors)
-           viewModel.doors = doors
-           tableView.refreshControl?.endRefreshing()
-           tableView.reloadData()
-       }
-       
-       func didReceiveError(error: BLEError?) {
-           tableView.refreshControl?.endRefreshing()
-           noBLEWarning.isHidden = false
-           error?.showErrorMessage()
-           if let error = error, case .scanningTimeout = error {
-               viewModel.doors.removeAll()
-               tableView.reloadData()
-           }
-       }
+    
+    func didDiscoverDoors(doors: [Door]) {
+        noBLEWarning.isHidden = !doors.isEmpty
+        delegate?.didReceiveDoorsData(with: doors)
+        viewModel.doors = doors
+        tableView.refreshControl?.endRefreshing()
+        tableView.reloadData()
+    }
+    
+    func didReceiveError(error: Error?) {
+        tableView.refreshControl?.endRefreshing()
+        error?.showErrorMessage()
+        if let error = error as? BLEError, case .scanningTimeout = error {
+            noBLEWarning.isHidden = false
+            viewModel.doors.removeAll()
+            tableView.reloadData()
+        }
+    }
 }

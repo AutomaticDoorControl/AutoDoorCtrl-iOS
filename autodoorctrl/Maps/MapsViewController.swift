@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RxSwift
 
 class MapsViewController: UIViewController {
     @IBOutlet weak var backButtonBackground: UIVisualEffectView!
@@ -120,11 +121,12 @@ class MapsViewController: UIViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            if let annotation = currentAnnotation, let peripheral = annotation.peripheral {
-                BLEManager.current.delegate = self
-                BLEManager.current.connect(peripheral: peripheral)
-            }
+        if let door = currentAnnotation, motion == .motionShake {
+            let vc = OpeningDoorsViewController(door: door)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            present(vc, animated: true, completion: nil)
+            self.view.dim(duration: 0.3)
         }
     }
 }
@@ -167,10 +169,12 @@ extension MapsViewController: MKMapViewDelegate {
     
     /// When user taps the lock button to connect to a door
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if let door = view.annotation as? Door, let peripheral = door.peripheral {
-            Constants.currentDoor = door
-            BLEManager.current.delegate = self
-            BLEManager.current.connect(peripheral: peripheral)
+        if let door = view.annotation as? Door {
+            let vc = OpeningDoorsViewController(door: door)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            present(vc, animated: true, completion: nil)
+            self.view.dim(duration: 0.3)
         }
     }
 }
@@ -180,7 +184,7 @@ extension MapsViewController: BLEManagerDelegate {
         performSegue(withIdentifier: "showSwitchVC", sender: self)
     }
     
-    func didReceiveError(error: BLEError?) {
+    func didReceiveError(error: Error?) {
         error?.showErrorMessage()
         mapView.removeAnnotations(mapView.annotations)
     }
