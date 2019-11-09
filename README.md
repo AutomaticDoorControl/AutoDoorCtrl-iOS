@@ -39,6 +39,10 @@ iOS Version of the AutomaticDoorControl Project.
 * `SwiftJWT` (Swift Packages Dependency)
 * `RxSwift` (Swift Packages Dependency)
 
+## Bug Fix - module not found when using SPM and compiling unit tests
+Add `-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/<module name>.modulemap` to `OTHER SWIFT FLAGS` in the test target
+[Stack Overflow Link](https://stackoverflow.com/questions/58125428/missing-required-module-xyz-on-unit-tests-when-using-swift-package-manager)
+
 ### Thanks for stopping by! :+1::+1:
 
 

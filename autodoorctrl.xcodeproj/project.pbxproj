@@ -517,6 +517,8 @@
 				04E829D1214323EF000BC96D /* PBXTargetDependency */,
 			);
 			name = autodoorctrlTests;
+			packageProductDependencies = (
+			);
 			productName = autodoorctrlTests;
 			productReference = 04E829CF214323EF000BC96D /* autodoorctrlTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -946,6 +948,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/RxCocoaRuntime.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.autodoorctrlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
