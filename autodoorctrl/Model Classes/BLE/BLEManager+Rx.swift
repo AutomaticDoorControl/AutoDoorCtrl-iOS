@@ -59,4 +59,11 @@ extension Reactive where Base: BLEManager {
             .methodInvoked(#selector(BLEManagerDelegate.didReceiveError(error:)))
             .map { $0[0] as? Error }
     }
+    
+    func readRSSI() -> Observable<BLESignalStrength> {
+        base.readSignalStrength()
+        return delegate
+            .methodInvoked(#selector(BLEManagerDelegate.didReceiveRSSIReading(reading:)))
+            .map { $0[0] as! BLESignalStrength }
+    }
 }

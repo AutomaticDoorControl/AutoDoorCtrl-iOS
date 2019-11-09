@@ -121,11 +121,12 @@ class MapsViewController: UIViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            if let annotation = currentAnnotation, let peripheral = annotation.peripheral {
-                BLEManager.current.delegate = self
-                BLEManager.current.connect(peripheral: peripheral)
-            }
+        if let door = currentAnnotation, motion == .motionShake {
+            let vc = OpeningDoorsViewController(door: door)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            present(vc, animated: true, completion: nil)
+            self.view.dim(duration: 0.3)
         }
     }
 }

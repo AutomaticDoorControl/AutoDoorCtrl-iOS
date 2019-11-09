@@ -50,6 +50,8 @@
 
 "OpeningDoorTitle" = "Opening";
 "ClosingDoorTitle" = "Closing";
+"OpeningDoorTitle2" = "Opening Door";
+"DoorOpenedTitle" = "Door Opened";
 
 "ClosingTimerTitle" = "Closing in %@s";
 

@@ -37,6 +37,7 @@ iOS Version of the AutomaticDoorControl Project.
 * `LocalAuthentication`
 * `JLActivityIndicator`
 * `SwiftJWT` (Swift Packages Dependency)
+* `RxSwift` (Swift Packages Dependency)
 
 ### Thanks for stopping by! :+1::+1:
 

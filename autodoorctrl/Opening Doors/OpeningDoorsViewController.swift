@@ -20,13 +20,13 @@ class OpeningDoorsViewController: UIViewController {
     
     lazy var hexagons: LottieSubtitledView = {
         let hexagons = LottieSubtitledView(frame: visualEffectView.bounds, animationName: "Hexagons")
-        hexagons.subtitleName = "Opening Door"
+        hexagons.subtitleName = NSLocalizedString("OpeningDoorTitle2", comment: "")
         return hexagons
     }()
     
     lazy var doorOpened: LottieSubtitledView = {
         let doors = LottieSubtitledView(frame: visualEffectView.bounds, animationName: "OpenDoor")
-        doors.subtitleName = "Door Opened"
+        doors.subtitleName = NSLocalizedString("DoorOpenedTitle", comment: "")
         doors.loop = false
         return doors
     }()
@@ -83,6 +83,9 @@ class OpeningDoorsViewController: UIViewController {
                 if let doorOpenedAnimation = self?.doorOpened {
                     self?.visualEffectView.contentView.addSubview(doorOpenedAnimation)
                 }
+                UIAccessibility.post(
+                    notification: .announcement,
+                    argument: NSLocalizedString("DoorOpenedTitle", comment: ""))
                 return DispatchQueue.main.rx.delayed(by: 3)
             }
             .subscribe(onNext: { [weak self] _ in
