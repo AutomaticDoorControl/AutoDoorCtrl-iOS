@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnV-qU-Qvz">
-                    <rect key="frame" x="28" y="208" width="208" height="36"/>
+                    <rect key="frame" x="28" y="218" width="208" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1y-nd-FOB" customClass="AnimationView" customModule="Lottie">
-                    <rect key="frame" x="41" y="40" width="182" height="150"/>
+                    <rect key="frame" x="41" y="30" width="182" height="170"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="IDM-mM-cH1"/>
+                        <constraint firstAttribute="height" constant="170" id="IDM-mM-cH1"/>
                         <constraint firstAttribute="width" constant="182" id="bxG-Np-Q24"/>
                     </constraints>
                 </view>
@@ -39,7 +39,7 @@
                 <constraint firstItem="gnV-qU-Qvz" firstAttribute="top" secondItem="A1y-nd-FOB" secondAttribute="bottom" constant="18" id="1JT-Gc-sao"/>
                 <constraint firstItem="A1y-nd-FOB" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="OBi-RT-NZs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gnV-qU-Qvz" secondAttribute="bottom" constant="20" id="ddg-bf-a7F"/>
-                <constraint firstItem="A1y-nd-FOB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="fQA-om-LZ1"/>
+                <constraint firstItem="A1y-nd-FOB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="fQA-om-LZ1"/>
                 <constraint firstItem="gnV-qU-Qvz" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gky-Hh-amX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

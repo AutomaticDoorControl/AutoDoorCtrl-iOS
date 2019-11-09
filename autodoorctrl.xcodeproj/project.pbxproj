@@ -52,6 +52,8 @@
 		049D5FB023729CAE006D9712 /* OpeningDoorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */; };
 		049D5FB123729CAE006D9712 /* OpeningDoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D5FAF23729CAE006D9712 /* OpeningDoorsViewController.xib */; };
 		049D5FB42372AE99006D9712 /* Hexagons.json in Resources */ = {isa = PBXBuildFile; fileRef = 049D5FB32372AE99006D9712 /* Hexagons.json */; };
+		049D5FB623753563006D9712 /* DispatchQueue+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FB523753563006D9712 /* DispatchQueue+Rx.swift */; };
+		049D5FB823753B74006D9712 /* OpenDoor.json in Resources */ = {isa = PBXBuildFile; fileRef = 049D5FB723753B74006D9712 /* OpenDoor.json */; };
 		04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5D0AE2221112300774489 /* BLESignalStrength.swift */; };
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
@@ -141,6 +143,8 @@
 		049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningDoorsViewController.swift; sourceTree = "<group>"; };
 		049D5FAF23729CAE006D9712 /* OpeningDoorsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpeningDoorsViewController.xib; sourceTree = "<group>"; };
 		049D5FB32372AE99006D9712 /* Hexagons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Hexagons.json; sourceTree = "<group>"; };
+		049D5FB523753563006D9712 /* DispatchQueue+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Rx.swift"; sourceTree = "<group>"; };
+		049D5FB723753B74006D9712 /* OpenDoor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OpenDoor.json; sourceTree = "<group>"; };
 		04A5D0AE2221112300774489 /* BLESignalStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStrength.swift; sourceTree = "<group>"; };
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				046701712155F2A7007DF2BE /* UIView+Customizations.swift */,
 				04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */,
 				049D5FA923728344006D9712 /* Error+Extensions.swift */,
+				049D5FB523753563006D9712 /* DispatchQueue+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 		04C1BE0021B2338700B58E1D /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				049D5FB723753B74006D9712 /* OpenDoor.json */,
 				049D5FB32372AE99006D9712 /* Hexagons.json */,
 				04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */,
 				04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */,
@@ -570,6 +576,7 @@
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
 				04FEC9532364E83900FA7480 /* ComplaintsTableViewCell.xib in Resources */,
+				049D5FB823753B74006D9712 /* OpenDoor.json in Resources */,
 				04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
 				04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */,
@@ -661,6 +668,7 @@
 				046DFBF7236E0C7000419CC8 /* TOTP.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
+				049D5FB623753563006D9712 /* DispatchQueue+Rx.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				04799C1D235421650006FF3C /* SubmitComplaintsViewModel.swift in Sources */,
 				041F643C235AD9CD0057F48F /* ADCClaim.swift in Sources */,

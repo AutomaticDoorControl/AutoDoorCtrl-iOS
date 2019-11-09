@@ -213,7 +213,12 @@ extension BLEManager: CBPeripheralDelegate {
             if let asciiStr = String(bytes: byteArray, encoding: String.Encoding.ascii) {
                 DispatchQueue.main.async { [weak self] in
                     print(asciiStr)
-                    self?.delegate?.didReceiveMessage?(message: asciiStr.trimmingCharacters(in: .whitespacesAndNewlines))
+                    let strippedString = asciiStr.trimmingCharacters(in: .whitespacesAndNewlines)
+                    if let error = BLEError(errorMessage: strippedString) {
+                        self?.delegate?.didReceiveError?(error: error)
+                    } else {
+                        self?.delegate?.didReceiveMessage?(message: strippedString)
+                    }
                 }
             }
         }
