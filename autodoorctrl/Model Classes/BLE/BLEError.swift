@@ -13,7 +13,6 @@ enum BLEError: Error {
     // case genericError(error: Error?)
     case bluetoothOff
     case connectionTimeout
-    case scanningTimeout
     case peripheralDisconnected
     case unexpected
     case inactiveConnection
@@ -54,8 +53,6 @@ enum BLEError: Error {
             return "Bluetooth Device Disconnected"
         case .unexpected:
             return "Unexpected Error Encountered"
-        case .scanningTimeout:
-            return "No Doors Found Near You"
         case .inactiveConnection:
             return "No BLE device is currently connected"
         case .unsupportedDevice:
@@ -68,13 +65,7 @@ enum BLEError: Error {
     }
     
     func showErrorMessage() {
-        switch self {
-        case .scanningTimeout:
-            // more subtle, less in-your-face type of presentation
-            SwiftMessagesWrapper.showWarningMessage(title: "Oops", body: errorDesctription)
-        default:
-            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
-        }
+        SwiftMessagesWrapper.showErrorMessage(title: "Error", body: errorDesctription)
     }
 }
 

@@ -16,4 +16,5 @@ import CoreBluetooth
     @objc optional func didReceiveRSSIReading(reading: BLESignalStrength)
     @objc optional func didReceiveMessage(message: String)
     @objc optional func didDiscoverDoors(doors: [Door])
+    @objc optional func didReceiveWarning(warning: BLEWarning)
 }

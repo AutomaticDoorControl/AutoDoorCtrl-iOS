@@ -142,7 +142,12 @@ extension DoorsListTableViewController: BLEManagerDelegate {
     func didReceiveError(error: Error?) {
         tableView.refreshControl?.endRefreshing()
         error?.showErrorMessage()
-        if let error = error as? BLEError, case .scanningTimeout = error {
+    }
+    
+    func didReceiveWarning(warning: BLEWarning) {
+        tableView.refreshControl?.endRefreshing()
+        warning.showWarningMessage()
+        if case .scanningTimeout = warning {
             noBLEWarning.isHidden = false
             viewModel.doors.removeAll()
             tableView.reloadData()

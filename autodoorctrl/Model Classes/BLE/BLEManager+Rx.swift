@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import CoreBluetooth
 
 extension BLEManager: HasDelegate {
     public typealias Delegate = BLEManagerDelegate
@@ -58,6 +59,11 @@ extension Reactive where Base: BLEManager {
         return delegate
             .methodInvoked(#selector(BLEManagerDelegate.didReceiveError(error:)))
             .map { $0[0] as? Error }
+    }
+    
+    func connect(peripheral: CBPeripheral) -> Observable<Void> {
+        base.connect(peripheral: peripheral)
+        return didConnectToPeripheral
     }
     
     func readRSSI() -> Observable<BLESignalStrength> {

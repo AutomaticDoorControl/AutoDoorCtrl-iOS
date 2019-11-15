@@ -55,14 +55,13 @@ class OpeningDoorsViewController: UIViewController {
         visualEffectView.contentView.addSubview(hexagons)
         visualEffectView.addRoundedCorner(cornerRadius: 20)
         setUpRx()
-        BLEManager.current.connect(peripheral: door.peripheral!)
     }
     
     // MARK: - RX
     
     func setUpRx() {
         let stringAfterOpenDoor = Observable
-            .zip(BLEManager.current.rx.didConnectToPeripheral, DoorsAPI.rx.openDoor(door))
+            .zip(BLEManager.current.rx.connect(peripheral: door.peripheral!), DoorsAPI.rx.openDoor(door))
             .flatMap { arg -> Observable<String> in
                 BLEManager.current.send(string: arg.1.totp)
                 return BLEManager.current.rx.didReceiveString
