@@ -52,5 +52,7 @@
 	<string>To show available doors nearby, will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To show available doors nearby, will you allow this app to know your current location?</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>To connect to a door, this app needs Bluetooth access.</string>
 </dict>
 </plist>

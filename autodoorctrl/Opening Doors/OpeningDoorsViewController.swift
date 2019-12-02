@@ -14,7 +14,7 @@ class OpeningDoorsViewController: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     let door: Door
     let bag = DisposeBag()
-    var didDismiss: (() -> Void)?
+    var willDismiss: (() -> Void)?
     
     // MARK: - Animations & Handlers
     
@@ -33,7 +33,7 @@ class OpeningDoorsViewController: UIViewController {
     
     lazy var errorHandler: (Error?) -> Void = { [weak self] error in
         BLEManager.current.disconnect()
-        self?.didDismiss?()
+        self?.willDismiss?()
         self?.dismiss(animated: true, completion: {
             error?.showErrorMessage()
         })
@@ -89,7 +89,7 @@ class OpeningDoorsViewController: UIViewController {
             }
             .subscribe(onNext: { [weak self] _ in
                 BLEManager.current.disconnect()
-                self?.didDismiss?()
+                self?.willDismiss?()
                 self?.dismiss(animated: true)
             })
             .disposed(by: bag)
