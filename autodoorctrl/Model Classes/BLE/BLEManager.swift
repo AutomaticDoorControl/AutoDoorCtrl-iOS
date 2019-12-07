@@ -41,10 +41,12 @@ class BLEManager: NSObject {
         availableBLEs.removeAll()
         if bluetoothManager.state == .poweredOn {
             bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
-            scanningTimeoutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
-                                                        repeats: false) { [weak self] _ in
+            scanningTimeoutTimer = Timer.scheduledTimer(
+                withTimeInterval: timeOutInterval,
+                repeats: false)
+            { [weak self] _ in
                 self?.bluetoothManager.stopScan()
-                self?.delegate?.didReceiveError?(error: BLEError.scanningTimeout)
+                self?.delegate?.didReceiveWarning?(warning: .scanningTimeout)
             }
         } else {
             DispatchQueue.main.async { [weak self] in

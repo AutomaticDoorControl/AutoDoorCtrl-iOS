@@ -124,7 +124,7 @@ class MapsViewController: UIViewController {
         if let door = currentAnnotation, motion == .motionShake {
             let vc = OpeningDoorsViewController(door: door)
             vc.modalPresentationStyle = .overFullScreen
-            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            vc.willDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
             present(vc, animated: true, completion: nil)
             self.view.dim(duration: 0.3)
         }
@@ -172,7 +172,7 @@ extension MapsViewController: MKMapViewDelegate {
         if let door = view.annotation as? Door {
             let vc = OpeningDoorsViewController(door: door)
             vc.modalPresentationStyle = .overFullScreen
-            vc.didDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
+            vc.willDismiss = { [weak self] in self?.view.brighten(duration: 0.3) }
             present(vc, animated: true, completion: nil)
             self.view.dim(duration: 0.3)
         }

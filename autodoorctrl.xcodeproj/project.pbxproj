@@ -58,6 +58,13 @@
 		04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB821862EBC00731C5B /* BLEError.swift */; };
 		04B47ABC21862EBC00731C5B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47AB921862EBC00731C5B /* BLEManager.swift */; };
 		04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */; };
+		04B76350237BBC99007FA8F7 /* ExtraInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7634F237BBC99007FA8F7 /* ExtraInformationViewController.swift */; };
+		04B76353237BC0B6007FA8F7 /* SplashScreenDataSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B76352237BC0B6007FA8F7 /* SplashScreenDataSets.swift */; };
+		04B76355237BC7A8007FA8F7 /* BLEWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B76354237BC7A8007FA8F7 /* BLEWarning.swift */; };
+		04B7635B237BD131007FA8F7 /* PageContentDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B76357237BD131007FA8F7 /* PageContentDataSet.swift */; };
+		04B7635C237BD131007FA8F7 /* PageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B76358237BD131007FA8F7 /* PageContentViewController.xib */; };
+		04B7635D237BD131007FA8F7 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B76359237BD131007FA8F7 /* PageContentViewController.swift */; };
+		04B7635E237BD131007FA8F7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7635A237BD131007FA8F7 /* PageViewController.swift */; };
 		04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */; };
 		04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */; };
 		04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */; };
@@ -149,6 +156,13 @@
 		04B47AB821862EBC00731C5B /* BLEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B47AB921862EBC00731C5B /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
+		04B7634F237BBC99007FA8F7 /* ExtraInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInformationViewController.swift; sourceTree = "<group>"; };
+		04B76352237BC0B6007FA8F7 /* SplashScreenDataSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenDataSets.swift; sourceTree = "<group>"; };
+		04B76354237BC7A8007FA8F7 /* BLEWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEWarning.swift; sourceTree = "<group>"; };
+		04B76357237BD131007FA8F7 /* PageContentDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentDataSet.swift; sourceTree = "<group>"; };
+		04B76358237BD131007FA8F7 /* PageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageContentViewController.xib; sourceTree = "<group>"; };
+		04B76359237BD131007FA8F7 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		04B7635A237BD131007FA8F7 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		04C1BE0121B2346600B58E1D /* LottieSubtitledView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieSubtitledView.xib; sourceTree = "<group>"; };
 		04C1BE0321B2348400B58E1D /* LottieSubtitledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieSubtitledView.swift; sourceTree = "<group>"; };
 		04C1BE0721B2525100B58E1D /* WifiOffAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WifiOffAnimation.json; sourceTree = "<group>"; };
@@ -263,6 +277,7 @@
 		04670177215600D8007DF2BE /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				04B76356237BD0F8007FA8F7 /* Page View */,
 				04799C1E235422FF0006FF3C /* GenericPickerView */,
 				0467017F21560631007DF2BE /* DoorsListTableViewCell.swift */,
 				0467018021560631007DF2BE /* DoorsListTableViewCell.xib */,
@@ -330,12 +345,33 @@
 			isa = PBXGroup;
 			children = (
 				04B47AB821862EBC00731C5B /* BLEError.swift */,
+				04B76354237BC7A8007FA8F7 /* BLEWarning.swift */,
 				04B47AB921862EBC00731C5B /* BLEManager.swift */,
 				04B47ABA21862EBC00731C5B /* BLEManagerDelegate.swift */,
 				04A5D0AE2221112300774489 /* BLESignalStrength.swift */,
 				049D5FA723727A84006D9712 /* BLEManager+Rx.swift */,
 			);
 			path = BLE;
+			sourceTree = "<group>";
+		};
+		04B7634E237BBAED007FA8F7 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				04B7634F237BBC99007FA8F7 /* ExtraInformationViewController.swift */,
+				04B76352237BC0B6007FA8F7 /* SplashScreenDataSets.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		04B76356237BD0F8007FA8F7 /* Page View */ = {
+			isa = PBXGroup;
+			children = (
+				04B76357237BD131007FA8F7 /* PageContentDataSet.swift */,
+				04B76359237BD131007FA8F7 /* PageContentViewController.swift */,
+				04B76358237BD131007FA8F7 /* PageContentViewController.xib */,
+				04B7635A237BD131007FA8F7 /* PageViewController.swift */,
+			);
+			path = "Page View";
 			sourceTree = "<group>";
 		};
 		04C1BE0021B2338700B58E1D /* Animations */ = {
@@ -427,6 +463,7 @@
 				04C2D1C1216193170082C9C8 /* Misc */,
 				049A5950220A4C9100F89B91 /* Settings */,
 				049D5FAD23729C89006D9712 /* Opening Doors */,
+				04B7634E237BBAED007FA8F7 /* Splash Screen */,
 				04E829BE214323ED000BC96D /* AppDelegate.swift */,
 				04E829C5214323EF000BC96D /* Assets.xcassets */,
 				04E829C2214323ED000BC96D /* Main.storyboard */,
@@ -582,6 +619,7 @@
 				04C1BE0221B2346600B58E1D /* LottieSubtitledView.xib in Resources */,
 				04E829C4214323ED000BC96D /* Main.storyboard in Resources */,
 				04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */,
+				04B7635C237BD131007FA8F7 /* PageContentViewController.xib in Resources */,
 				049D5FB42372AE99006D9712 /* Hexagons.json in Resources */,
 				041F643E235B7CF10057F48F /* adminPublic.key in Resources */,
 				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
@@ -648,6 +686,7 @@
 			files = (
 				0467018121560631007DF2BE /* DoorsListTableViewCell.swift in Sources */,
 				049D5FA823727A84006D9712 /* BLEManager+Rx.swift in Sources */,
+				04B76355237BC7A8007FA8F7 /* BLEWarning.swift in Sources */,
 				04C288BC2155E50900561798 /* MapsViewController.swift in Sources */,
 				04B47ABD21862EBC00731C5B /* BLEManagerDelegate.swift in Sources */,
 				04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */,
@@ -662,6 +701,7 @@
 				0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				04B47ABB21862EBC00731C5B /* BLEError.swift in Sources */,
 				04670C4D217D5C3700820AB6 /* UIButton+DynamicType.swift in Sources */,
+				04B7635D237BD131007FA8F7 /* PageContentViewController.swift in Sources */,
 				04799C22235423160006FF3C /* GenericPickerViewController.swift in Sources */,
 				04C8C7B32160329F005D61C6 /* LoginViewController+Options.swift in Sources */,
 				04F882F721436D67005306AF /* LoginAPI.swift in Sources */,
@@ -670,11 +710,15 @@
 				046DFBF7236E0C7000419CC8 /* TOTP.swift in Sources */,
 				0467017C215602F7007DF2BE /* DoorListViewModel.swift in Sources */,
 				04C1BE0421B2348400B58E1D /* LottieSubtitledView.swift in Sources */,
+				04B76350237BBC99007FA8F7 /* ExtraInformationViewController.swift in Sources */,
 				049D5FB623753563006D9712 /* DispatchQueue+Rx.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				04799C1D235421650006FF3C /* SubmitComplaintsViewModel.swift in Sources */,
 				041F643C235AD9CD0057F48F /* ADCClaim.swift in Sources */,
+				04B7635B237BD131007FA8F7 /* PageContentDataSet.swift in Sources */,
 				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
+				04B7635E237BD131007FA8F7 /* PageViewController.swift in Sources */,
+				04B76353237BC0B6007FA8F7 /* SplashScreenDataSets.swift in Sources */,
 				04799C14235407980006FF3C /* SettingsAction.swift in Sources */,
 				04E829C1214323ED000BC96D /* LoginViewController.swift in Sources */,
 				046701742155FA66007DF2BE /* DoorsListTableViewController.swift in Sources */,

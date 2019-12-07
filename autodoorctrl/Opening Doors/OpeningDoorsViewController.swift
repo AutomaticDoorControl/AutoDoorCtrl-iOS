@@ -14,7 +14,7 @@ class OpeningDoorsViewController: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     let door: Door
     let bag = DisposeBag()
-    var didDismiss: (() -> Void)?
+    var willDismiss: (() -> Void)?
     
     // MARK: - Animations & Handlers
     
@@ -33,7 +33,7 @@ class OpeningDoorsViewController: UIViewController {
     
     lazy var errorHandler: (Error?) -> Void = { [weak self] error in
         BLEManager.current.disconnect()
-        self?.didDismiss?()
+        self?.willDismiss?()
         self?.dismiss(animated: true, completion: {
             error?.showErrorMessage()
         })
@@ -55,14 +55,13 @@ class OpeningDoorsViewController: UIViewController {
         visualEffectView.contentView.addSubview(hexagons)
         visualEffectView.addRoundedCorner(cornerRadius: 20)
         setUpRx()
-        BLEManager.current.connect(peripheral: door.peripheral!)
     }
     
     // MARK: - RX
     
     func setUpRx() {
         let stringAfterOpenDoor = Observable
-            .zip(BLEManager.current.rx.didConnectToPeripheral, DoorsAPI.rx.openDoor(door))
+            .zip(BLEManager.current.rx.connect(peripheral: door.peripheral!), DoorsAPI.rx.openDoor(door))
             .flatMap { arg -> Observable<String> in
                 BLEManager.current.send(string: arg.1.totp)
                 return BLEManager.current.rx.didReceiveString
@@ -90,7 +89,7 @@ class OpeningDoorsViewController: UIViewController {
             }
             .subscribe(onNext: { [weak self] _ in
                 BLEManager.current.disconnect()
-                self?.didDismiss?()
+                self?.willDismiss?()
                 self?.dismiss(animated: true)
             })
             .disposed(by: bag)
