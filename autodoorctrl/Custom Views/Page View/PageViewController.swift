@@ -69,10 +69,7 @@ public class PageViewController: UIPageViewController {
     
     private func configurePageControl() {
         // The total number of pages that are available is based on how many available pages we have.
-        var safeAreaBottom: CGFloat = 0
-        if #available(iOS 11.0, *), let safeArea = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
-            safeAreaBottom += safeArea
-        }
+        let safeAreaBottom: CGFloat = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 20
         
         pageControl = UIPageControl(frame: CGRect(
             x: 0,
@@ -82,8 +79,12 @@ public class PageViewController: UIPageViewController {
         pageControl.numberOfPages = pageViewControllers.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.black
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.systemGray
+        if #available(iOS 13.0, *) {
+            pageControl.currentPageIndicatorTintColor = UIColor.label
+        } else {
+            pageControl.currentPageIndicatorTintColor = UIColor.black
+        }
         // prevent the pager dots from being user-controllable
         pageControl.isUserInteractionEnabled = false
         view.addSubview(pageControl)

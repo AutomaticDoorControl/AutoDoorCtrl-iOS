@@ -92,34 +92,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         disableUI()
-        LoginAPI.loginUser(username: rcsIDTextField.text ?? "",
-                           password: passwordTextField.text ?? "",
-                           successHandler: {
-                            DispatchQueue.main.async { [weak self] in
-                                guard let strongSelf = self else { return }
-                                
-                                let completion = {
-                                    strongSelf.passwordTextField.text = nil
-                                    strongSelf.enableUI()
-                                    strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
-                                }
-                                
-                                if UserDefaults.isFirstLogin() && BiometricsController.isBiometricAvailable() {
-                                    strongSelf.showBiometricsAlert(withAgreedHandler: { completion() },
-                                                                   withDisagreedHandler: { completion() },
-                                                                   shouldSavePassword: true)
-                                    UserDefaults.setFirstLogin()
-                                } else {
-                                    if BiometricsController.isUserAgreedToBiometrics() && !UserDefaults.isLoginSaved() {
-                                        self?.saveLoginCredentials()
-                                    }
-                                    completion()
-                                }
-                            }
-        },
-                           errorHandler: { [weak self] error in
-                            self?.enableUI()
-                            self?.handleError(with: error)
+        LoginAPI.loginUser(
+            username: rcsIDTextField.text ?? "",
+            password: passwordTextField.text ?? "",
+            successHandler:
+        {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                
+                let completion: (Bool) -> Void = { showOnboarding in
+                    strongSelf.passwordTextField.text = nil
+                    strongSelf.enableUI()
+                    if showOnboarding {
+                        let extraInfo = ExtraInformationViewController()
+                        extraInfo.didDismiss = {
+                            strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
+                        }
+                        let vc = PageViewController(dataSets: SplashScreenDataSets().dataSets, actionVC: extraInfo)
+                        vc.modalPresentationStyle = .fullScreen
+                        strongSelf.present(vc, animated: true, completion: nil)
+                    } else {
+                        strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
+                    }
+                }
+                
+                if UserDefaults.isFirstLogin() && BiometricsController.isBiometricAvailable() {
+                    strongSelf.showBiometricsAlert(withAgreedHandler: { completion(true) },
+                                                   withDisagreedHandler: { completion(true) },
+                                                   shouldSavePassword: true)
+                    UserDefaults.setFirstLogin()
+                } else {
+                    if BiometricsController.isUserAgreedToBiometrics() && !UserDefaults.isLoginSaved() {
+                        self?.saveLoginCredentials()
+                    }
+                    completion(false)
+                }
+            }
+        }, errorHandler: { [weak self] error in
+            self?.enableUI()
+            self?.handleError(with: error)
         })
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class ExtraInformationViewController: PageContentViewController {
     let dataSets = ExtraInfoDataSets()
+    var didDismiss: (() -> Void) = {}
     
     // MARK: - Init
     init() {
@@ -26,8 +27,9 @@ class ExtraInformationViewController: PageContentViewController {
     }
     
     override func buttonTapped(sender: UIButton) {
-        let appDelegateTemp = UIApplication.shared.delegate as? AppDelegate
-        appDelegateTemp?.window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+        dismiss(animated: true) { [weak self] in
+            self?.didDismiss()
+        }
     }
     
     override var buttonBackgroundColor: UIColor {

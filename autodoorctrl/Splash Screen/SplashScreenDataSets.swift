@@ -14,7 +14,7 @@ class SplashScreenDataSets {
             PageContentDataSet(
                 title: "Welcome",
                 content: "Thanks for becoming an Automatic Door Control user! We have a few tips to get you started. See the first tip by swiping to the left.",
-                showcaseImage: UIImage(named: "ADCLogoRed")),
+                showcaseImage: UIImage(named: "ADCOnboarding")),
             PageContentDataSet(
                 title: "Opening a Door",
                 content: "Select a discovered door from the list or tap on a location beacon on the map. Then, tap on the lock icon on the popup to open that door. ",
