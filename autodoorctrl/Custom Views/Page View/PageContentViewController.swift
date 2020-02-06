@@ -76,7 +76,7 @@ open class PageContentViewController: UIViewController {
             let aspectRatio: CGFloat = image.size.height / image.size.width
             let showcase = UIImageView(frame: CGRect(
                 x: contentTextView.frame.origin.x,
-                y: contentTextView.frame.maxY + (isRunningOnFourInch ? 0 : 20),
+                y: contentTextView.frame.maxY + (isRunningOnFourInch ? 0 : 20) + (dataSet?.imageVerticalOffset ?? 0),
                 width: contentTextView.frame.width,
                 height: contentTextView.frame.width * aspectRatio))
             showcase.image = image

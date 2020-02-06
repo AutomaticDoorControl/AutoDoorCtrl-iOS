@@ -13,7 +13,7 @@ class SplashScreenDataSets {
         return [
             PageContentDataSet(
                 title: "Welcome",
-                content: "Thanks for becoming an Automatic Door Control user! We have a few tips to get you started. See the first tip by swiping to the left.",
+                content: "Thanks for becoming an Automatic Door Control user! We have a few tips to get you started.",
                 showcaseImage: UIImage(named: "ADCOnboarding")),
             PageContentDataSet(
                 title: "Opening a Door",
@@ -31,7 +31,7 @@ class ExtraInfoDataSets {
     lazy var extraInfoDataSet: PageContentDataSet = {
         return PageContentDataSet(
             title: "On a Side Note",
-            content: "This app does not have the functionality to reset your password should you forget it. If this happens to you, contact Disability Services or an Automatic Door Control admin",
+            content: "This app does not have the functionality to reset your password should you forget it. If this happens to you, contact Disability Services or an Automatic Door Control admin.\n\nBefore you can fully take advantage of the app, we'll need a few permissions from you:",
             showcaseImage: nil)
         }()
 }

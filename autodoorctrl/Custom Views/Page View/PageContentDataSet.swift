@@ -13,6 +13,7 @@ public struct PageContentDataSet {
     let title: String
     let content: String
     let showcaseImage: UIImage?
+    let imageVerticalOffset: CGFloat
     
     
     /// Designated initializer.
@@ -20,12 +21,14 @@ public struct PageContentDataSet {
     /// - Parameter content: A string showing the body text/
     /// - Parameter showcaseImage: An image repesent a showcase image shown directly below the content.
     /// - Parameter fourInchBackupImage: An image used for 4 inch iPhones to maintain visual consistency. If this is provided and the device the app runs on is a 4 inch iPhone, this image will be used instead.
+    /// - Parameter imageVerticalOffset: Defaults to -100. This will move the image vertically on screen. Negative numbers move it up, poisitive is down.
     /// - The button will only be shown if there's no image in the data set. Vise versa, the button will be hidden if there's an image.
     public init(
         title: String,
         content: String,
         showcaseImage: UIImage?,
-        fourInchBackupImage: UIImage? = nil)
+        fourInchBackupImage: UIImage? = nil,
+        imageVerticalOffset: CGFloat = -100)
     {
         self.title = title
         self.content = content
@@ -34,6 +37,7 @@ public struct PageContentDataSet {
         } else {
             self.showcaseImage = showcaseImage
         }
+        self.imageVerticalOffset = imageVerticalOffset
         
     }
 }

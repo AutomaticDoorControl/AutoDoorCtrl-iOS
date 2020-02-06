@@ -40,7 +40,6 @@ class MapsViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.delegate = self
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
         
         (children.first as? DoorsListTableViewController)?.delegate = self
         
