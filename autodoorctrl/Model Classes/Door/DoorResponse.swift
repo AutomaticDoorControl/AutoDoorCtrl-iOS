@@ -22,12 +22,12 @@ class DoorResponse: Codable {
         mac = try container.decode(String.self, forKey: .mac)
         
         guard let latitude = Double(try container.decode(String.self, forKey: .latitude)) else {
-            throw NSError(domain: "Invalid latitude", code: 0, userInfo: nil)
+            throw "Invalid latitude"
         }
         self.latitude = latitude
         
         guard let longitude = Double(try container.decode(String.self, forKey: .longitude)) else {
-            throw NSError(domain: "Invalid longitude", code: 0, userInfo: nil)
+            throw "Invalid longitude"
         }
         self.longitude = longitude
     }

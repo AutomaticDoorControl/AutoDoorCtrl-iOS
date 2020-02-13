@@ -19,6 +19,7 @@
 		0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */; };
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		0440E779214357B80037F94B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */; };
+		0446237423EBACFE008483FA /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446237323EBACFE008483FA /* String+Error.swift */; };
 		04633FC021438DB0007B3358 /* UITextField+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04633FBF21438DB0007B3358 /* UITextField+Underline.swift */; };
 		0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465E122214A2F2B00298241 /* BiometricsController.swift */; };
 		0466DB8C214366BE002583DB /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */; };
@@ -117,6 +118,7 @@
 		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		0440E776214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		0440E777214357B70037F94B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		0446237323EBACFE008483FA /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		04633FBF21438DB0007B3358 /* UITextField+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Underline.swift"; sourceTree = "<group>"; };
 		0465E122214A2F2B00298241 /* BiometricsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsController.swift; sourceTree = "<group>"; };
 		0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				04670C4C217D5C3700820AB6 /* UIButton+DynamicType.swift */,
 				049D5FA923728344006D9712 /* Error+Extensions.swift */,
 				049D5FB523753563006D9712 /* DispatchQueue+Rx.swift */,
+				0446237323EBACFE008483FA /* String+Error.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				0465E123214A2F2B00298241 /* BiometricsController.swift in Sources */,
 				0481C2A0214C70E40078BAAA /* KeychainOperations.swift in Sources */,
 				041F6436235AD49B0057F48F /* Session.swift in Sources */,
+				0446237423EBACFE008483FA /* String+Error.swift in Sources */,
 				0467018621561700007DF2BE /* MapToDoorCommDelegate.swift in Sources */,
 				04DDAC582257DE82004752B0 /* DoorResponse.swift in Sources */,
 				04A5D0AF2221112300774489 /* BLESignalStrength.swift in Sources */,

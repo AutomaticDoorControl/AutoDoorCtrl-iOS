@@ -45,7 +45,7 @@ enum DoorsAPI {
                     error(err)
                 }
             } else {
-                error(NSError(domain: "Invalid JSON", code: 0, userInfo: nil))
+                error("Invalid JSON")
             }
         }
     }
@@ -77,7 +77,7 @@ enum DoorsAPI {
                             error(.genericError(error: err))
                         }
                     } else {
-                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                        throw "Invalid Data"
                     }
                     
                 } catch let err {
@@ -96,7 +96,7 @@ extension DoorsAPI {
                 DoorsAPI.openDoor(door, success: { totp in
                     observable.onNext(totp)
                 }, error: { e in
-                    observable.onError(NSError(domain: e.description, code: 0, userInfo: nil))
+                    observable.onError(e.description)
                 })
                 return Disposables.create()
             }
