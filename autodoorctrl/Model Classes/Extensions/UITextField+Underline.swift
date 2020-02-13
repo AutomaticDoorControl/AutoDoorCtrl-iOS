@@ -11,9 +11,7 @@ import UIKit
 
 extension UITextField {
     
-    /**
-     * Remove the current border of the text field and add an underline to it.
-     */
+    /// Remove the current border of the text field and add an underline to it.
     func setBottomBorder() {
         borderStyle = .none
         

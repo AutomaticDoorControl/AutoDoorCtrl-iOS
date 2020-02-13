@@ -159,6 +159,7 @@ extension BLEManager: CBCentralManagerDelegate {
                 self?.delegate?.didReceiveError?(error: BLEError.bluetoothOff)
             case .poweredOn:
                 print("BLE Manager Powered on State")
+                self?.delegate?.didAuthorize?()
             default:
                 if let error = BLEError(managerState: state) {
                     self?.delegate?.didReceiveError?(error: error)

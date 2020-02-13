@@ -39,7 +39,7 @@ class User: NSObject {
     @discardableResult
     init(session: Session, isAdmin: Bool) throws {
         if session.sessionID.isEmpty {
-            throw NSError(domain: "Invalid username or password, or the user is inactive", code: 0, userInfo: nil)
+            throw "Invalid username or password, or the user is inactive"
         }
         
         let keyName = isAdmin ? "adminPublic" : "userPublic"
@@ -47,7 +47,7 @@ class User: NSObject {
         if let path = Bundle.main.path(forResource: keyName, ofType: "key") {
             keyString = try String(contentsOfFile: path, encoding: .utf8)
         } else {
-            throw NSError(domain: "Invalid public key", code: 0, userInfo: nil)
+            throw "Invalid public key"
         }
         let newJWT = try JWT<ADCClaim>(
             jwtString: session.sessionID,

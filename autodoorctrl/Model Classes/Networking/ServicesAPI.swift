@@ -80,7 +80,7 @@ enum ServicesAPI {
                         let users = try JSONDecoder().decode([UserResponse].self, from: data)
                         successHandler(users.map { User(userResponse: $0) })
                     } else {
-                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                        throw "Invalid Data"
                     }
                 } catch let error {
                     errorHandler(.genericError(error: error))
@@ -163,7 +163,7 @@ enum ServicesAPI {
                                 .filter { !$0.location.isEmpty && !$0.message.isEmpty }
                         successHandler(complaints)
                     } else {
-                        throw NSError(domain: "Invalid Data", code: 0, userInfo: nil)
+                        throw "Invalid Data"
                     }
                     
                 } catch let error {

@@ -61,6 +61,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         let shouldHideBiometricButton = !BiometricsController.isBiometricAvailable() || UserDefaults.isFirstLogin()
         biometricsButton.isHidden = shouldHideBiometricButton
+        if BiometricsController.biometricMode() == "Face ID" {
+            biometricsButton.setImage(UIImage(named: "faceIDIcon"), for: .normal)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

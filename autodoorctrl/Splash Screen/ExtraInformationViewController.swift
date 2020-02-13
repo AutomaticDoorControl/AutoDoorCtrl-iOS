@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
+import CoreBluetooth
 
 class ExtraInformationViewController: PageContentViewController {
     let dataSets = ExtraInfoDataSets()
     var didDismiss: (() -> Void) = {}
+    let locationManager = CLLocationManager()
     
     // MARK: - Init
     init() {
@@ -23,13 +26,13 @@ class ExtraInformationViewController: PageContentViewController {
     
     // MARK: - Overrides
     override var buttonText: String? {
-        return "OK"
+        return "Give Permissions"
     }
     
     override func buttonTapped(sender: UIButton) {
-        dismiss(animated: true) { [weak self] in
-            self?.didDismiss()
-        }
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
     }
     
     override var buttonBackgroundColor: UIColor {
@@ -41,3 +44,16 @@ class ExtraInformationViewController: PageContentViewController {
     }
 }
 
+extension ExtraInformationViewController: CLLocationManagerDelegate {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        BLEManager.current.delegate = self // trigger the app to ask BLE permission
+    }
+}
+
+extension ExtraInformationViewController: BLEManagerDelegate {
+    func didAuthorize() {
+        dismiss(animated: true) { [weak self] in
+            self?.didDismiss()
+        }
+    }
+}
