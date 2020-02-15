@@ -24,7 +24,7 @@ class MapsViewController: UIViewController {
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
     private var currentAnnotation: Door?
-    fileprivate var totp: TOTP!
+    var doorsListVC: DoorsListTableViewController?
     
     // MARK: - View Controller Lifecycle
     
@@ -41,7 +41,8 @@ class MapsViewController: UIViewController {
         mapView.delegate = self
         locationManager.delegate = self
         
-        (children.first as? DoorsListTableViewController)?.delegate = self
+        doorsListVC = children.first as? DoorsListTableViewController
+        doorsListVC?.delegate = self
         
         becomeFirstResponder()
         
@@ -85,6 +86,10 @@ class MapsViewController: UIViewController {
     
     @IBAction func centerUser(_ sender: UIButton) {
         determineCurrentLocation()
+    }
+    
+    @IBAction func searchFoorDoors(_ sender: UIButton) {
+        doorsListVC?.refreshBLEs()
     }
     
     // MARK - Private

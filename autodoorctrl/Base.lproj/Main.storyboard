@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -413,7 +413,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpK-og-TAA">
-                                <rect key="frame" x="26" y="13" width="56" height="44"/>
+                                <rect key="frame" x="26" y="13" width="61" height="46"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -498,9 +498,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-aJ-A99">
-                                <rect key="frame" x="25" y="54" width="140" height="40"/>
+                                <rect key="frame" x="25" y="54" width="185" height="40"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PPk-nQ-uBP">
-                                    <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAB-UN-0zY">
@@ -540,13 +540,22 @@
                                                 <action selector="centerUser:" destination="iJ9-w2-gnX" eventType="touchUpInside" id="ySf-HG-HuL"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlb-pk-4Dh">
+                                            <rect key="frame" x="140" y="4" width="32" height="32"/>
+                                            <state key="normal" image="refreshIcon"/>
+                                            <connections>
+                                                <action selector="searchFoorDoors:" destination="iJ9-w2-gnX" eventType="touchUpInside" id="75G-gZ-bJb"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="iAB-UN-0zY" secondAttribute="bottom" constant="9" id="77L-a0-Iwx"/>
+                                        <constraint firstItem="Qlb-pk-4Dh" firstAttribute="leading" secondItem="TBp-Co-RNq" secondAttribute="trailing" constant="13" id="8UZ-pL-LYB"/>
                                         <constraint firstItem="TBp-Co-RNq" firstAttribute="centerY" secondItem="PPk-nQ-uBP" secondAttribute="centerY" id="CDJ-hu-rmN"/>
-                                        <constraint firstAttribute="trailing" secondItem="TBp-Co-RNq" secondAttribute="trailing" constant="13" id="DlU-kt-mJZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Qlb-pk-4Dh" secondAttribute="trailing" constant="13" id="EeH-Jc-51O"/>
                                         <constraint firstItem="iAB-UN-0zY" firstAttribute="leading" secondItem="PPk-nQ-uBP" secondAttribute="leading" constant="15" id="IdD-CG-4PU"/>
                                         <constraint firstItem="OvO-qr-qoy" firstAttribute="leading" secondItem="iAB-UN-0zY" secondAttribute="trailing" constant="13" id="O7I-1X-C9W"/>
+                                        <constraint firstItem="Qlb-pk-4Dh" firstAttribute="centerY" secondItem="TBp-Co-RNq" secondAttribute="centerY" id="XrX-ZV-xiX"/>
                                         <constraint firstItem="TBp-Co-RNq" firstAttribute="leading" secondItem="OvO-qr-qoy" secondAttribute="trailing" constant="13" id="bEm-zE-Lit"/>
                                         <constraint firstItem="OvO-qr-qoy" firstAttribute="centerY" secondItem="PPk-nQ-uBP" secondAttribute="centerY" id="gzc-6k-Hd8"/>
                                         <constraint firstItem="iAB-UN-0zY" firstAttribute="top" secondItem="PPk-nQ-uBP" secondAttribute="top" constant="9" id="vc8-ru-7K8"/>
@@ -611,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfH-Af-0K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733.60000000000002" y="26.53673163418291"/>
+            <point key="canvasLocation" x="733.33333333333337" y="26.116071428571427"/>
         </scene>
         <!--Doors List Table View Controller-->
         <scene sceneID="zSN-9O-5LP">
@@ -654,23 +663,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning for Doors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJG-81-XPW">
+                                <rect key="frame" x="98.5" y="94" width="153" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refreshIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EkP-fn-ATU">
+                                <rect key="frame" x="261.5" y="92" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="06w-10-XhG"/>
+                                    <constraint firstAttribute="width" constant="25" id="0ph-aQ-bGd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ToW-XY-pFm" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="0br-Ba-dGX"/>
                             <constraint firstItem="3Bb-v1-hOB" firstAttribute="leading" secondItem="sfp-PP-qyc" secondAttribute="leading" id="5sW-Cc-4ng"/>
+                            <constraint firstItem="PJG-81-XPW" firstAttribute="centerX" secondItem="3Bb-v1-hOB" secondAttribute="centerX" id="9AE-Wv-pkQ"/>
                             <constraint firstItem="ToW-XY-pFm" firstAttribute="top" secondItem="gj5-tt-Hna" secondAttribute="top" constant="10" id="DOn-CO-FhK"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="3Bb-v1-hOB" secondAttribute="trailing" id="ITB-D6-Vk8"/>
                             <constraint firstItem="Cyb-jK-2Bu" firstAttribute="centerY" secondItem="3Bb-v1-hOB" secondAttribute="centerY" id="ZCY-rK-Tnd"/>
+                            <constraint firstItem="EkP-fn-ATU" firstAttribute="centerY" secondItem="PJG-81-XPW" secondAttribute="centerY" id="ZzE-VC-RfR"/>
+                            <constraint firstItem="PJG-81-XPW" firstAttribute="centerY" secondItem="3Bb-v1-hOB" secondAttribute="centerY" id="a8g-Sb-gAk"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="bottom" secondItem="3Bb-v1-hOB" secondAttribute="bottom" id="eyX-rc-3m6"/>
                             <constraint firstItem="sfp-PP-qyc" firstAttribute="trailing" secondItem="ToW-XY-pFm" secondAttribute="trailing" id="iwh-rJ-n5e"/>
                             <constraint firstItem="3Bb-v1-hOB" firstAttribute="top" secondItem="ToW-XY-pFm" secondAttribute="bottom" id="lHk-rv-SLy"/>
+                            <constraint firstItem="EkP-fn-ATU" firstAttribute="leading" secondItem="PJG-81-XPW" secondAttribute="trailing" constant="10" id="mI2-aB-Sty"/>
                             <constraint firstItem="Cyb-jK-2Bu" firstAttribute="centerX" secondItem="3Bb-v1-hOB" secondAttribute="centerX" id="wzE-hN-anm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sfp-PP-qyc"/>
                     </view>
                     <connections>
                         <outlet property="noBLEWarning" destination="Cyb-jK-2Bu" id="5Te-1D-u2d"/>
+                        <outlet property="scanningIconAnimation" destination="EkP-fn-ATU" id="cRt-yS-kpr"/>
+                        <outlet property="scanningLabel" destination="PJG-81-XPW" id="ihr-C2-XL6"/>
                         <outlet property="slideBar" destination="ToW-XY-pFm" id="YSl-5t-8nS"/>
                         <outlet property="slideBarHandle" destination="Zn4-qG-E5V" id="5MZ-wJ-KeL"/>
                         <outlet property="tableView" destination="3Bb-v1-hOB" id="8Yz-f1-NGR"/>
@@ -683,7 +711,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="732.79999999999995" y="542.87856071964018"/>
+            <point key="canvasLocation" x="731.8840579710145" y="542.74553571428567"/>
         </scene>
     </scenes>
     <resources>
@@ -692,5 +720,6 @@
         <image name="FingerprintIcon" width="32" height="32"/>
         <image name="LocationArrow" width="32" height="32"/>
         <image name="SettingsIcon" width="32" height="32"/>
+        <image name="refreshIcon" width="32" height="32"/>
     </resources>
 </document>
