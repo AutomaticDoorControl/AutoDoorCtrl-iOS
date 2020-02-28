@@ -12,6 +12,7 @@ extension UserDefaults {
     private static let firstLoginKey = "firstLogin"
     private static let biometricLoginAgreementKey = "agreedToBiometrics"
     private static let rcsIDKey = "rcsIDKey"
+    private static let onboardingKey = "Onboarding"
     
     // MARK: - First Login
     
@@ -25,6 +26,16 @@ extension UserDefaults {
     
     static func resetFirstLogin() {
         self.standard.set(false, forKey: firstLoginKey)
+    }
+    
+    // MARK: - OnboardingScreens
+    
+    static func shouldShowOnboarding() -> Bool {
+        return !standard.bool(forKey: onboardingKey)
+    }
+    
+    static func setOnboardingShown() {
+        standard.set(true, forKey: onboardingKey)
     }
     
     // MARK: - Biometrics

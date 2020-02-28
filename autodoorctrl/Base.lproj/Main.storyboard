@@ -393,9 +393,9 @@
                     <connections>
                         <outlet property="biometricsButton" destination="KSe-ua-0Ne" id="gpk-fI-IOE"/>
                         <outlet property="loginButton" destination="xr9-Yn-hhj" id="CoP-bA-Wle"/>
+                        <outlet property="optionsButton" destination="oYy-TI-UAi" id="JNm-nA-9jJ"/>
                         <outlet property="passwordTextField" destination="oO1-g8-Xvo" id="ror-qo-OZJ"/>
                         <outlet property="rcsIDTextField" destination="d3t-oi-phv" id="zJh-qJ-Td1"/>
-                        <outlet property="resetBioButton" destination="oYy-TI-UAi" id="JNm-nA-9jJ"/>
                         <outlet property="versionLabel" destination="4tS-fE-SUv" id="U0D-HP-nAl"/>
                         <segue destination="iJ9-w2-gnX" kind="presentation" identifier="showMaps" modalTransitionStyle="crossDissolve" id="nZC-Ai-xJZ"/>
                     </connections>

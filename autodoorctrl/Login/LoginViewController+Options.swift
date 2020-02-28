@@ -58,7 +58,7 @@ extension LoginViewController {
         resetBioAlert.view.tintColor = Constants.adcRed
         resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             BiometricsController.resetBiometrics()
-            self?.resetBioButton.isHidden = true
+            self?.optionsButton.isHidden = true
             self?.biometricsButton.isHidden = true
             UserDefaults.resetFirstLogin()
         })
