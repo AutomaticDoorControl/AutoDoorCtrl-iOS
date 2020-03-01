@@ -17,7 +17,7 @@ class SplashScreenDataSets {
                 showcaseImage: UIImage(named: "ADCOnboarding")),
             PageContentDataSet(
                 title: "Opening a Door",
-                content: "Select a discovered door from the list or tap on a location beacon on the map. Then, tap on the lock icon on the popup to open that door. ",
+                content: "Select a discovered door from the list or tap on a location beacon on the map. Then, tap on the lock icon on the popup to open that door. Tap the refresh button on the top left to rescan for nearby doors.",
                 showcaseImage: UIImage(named: "SplashScreenOpenDoor")),
             PageContentDataSet(
                 title: "Reporting Issues",

@@ -92,6 +92,7 @@
 "closingAnnouncement" = "Closing in";
 "doorClosedAnnouncement" = "Door closed";
 "secondTitle" = "seconds";
+"rescanTitle" = "Rescan for nearby doors";
 
 // Biometrics + Accessibility
 "biometricsButtonTitle" = "Biometrics";

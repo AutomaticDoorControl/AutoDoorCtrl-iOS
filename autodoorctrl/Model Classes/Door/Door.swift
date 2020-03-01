@@ -29,6 +29,10 @@ class Door: NSObject, MKAnnotation {
             location = prefetchedReponse.location
             coordinate = CLLocationCoordinate2D(latitude: prefetchedReponse.latitude,
                                                 longitude: prefetchedReponse.longitude)
+            // For testing purposes: AE South
+//            self.name = "ADC"
+//            location = "Amos Eaton South"
+//            coordinate = CLLocationCoordinate2D(latitude: 42.730054, longitude: -73.682566)
             super.init()
         } else {
             return nil

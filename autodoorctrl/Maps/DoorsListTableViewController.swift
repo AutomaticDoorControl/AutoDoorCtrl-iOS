@@ -14,6 +14,8 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var slideBarHandle: UIView!
     @IBOutlet weak var noBLEWarning: UILabel!
+    @IBOutlet weak var scanningLabel: UILabel!
+    @IBOutlet weak var scanningIconAnimation: UIImageView!
     private let viewModel = DoorListViewModel()
     private let scrollVelocityCutoff: CGFloat = 500
     
@@ -35,28 +37,35 @@ class DoorsListTableViewController: UIViewController, UITableViewDataSource, UIT
                            forCellReuseIdentifier: DoorsListTableViewCell.identifier)
         
         BLEManager.current.delegate = self
+        noBLEWarning.isHidden = true
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshBLEs), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "Scan for Doors", attributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0),
-            NSAttributedString.Key.foregroundColor: UIColor.systemGray
-        ])
-        refreshControl.tintColor = UIColor.systemGray
-        tableView.refreshControl = refreshControl
-        
-        viewModel.fetchDoorsInfo(successHandler: {
+        viewModel.fetchDoorsInfo(successHandler: { [weak self] in
             BLEManager.current.scan()
+            self?.startScanAnimation()
         }, errorHandler: { error in
             SwiftMessagesWrapper.showErrorMessage(title: "Error", body: error.localizedDescription)
         })
         
     }
     
-    @objc func refreshBLEs() {
+    func refreshBLEs() {
         BLEManager.current.delegate = self
         noBLEWarning.isHidden = true
         BLEManager.current.scan()
+        scanningLabel.isHidden = false
+        startScanAnimation()
+    }
+    
+    func startScanAnimation() {
+        scanningLabel.isHidden = false
+        scanningIconAnimation.isHidden = false
+        scanningIconAnimation.rotate(duration: 3)
+    }
+    
+    func stopScanAnimation() {
+        scanningLabel.isHidden = true
+        scanningIconAnimation.isHidden = true
+        scanningIconAnimation.stopRotating()
     }
     
     // MARK: - Table View Delegate
@@ -135,22 +144,22 @@ extension DoorsListTableViewController: BLEManagerDelegate {
         noBLEWarning.isHidden = !doors.isEmpty
         delegate?.didReceiveDoorsData(with: doors)
         viewModel.doors = doors
-        tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
+        stopScanAnimation()
     }
     
     func didReceiveError(error: Error?) {
-        tableView.refreshControl?.endRefreshing()
         error?.showErrorMessage()
+        stopScanAnimation()
     }
     
     func didReceiveWarning(warning: BLEWarning) {
-        tableView.refreshControl?.endRefreshing()
         warning.showWarningMessage()
         if case .scanningTimeout = warning {
             noBLEWarning.isHidden = false
             viewModel.doors.removeAll()
             tableView.reloadData()
+            stopScanAnimation()
         }
     }
 }

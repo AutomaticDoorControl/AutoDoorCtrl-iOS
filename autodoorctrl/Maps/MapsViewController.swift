@@ -19,12 +19,13 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var doorsListWidth: NSLayoutConstraint!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var centerLocationButton: UIButton!
+    @IBOutlet weak var refreshBLEButton: UIButton!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
     private var currentAnnotation: Door?
-    fileprivate var totp: TOTP!
+    var doorsListVC: DoorsListTableViewController?
     
     // MARK: - View Controller Lifecycle
     
@@ -36,12 +37,14 @@ class MapsViewController: UIViewController {
         
         settingsButton.accessibilityLabel = NSLocalizedString("SettingsIconTitle", comment: "")
         centerLocationButton.accessibilityHint = NSLocalizedString("CenterUserButtonTitle", comment: "")
+        refreshBLEButton.accessibilityLabel = NSLocalizedString("rescanTitle", comment: "")
         
         mapView.showsUserLocation = true
         mapView.delegate = self
         locationManager.delegate = self
         
-        (children.first as? DoorsListTableViewController)?.delegate = self
+        doorsListVC = children.first as? DoorsListTableViewController
+        doorsListVC?.delegate = self
         
         becomeFirstResponder()
         
@@ -85,6 +88,10 @@ class MapsViewController: UIViewController {
     
     @IBAction func centerUser(_ sender: UIButton) {
         determineCurrentLocation()
+    }
+    
+    @IBAction func searchFoorDoors(_ sender: UIButton) {
+        doorsListVC?.refreshBLEs()
     }
     
     // MARK - Private

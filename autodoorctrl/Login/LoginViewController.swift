@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var biometricsButton: UIButton!
-    @IBOutlet weak var resetBioButton: UIButton!
+    @IBOutlet weak var optionsButton: UIButton!
     
     private let rcsIDTextFieldTag = 1
     private let passwordTextFieldTag = 2
@@ -48,11 +48,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         biometricsButton.accessibilityHint = NSLocalizedString("biometricsHint", comment: "")
         
         configureUI()
-        
-        #if DEBUG
-            rcsIDTextField.text = "test"
-            passwordTextField.text = "test"
-        #endif
         
         loginUserWithBiometrics()
     }
@@ -103,10 +98,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 
-                let completion: (Bool) -> Void = { showOnboarding in
+                let completion: () -> Void = {
                     strongSelf.passwordTextField.text = nil
                     strongSelf.enableUI()
-                    if showOnboarding {
+                    if UserDefaults.shouldShowOnboarding() {
                         let extraInfo = ExtraInformationViewController()
                         extraInfo.didDismiss = {
                             strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
@@ -120,15 +115,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 if UserDefaults.isFirstLogin() && BiometricsController.isBiometricAvailable() {
-                    strongSelf.showBiometricsAlert(withAgreedHandler: { completion(true) },
-                                                   withDisagreedHandler: { completion(true) },
+                    strongSelf.showBiometricsAlert(withAgreedHandler: { completion() },
+                                                   withDisagreedHandler: { completion() },
                                                    shouldSavePassword: true)
                     UserDefaults.setFirstLogin()
                 } else {
                     if BiometricsController.isUserAgreedToBiometrics() && !UserDefaults.isLoginSaved() {
                         self?.saveLoginCredentials()
                     }
-                    completion(false)
+                    completion()
                 }
             }
         }, errorHandler: { [weak self] error in
@@ -166,16 +161,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         rcsIDTextField.setBottomBorder()
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         versionLabel.text = "v\(version)"
-        
-        if !BiometricsController.isUserAgreedToBiometrics() { resetBioButton.isHidden = true }
     }
     
     func disableUI() {
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
         loginButton.setTitle(NSLocalizedString("LoggingInTitle", comment: ""), for: .normal)
-        resetBioButton.isEnabled = false
-        resetBioButton.alpha = 0.5
+        optionsButton.isEnabled = false
+        optionsButton.alpha = 0.5
         activityIndicator.start()
     }
     
@@ -183,8 +176,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.isEnabled = true
         loginButton.alpha = 1.0
         loginButton.setTitle(NSLocalizedString("LogInTitle", comment: ""), for: .normal)
-        resetBioButton.isEnabled = true
-        resetBioButton.alpha = 1
+        optionsButton.isEnabled = true
+        optionsButton.alpha = 1
         activityIndicator.stop()
     }
     
@@ -202,7 +195,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                       preferredStyle: .alert)
         let agreedAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             UserDefaults.setBiometricAgreement()
-            self?.resetBioButton.isHidden = false
             if shouldSavePassword {
                 self?.saveLoginCredentials()
                 agreedHandler()
@@ -223,19 +215,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func loginUserWithBiometrics() {
         if BiometricsController.isUserAgreedToBiometrics() {
+            rcsIDTextField.text = UserDefaults.rcsID()
             BiometricsController.loginWithBiometrics(onSuccess: { [weak self] in
                 guard let strongSelf = self else { return }
                 let rcsID = UserDefaults.rcsID()
                 let password = (try? KeychainOperations.retrievePassword(matching: rcsID)) ?? ""
                 strongSelf.disableUI()
-                LoginAPI.loginUser(username: rcsID, password: password,
-                                   successHandler: {
-                                    strongSelf.enableUI()
-                                    strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
-                    },
-                                   errorHandler: { error in
-                                    strongSelf.enableUI()
-                                    strongSelf.handleError(with: error)
+                LoginAPI.loginUser(
+                    username: rcsID,
+                    password: password,
+                    successHandler: {
+                        strongSelf.enableUI()
+                        strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
+                    }, errorHandler: { error in
+                        strongSelf.enableUI()
+                        strongSelf.handleError(with: error)
                 })
             })
         }
