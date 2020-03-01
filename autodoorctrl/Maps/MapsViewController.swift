@@ -19,6 +19,7 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var doorsListWidth: NSLayoutConstraint!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var centerLocationButton: UIButton!
+    @IBOutlet weak var refreshBLEButton: UIButton!
     
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
@@ -36,6 +37,7 @@ class MapsViewController: UIViewController {
         
         settingsButton.accessibilityLabel = NSLocalizedString("SettingsIconTitle", comment: "")
         centerLocationButton.accessibilityHint = NSLocalizedString("CenterUserButtonTitle", comment: "")
+        refreshBLEButton.accessibilityLabel = NSLocalizedString("rescanTitle", comment: "")
         
         mapView.showsUserLocation = true
         mapView.delegate = self

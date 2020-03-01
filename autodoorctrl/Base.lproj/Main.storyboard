@@ -614,6 +614,7 @@
                         <outlet property="doorsListView" destination="qp0-eY-2jj" id="WYs-ot-xzH"/>
                         <outlet property="doorsListWidth" destination="deo-9i-EkA" id="sls-JV-6y0"/>
                         <outlet property="mapView" destination="fzM-Xb-rfk" id="m7w-rQ-mb1"/>
+                        <outlet property="refreshBLEButton" destination="Qlb-pk-4Dh" id="QwD-GU-dyk"/>
                         <outlet property="settingsButton" destination="OvO-qr-qoy" id="aaC-Rh-pLx"/>
                         <segue destination="0sk-w0-Zzb" kind="presentation" identifier="showSwitchVC" modalTransitionStyle="crossDissolve" id="mrr-Ow-DGD"/>
                     </connections>

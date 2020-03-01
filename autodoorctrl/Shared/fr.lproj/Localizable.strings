@@ -92,6 +92,7 @@
 "closingAnnouncement" = "fermeture dans";
 "doorClosedAnnouncement" = "porte fermée";
 "secondTitle" = "seconds";
+"rescanTitle" = "Nouvelle recherche des portes à proximité";
 
 // Biometrics + Accessibility
 "biometricsButtonTitle" = "biométrie";
