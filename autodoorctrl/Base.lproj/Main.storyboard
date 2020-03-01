@@ -567,7 +567,7 @@
                                 <blurEffect style="systemThinMaterial"/>
                             </visualEffectView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qp0-eY-2jj">
-                                <rect key="frame" x="54" y="672" width="343" height="170"/>
+                                <rect key="frame" x="54" y="667" width="343" height="170"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rn4-bU-bGX">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="170"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -601,7 +601,7 @@
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="leading" secondItem="8UP-cB-unL" secondAttribute="leading" id="IK4-F5-Eir"/>
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="bottom" secondItem="8UP-cB-unL" secondAttribute="bottom" id="Z11-aU-mh1"/>
                             <constraint firstItem="qp0-eY-2jj" firstAttribute="trailing" secondItem="fzM-Xb-rfk" secondAttribute="trailing" constant="-17" id="bUR-hE-7ry"/>
-                            <constraint firstItem="qp0-eY-2jj" firstAttribute="bottom" secondItem="X4E-OC-d37" secondAttribute="bottom" constant="-20" id="k5K-1N-dBr"/>
+                            <constraint firstItem="qp0-eY-2jj" firstAttribute="bottom" secondItem="X4E-OC-d37" secondAttribute="bottom" constant="-25" id="k5K-1N-dBr"/>
                             <constraint firstAttribute="trailing" secondItem="fzM-Xb-rfk" secondAttribute="trailing" id="rsA-we-Ne9"/>
                             <constraint firstItem="fzM-Xb-rfk" firstAttribute="top" secondItem="8UP-cB-unL" secondAttribute="top" id="sn6-cS-gas"/>
                         </constraints>

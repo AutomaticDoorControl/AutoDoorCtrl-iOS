@@ -25,7 +25,10 @@ extension LoginViewController {
             LoginAPI.loginAdmin(username: username, password: password, successHandler: {
                 strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
                 strongSelf.enableUI()
-            }, errorHandler: { $0.handleError() })
+            }, errorHandler: { [weak self] error in
+                error.handleError()
+                self?.enableUI()
+            })
         }
         
         let bioTitle = String(format: NSLocalizedString("ResetBioTitle", comment: ""), BiometricsController.biometricMode())
@@ -40,7 +43,11 @@ extension LoginViewController {
         let alertController = UIAlertController(title: NSLocalizedString("OptionsTitle", comment: ""),
                                                 message: nil, preferredStyle: .actionSheet)
         alertController.addAction(adminLoginAction)
-        alertController.addAction(resetBioAction)
+        
+        if UserDefaults.isUserAgreedToBiometrics() {
+            alertController.addAction(resetBioAction)
+        }
+        
         alertController.addAction(cancelAction)
         alertController.view.tintColor = Constants.adcRed
         
@@ -58,7 +65,6 @@ extension LoginViewController {
         resetBioAlert.view.tintColor = Constants.adcRed
         resetBioAlert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             BiometricsController.resetBiometrics()
-            self?.optionsButton.isHidden = true
             self?.biometricsButton.isHidden = true
             UserDefaults.resetFirstLogin()
         })

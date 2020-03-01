@@ -102,8 +102,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     strongSelf.passwordTextField.text = nil
                     strongSelf.enableUI()
                     if UserDefaults.shouldShowOnboarding() {
-                        UserDefaults.setOnboardingShown()
-                        
                         let extraInfo = ExtraInformationViewController()
                         extraInfo.didDismiss = {
                             strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
@@ -163,8 +161,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         rcsIDTextField.setBottomBorder()
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         versionLabel.text = "v\(version)"
-        
-        if !BiometricsController.isUserAgreedToBiometrics() { optionsButton.isHidden = true }
     }
     
     func disableUI() {
@@ -199,7 +195,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                       preferredStyle: .alert)
         let agreedAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { [weak self] _ in
             UserDefaults.setBiometricAgreement()
-            self?.optionsButton.isHidden = false
             if shouldSavePassword {
                 self?.saveLoginCredentials()
                 agreedHandler()
@@ -226,14 +221,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let rcsID = UserDefaults.rcsID()
                 let password = (try? KeychainOperations.retrievePassword(matching: rcsID)) ?? ""
                 strongSelf.disableUI()
-                LoginAPI.loginUser(username: rcsID, password: password,
-                                   successHandler: {
-                                    strongSelf.enableUI()
-                                    strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
-                    },
-                                   errorHandler: { error in
-                                    strongSelf.enableUI()
-                                    strongSelf.handleError(with: error)
+                LoginAPI.loginUser(
+                    username: rcsID,
+                    password: password,
+                    successHandler: {
+                        strongSelf.enableUI()
+                        strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
+                    }, errorHandler: { error in
+                        strongSelf.enableUI()
+                        strongSelf.handleError(with: error)
                 })
             })
         }

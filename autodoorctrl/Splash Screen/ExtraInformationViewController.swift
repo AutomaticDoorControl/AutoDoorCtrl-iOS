@@ -52,6 +52,7 @@ extension ExtraInformationViewController: CLLocationManagerDelegate {
 
 extension ExtraInformationViewController: BLEManagerDelegate {
     func didAuthorize() {
+        UserDefaults.setOnboardingShown()
         dismiss(animated: true) { [weak self] in
             self?.didDismiss()
         }
