@@ -13,8 +13,8 @@ import RxSwift
 
 enum DoorsAPI {
     private enum RequestTypes: String {
-        case getDoors = "api/get-doors"
-        case openDoor = "api/open-door"
+        case getDoors = "api/get_doors"
+        case openDoor = "api/open_door"
         
         var endpoint: String {
             return Constants.apiStart + rawValue

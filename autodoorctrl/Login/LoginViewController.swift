@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         disableUI()
-        LoginAPI.loginUser(
+        LoginAPI.login(
             username: rcsIDTextField.text ?? "",
             password: passwordTextField.text ?? "",
             successHandler:
@@ -221,7 +221,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let rcsID = UserDefaults.rcsID()
                 let password = (try? KeychainOperations.retrievePassword(matching: rcsID)) ?? ""
                 strongSelf.disableUI()
-                LoginAPI.loginUser(
+                LoginAPI.login(
                     username: rcsID,
                     password: password,
                     successHandler: {

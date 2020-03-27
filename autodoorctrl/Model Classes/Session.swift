@@ -10,13 +10,16 @@ import Foundation
 
 struct Session: Codable {
     let sessionID: String
+    let admin: Int
     
     private enum CodingKeys: String, CodingKey {
         case sessionID = "SESSIONID"
+        case admin = "admin"
     }
     
     init(sessionID: String) {
         self.sessionID = sessionID
+        self.admin = 0
     }
     
 }
