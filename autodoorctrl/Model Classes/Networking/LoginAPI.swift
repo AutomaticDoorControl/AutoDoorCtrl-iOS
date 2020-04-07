@@ -7,12 +7,10 @@
 //
 
 import Alamofire
-import SwiftJWT
 
 enum LoginAPI {
     enum LoginType: String {
         case normal = "api/login"
-        case admin = "api/admin/login"
         
         var endpoint: String {
             return Constants.apiStart + self.rawValue
@@ -21,13 +19,13 @@ enum LoginAPI {
     
     // MARK: - Public
     
-    static func loginUser(
+    static func login(
         username: String,
         password: String,
         successHandler: @escaping () -> Void,
         errorHandler: @escaping (NetworkingError) -> Void)
     {
-        let params = ["RCSid": username, "password": password]
+        let params = ["rcsid": username, "password": password]
         let headers = ["Content-Type": "application/json"]
         
         if username == "abc" && password == "abc" {
@@ -50,8 +48,11 @@ enum LoginAPI {
             } else {
                 if let data = json.data {
                     do {
+                        if let string = String(data: data, encoding: .utf8) {
+                            print(string)
+                        }
                         let session = try JSONDecoder().decode(Session.self, from: data)
-                        let _ = try User(session: session, isAdmin: false)
+                        let _ = try User(session: session, rcsID: username)
                         successHandler()
                     } catch let error {
                         errorHandler(.genericError(error: error))
@@ -60,43 +61,4 @@ enum LoginAPI {
             }
         }
     }
-    
-    static func loginAdmin(
-        username: String,
-        password: String,
-        successHandler: @escaping () -> Void,
-        errorHandler: @escaping (NetworkingError) -> Void)
-    {
-        let params = ["username": username, "password": password]
-        let headers = ["Content-Type": "application/json;charset=UTF-8"]
-        
-        if username == "admin" && password == "admin" {
-            User.current.isAdmin = true
-            successHandler()
-            return
-        }
-
-        Alamofire.request(
-            LoginType.admin.endpoint,
-            method: .post,
-            parameters: params,
-            encoding: JSONEncoding.default,
-            headers: headers).responseJSON
-        { json in
-            if let error = json.error {
-                errorHandler(.genericError(error: error))
-            } else {
-                if let data = json.data {
-                    do {
-                        let session = try JSONDecoder().decode(Session.self, from: data)
-                        let _ = try User(session: session, isAdmin: true)
-                        successHandler()
-                    } catch let error {
-                        errorHandler(.genericError(error: error))
-                    }
-                }
-            }
-        }
-    }
-    
 }

@@ -13,8 +13,8 @@ enum ServicesAPI {
     
     // MARK: - Enums
     enum StudentOperations: String {
-        case addToActive = "api/addtoActive"
-        case register = "api/request-access"
+        case addToActive = "api/add_to_active"
+        case register = "api/request_access"
         case remove = "api/remove"
         
         /// Return the server string needed to fetch json.
@@ -32,8 +32,8 @@ enum ServicesAPI {
     }
     
     enum MiscOperations: String {
-        case submitComplaint = "api/submit-complaint"
-        case getComplaints = "api/get-complaints"
+        case submitComplaint = "api/submit_complaint"
+        case getComplaints = "api/get_complaints"
         
         var serverString: String {
            return Constants.apiStart + rawValue
@@ -42,12 +42,10 @@ enum ServicesAPI {
     
     // MARK: - Structs
     struct UserResponse: Codable {
-        let status: String
         let rcsID: String
         
         private enum CodingKeys: String, CodingKey {
-            case status = "Status"
-            case rcsID = "RCSid"
+            case rcsID = "rcsid"
         }
     }
     
@@ -96,7 +94,7 @@ enum ServicesAPI {
         successHandler: @escaping () -> Void,
         errorHandler: @escaping (NetworkingError) -> Void)
     {
-        let params = ["RCSid": rcsID]
+        let params = ["rcsid": rcsID]
         let header = ["Content-Type": "application/json", "Authorization": "Bearer \(User.current.session.sessionID)"]
         
         Alamofire.request(
@@ -104,7 +102,7 @@ enum ServicesAPI {
             method: .post,
             parameters: params,
             encoding: JSONEncoding.default,
-            headers: header).responseJSON
+            headers: header).responseString
         { json in
             if let error = json.error {
                 errorHandler(.genericError(error: error))
@@ -120,7 +118,7 @@ enum ServicesAPI {
         successHandler: @escaping () -> Void,
         errorHandler: @escaping (NetworkingError) -> Void)
     {
-        let params = ["Location": location, "Message": complaint]
+        let params = ["location": location, "message": complaint]
         let headers = ["Content-Type": "application/json"]
         
         Alamofire.request(
@@ -128,14 +126,11 @@ enum ServicesAPI {
             method: .post,
             parameters: params,
             encoding: JSONEncoding.default,
-            headers: headers).responseJSON
-        { json in
-            if let error = json.error {
+            headers: headers).responseString
+        { resp in
+            if let error = resp.error {
                 errorHandler(.genericError(error: error))
             } else {
-                if let data = json.data, let message = String(data: data, encoding: .utf8) {
-                    print(message)
-                }
                 successHandler()
             }
         }

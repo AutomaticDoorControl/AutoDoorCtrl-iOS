@@ -112,7 +112,7 @@ extension DashboardTableViewController: MFMailComposeViewControllerDelegate {
         }
         let mailVC = MFMailComposeViewController()
         mailVC.mailComposeDelegate = self
-        mailVC.setToRecipients(["fixx@rpi.edu"])
+        mailVC.setToRecipients(Constants.supportEmails)
         mailVC.setSubject(NSLocalizedString("contactFixxSubject", comment: ""))
         present(mailVC, animated: true, completion: nil)
     }

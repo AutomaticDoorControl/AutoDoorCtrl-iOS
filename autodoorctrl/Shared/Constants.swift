@@ -18,6 +18,8 @@ enum Constants {
     
     static let adcRed = UIColor(red: 238/255, green: 50/255, blue: 35/255, alpha: 1)
     
+    static let supportEmails = ["fixx@rpi.edu", "webmaster@rpiadc.com"]
+    
     enum IncomingCommands {
         static let offCommand = "CLOSED"
         static let onCommand = "OPEN"

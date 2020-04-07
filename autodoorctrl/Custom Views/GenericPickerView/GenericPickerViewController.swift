@@ -34,6 +34,7 @@ class GenericPickerViewController<T: GenericPickerViewDelegate>: UIViewControlle
         doneButtonTitle: String = "Done",
         cancelButtonTitle: String = "Cancel")
     {
+        guard !pickerViewData.isEmpty else { fatalError("Data must have at least one element") }
         data = pickerViewData
         pickerViewTitle = title
         self.startIndex = startIndex

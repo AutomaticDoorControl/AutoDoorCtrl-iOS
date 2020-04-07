@@ -11,10 +11,6 @@
 		04106D222347E0E40091CCCE /* AdminSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04106D212347E0E40091CCCE /* AdminSettingsDataSource.swift */; };
 		0415B0492213849A0086BA21 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415B048221384990086BA21 /* Haptic.swift */; };
 		041F6436235AD49B0057F48F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F6435235AD49B0057F48F /* Session.swift */; };
-		041F6439235AD7D80057F48F /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 041F6438235AD7D80057F48F /* SwiftJWT */; };
-		041F643C235AD9CD0057F48F /* ADCClaim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F643B235AD9CD0057F48F /* ADCClaim.swift */; };
-		041F643E235B7CF10057F48F /* adminPublic.key in Resources */ = {isa = PBXBuildFile; fileRef = 041F643D235B7CF10057F48F /* adminPublic.key */; };
-		041F6440235B7D0F0057F48F /* userPublic.key in Resources */ = {isa = PBXBuildFile; fileRef = 041F643F235B7D0F0057F48F /* userPublic.key */; };
 		0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0433F0A92165D94000F63E50 /* Dashboard.storyboard */; };
 		0433F0AD2166C72700F63E50 /* DashboardDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */; };
 		0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -108,9 +104,6 @@
 		04106D212347E0E40091CCCE /* AdminSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettingsDataSource.swift; sourceTree = "<group>"; };
 		0415B048221384990086BA21 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		041F6435235AD49B0057F48F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		041F643B235AD9CD0057F48F /* ADCClaim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADCClaim.swift; sourceTree = "<group>"; };
-		041F643D235B7CF10057F48F /* adminPublic.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = adminPublic.key; sourceTree = "<group>"; };
-		041F643F235B7D0F0057F48F /* userPublic.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = userPublic.key; sourceTree = "<group>"; };
 		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -204,7 +197,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041F6439235AD7D80057F48F /* SwiftJWT in Frameworks */,
 				049D5FA6237279AC006D9712 /* RxCocoa in Frameworks */,
 				049D5FA4237279AC006D9712 /* RxSwift in Frameworks */,
 				37AE2831DCB05128F877B557 /* Pods_autodoorctrl.framework in Frameworks */,
@@ -228,16 +220,6 @@
 				04EAB1332347E33200CCACA8 /* StandardSettingsDataSource.swift */,
 			);
 			path = DataSources;
-			sourceTree = "<group>";
-		};
-		041F643A235AD9B90057F48F /* JWT */ = {
-			isa = PBXGroup;
-			children = (
-				041F643B235AD9CD0057F48F /* ADCClaim.swift */,
-				041F643F235B7D0F0057F48F /* userPublic.key */,
-				041F643D235B7CF10057F48F /* adminPublic.key */,
-			);
-			path = JWT;
 			sourceTree = "<group>";
 		};
 		04633FBE21438D65007B3358 /* Extensions */ = {
@@ -415,7 +397,6 @@
 				04633FBE21438D65007B3358 /* Extensions */,
 				04E08A0621434C9E00E72A85 /* TPKeyboardAvoiding */,
 				0466DB8A21436690002583DB /* Networking */,
-				041F643A235AD9B90057F48F /* JWT */,
 				046DFBF5236E0BA100419CC8 /* Door */,
 				04C2D1C5216197D00082C9C8 /* User.swift */,
 				041F6435235AD49B0057F48F /* Session.swift */,
@@ -535,7 +516,6 @@
 			);
 			name = autodoorctrl;
 			packageProductDependencies = (
-				041F6438235AD7D80057F48F /* SwiftJWT */,
 				049D5FA3237279AC006D9712 /* RxSwift */,
 				049D5FA5237279AC006D9712 /* RxCocoa */,
 			);
@@ -595,7 +575,6 @@
 			);
 			mainGroup = 04E829B2214323ED000BC96D;
 			packageReferences = (
-				041F6437235AD7D80057F48F /* XCRemoteSwiftPackageReference "Swift-JWT" */,
 				049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 04E829BC214323ED000BC96D /* Products */;
@@ -624,13 +603,11 @@
 				04F130332364E1F70072C964 /* ViewComplaintsTableViewController.xib in Resources */,
 				04B7635C237BD131007FA8F7 /* PageContentViewController.xib in Resources */,
 				049D5FB42372AE99006D9712 /* Hexagons.json in Resources */,
-				041F643E235B7CF10057F48F /* adminPublic.key in Resources */,
 				04C1BE0821B2525200B58E1D /* WifiOffAnimation.json in Resources */,
 				0433F0A72165D94000F63E50 /* Dashboard.storyboard in Resources */,
 				04799C19235411C90006FF3C /* SubmitComplaintsViewController.xib in Resources */,
 				04799C23235423160006FF3C /* GenericPickerViewController.xib in Resources */,
 				0485F296215F508200742978 /* Localizable.strings in Resources */,
-				041F6440235B7D0F0057F48F /* userPublic.key in Resources */,
 				049D5FB123729CAE006D9712 /* OpeningDoorsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,7 +694,6 @@
 				049D5FB623753563006D9712 /* DispatchQueue+Rx.swift in Sources */,
 				0440E778214357B80037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				04799C1D235421650006FF3C /* SubmitComplaintsViewModel.swift in Sources */,
-				041F643C235AD9CD0057F48F /* ADCClaim.swift in Sources */,
 				04B7635B237BD131007FA8F7 /* PageContentDataSet.swift in Sources */,
 				046701722155F2A7007DF2BE /* UIView+Customizations.swift in Sources */,
 				04B7635E237BD131007FA8F7 /* PageViewController.swift in Sources */,
@@ -1059,14 +1035,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		041F6437235AD7D80057F48F /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/IBM-Swift/Swift-JWT";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.6.0;
-			};
-		};
 		049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -1078,11 +1046,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		041F6438235AD7D80057F48F /* SwiftJWT */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 041F6437235AD7D80057F48F /* XCRemoteSwiftPackageReference "Swift-JWT" */;
-			productName = SwiftJWT;
-		};
 		049D5FA3237279AC006D9712 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 049D5FA0237279AC006D9712 /* XCRemoteSwiftPackageReference "RxSwift" */;

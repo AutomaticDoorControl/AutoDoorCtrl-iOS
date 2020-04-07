@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftJWT
 
 /// A class representing the current user.
 class User: NSObject {
@@ -29,7 +28,7 @@ class User: NSObject {
     
     init(userResponse: ServicesAPI.UserResponse) {
         self.rcsID = userResponse.rcsID
-        self.isActive = userResponse.status.hasPrefix("Active")
+        self.isActive = true
         isAdmin = false
         session = Session(sessionID: "")
         super.init()
@@ -37,26 +36,14 @@ class User: NSObject {
     
     /// Designated initializer to initialize a user from the provided session containing a jwt token received from login.
     @discardableResult
-    init(session: Session, isAdmin: Bool) throws {
+    init(session: Session, rcsID: String) throws {
         if session.sessionID.isEmpty {
             throw "Invalid username or password, or the user is inactive"
         }
         
-        let keyName = isAdmin ? "adminPublic" : "userPublic"
-        let keyString: String
-        if let path = Bundle.main.path(forResource: keyName, ofType: "key") {
-            keyString = try String(contentsOfFile: path, encoding: .utf8)
-        } else {
-            throw "Invalid public key"
-        }
-        let newJWT = try JWT<ADCClaim>(
-            jwtString: session.sessionID,
-            verifier: JWTVerifier.rs256(publicKey: keyString.data(using: .utf8)!))
-        let claim = newJWT.claims
-        
-        rcsID = claim.sub
+        self.rcsID = rcsID
         isActive = true
-        self.isAdmin = isAdmin
+        self.isAdmin = session.admin == 1
         self.session = session
         super.init()
         

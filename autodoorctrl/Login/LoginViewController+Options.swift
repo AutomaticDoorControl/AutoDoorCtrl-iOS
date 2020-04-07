@@ -12,24 +12,6 @@ import UIKit
 extension LoginViewController {
     
     func handleLoginOptions(with button: UIButton) {
-        let username = self.rcsIDTextField.text ?? ""
-        let password = self.passwordTextField.text ?? ""
-        
-        
-        let adminLoginAction = UIAlertAction(
-            title: NSLocalizedString("AdminLoginTitle", comment: ""),
-            style: .default)
-        { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.disableUI()
-            LoginAPI.loginAdmin(username: username, password: password, successHandler: {
-                strongSelf.performSegue(withIdentifier: "showMaps", sender: strongSelf)
-                strongSelf.enableUI()
-            }, errorHandler: { [weak self] error in
-                error.handleError()
-                self?.enableUI()
-            })
-        }
         
         let bioTitle = String(format: NSLocalizedString("ResetBioTitle", comment: ""), BiometricsController.biometricMode())
         let resetBioAction = UIAlertAction(title: bioTitle, style: .destructive) { [weak self] _ in
@@ -42,7 +24,6 @@ extension LoginViewController {
         
         let alertController = UIAlertController(title: NSLocalizedString("OptionsTitle", comment: ""),
                                                 message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(adminLoginAction)
         
         if UserDefaults.isUserAgreedToBiometrics() {
             alertController.addAction(resetBioAction)
