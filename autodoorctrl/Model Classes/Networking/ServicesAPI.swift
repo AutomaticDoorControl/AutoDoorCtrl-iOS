@@ -42,12 +42,10 @@ enum ServicesAPI {
     
     // MARK: - Structs
     struct UserResponse: Codable {
-        let status: String
         let rcsID: String
         
         private enum CodingKeys: String, CodingKey {
-            case status = "Status"
-            case rcsID = "RCSid"
+            case rcsID = "rcsid"
         }
     }
     
@@ -104,7 +102,7 @@ enum ServicesAPI {
             method: .post,
             parameters: params,
             encoding: JSONEncoding.default,
-            headers: header).responseJSON
+            headers: header).responseString
         { json in
             if let error = json.error {
                 errorHandler(.genericError(error: error))
@@ -128,14 +126,11 @@ enum ServicesAPI {
             method: .post,
             parameters: params,
             encoding: JSONEncoding.default,
-            headers: headers).responseJSON
-        { json in
-            if let error = json.error {
+            headers: headers).responseString
+        { resp in
+            if let error = resp.error {
                 errorHandler(.genericError(error: error))
             } else {
-                if let data = json.data, let message = String(data: data, encoding: .utf8) {
-                    print(message)
-                }
                 successHandler()
             }
         }

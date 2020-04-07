@@ -28,7 +28,7 @@ class User: NSObject {
     
     init(userResponse: ServicesAPI.UserResponse) {
         self.rcsID = userResponse.rcsID
-        self.isActive = userResponse.status.hasPrefix("Active")
+        self.isActive = true
         isAdmin = false
         session = Session(sessionID: "")
         super.init()
