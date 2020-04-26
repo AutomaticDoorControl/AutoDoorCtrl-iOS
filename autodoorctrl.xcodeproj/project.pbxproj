@@ -41,7 +41,6 @@
 		0481C2A2214D77120078BAAA /* TestKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */; };
 		0481C2A3214D771A0078BAAA /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481C29F214C70E40078BAAA /* KeychainOperations.swift */; };
 		0485F296215F508200742978 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F298215F508200742978 /* Localizable.strings */; };
-		0485F29C215F56D900742978 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0485F29E215F56D900742978 /* InfoPlist.strings */; };
 		049D5FA4237279AC006D9712 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049D5FA3237279AC006D9712 /* RxSwift */; };
 		049D5FA6237279AC006D9712 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 049D5FA5237279AC006D9712 /* RxCocoa */; };
 		049D5FA823727A84006D9712 /* BLEManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D5FA723727A84006D9712 /* BLEManager+Rx.swift */; };
@@ -105,7 +104,6 @@
 		0415B048221384990086BA21 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		041F6435235AD49B0057F48F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		0433F0A82165D94000F63E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
-		0433F0AB2165D94500F63E50 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		0433F0AC2166C72700F63E50 /* DashboardDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailsTableViewController.swift; sourceTree = "<group>"; };
 		0440E774214357B70037F94B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		0440E775214357B70037F94B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
@@ -135,11 +133,7 @@
 		04799C21235423160006FF3C /* GenericPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericPickerViewDelegate.swift; sourceTree = "<group>"; };
 		0481C29F214C70E40078BAAA /* KeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
 		0481C2A1214D77120078BAAA /* TestKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestKeychainOperations.swift; sourceTree = "<group>"; };
-		0485F285215ECABE00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		0485F286215ECABE00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0485F297215F508200742978 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0485F299215F508400742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0485F29F215F56DB00742978 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		049D5FA723727A84006D9712 /* BLEManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BLEManager+Rx.swift"; sourceTree = "<group>"; };
 		049D5FA923728344006D9712 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		049D5FAE23729CAE006D9712 /* OpeningDoorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningDoorsViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +236,6 @@
 				0466DB8B214366BE002583DB /* SwiftMessagesWrapper.swift */,
 				04D2DB18215CA5B20061E72D /* Constants.swift */,
 				0485F298215F508200742978 /* Localizable.strings */,
-				0485F29E215F56D900742978 /* InfoPlist.strings */,
 				0415B048221384990086BA21 /* Haptic.swift */,
 			);
 			path = Shared;
@@ -571,7 +564,6 @@
 			knownRegions = (
 				en,
 				Base,
-				fr,
 			);
 			mainGroup = 04E829B2214323ED000BC96D;
 			packageReferences = (
@@ -593,7 +585,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E829C9214323EF000BC96D /* LaunchScreen.storyboard in Resources */,
-				0485F29C215F56D900742978 /* InfoPlist.strings in Resources */,
 				0467018221560631007DF2BE /* DoorsListTableViewCell.xib in Resources */,
 				04E829C6214323EF000BC96D /* Assets.xcassets in Resources */,
 				04FEC9532364E83900FA7480 /* ComplaintsTableViewCell.xib in Resources */,
@@ -749,7 +740,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				0433F0A82165D94000F63E50 /* Base */,
-				0433F0AB2165D94500F63E50 /* fr */,
 			);
 			name = Dashboard.storyboard;
 			sourceTree = "<group>";
@@ -758,24 +748,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				0485F297215F508200742978 /* en */,
-				0485F299215F508400742978 /* fr */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		0485F29E215F56D900742978 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0485F29F215F56DB00742978 /* fr */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		04E829C2214323ED000BC96D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04E829C3214323ED000BC96D /* Base */,
-				0485F285215ECABE00742978 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -784,7 +764,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				04E829C8214323EF000BC96D /* Base */,
-				0485F286215ECABE00742978 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

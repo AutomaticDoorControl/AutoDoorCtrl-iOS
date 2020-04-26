@@ -12,7 +12,8 @@ import UIKit
 public struct PageContentDataSet {
     let title: String
     let content: String
-    let showcaseImage: UIImage?
+    let showcaseImageForiPhone: UIImage?
+    let showcaseImageForiPad: UIImage?
     let imageVerticalOffset: CGFloat
     
     
@@ -28,16 +29,17 @@ public struct PageContentDataSet {
         content: String,
         showcaseImage: UIImage?,
         fourInchBackupImage: UIImage? = nil,
+        showcaseImageForiPad: UIImage? = nil,
         imageVerticalOffset: CGFloat = -100)
     {
         self.title = title
         self.content = content
         if let backup = fourInchBackupImage, UIScreen.main.bounds.height < 660 {
-            self.showcaseImage = backup
+            self.showcaseImageForiPhone = backup
         } else {
-            self.showcaseImage = showcaseImage
+            self.showcaseImageForiPhone = showcaseImage
         }
         self.imageVerticalOffset = imageVerticalOffset
-        
+        self.showcaseImageForiPad = showcaseImageForiPad
     }
 }

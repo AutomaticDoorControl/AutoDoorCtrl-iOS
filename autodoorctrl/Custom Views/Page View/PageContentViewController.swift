@@ -48,7 +48,7 @@ open class PageContentViewController: UIViewController {
         
         contentTextView.textContainerInset = UIEdgeInsets.zero
         contentTextView.textContainer.lineFragmentPadding = 0
-        if dataSet?.showcaseImage == nil {
+        if dataSet?.showcaseImageForiPhone == nil {
             actionButton.setTitle(buttonText, for: .normal)
             actionButton.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
         }
@@ -71,22 +71,32 @@ open class PageContentViewController: UIViewController {
         super.viewDidLayoutSubviews()
         // need to add the showcase image manually because UIImageView in IB
         // does not allow align top + aspect fill combination
-        if let image = dataSet?.showcaseImage, showcaseImageView == nil {
-            actionButton.removeFromSuperview()
-            let aspectRatio: CGFloat = image.size.height / image.size.width
-            let showcase = UIImageView(frame: CGRect(
-                x: contentTextView.frame.origin.x,
-                y: contentTextView.frame.maxY + (isRunningOnFourInch ? 0 : 20) + (dataSet?.imageVerticalOffset ?? 0),
-                width: contentTextView.frame.width,
-                height: contentTextView.frame.width * aspectRatio))
-            showcase.image = image
-            showcase.contentMode = .scaleAspectFill
-            view.addSubview(showcase)
-            showcaseImageView = showcase
+        if let image = dataSet?.showcaseImageForiPhone,
+            showcaseImageView == nil,
+            UIDevice.current.userInterfaceIdiom == .phone {
+            layoutImage(image)
+        } else if let image = dataSet?.showcaseImageForiPad,
+            showcaseImageView == nil,
+            UIDevice.current.userInterfaceIdiom == .pad {
+            layoutImage(image)
         }
     }
     
     private var isRunningOnFourInch: Bool {
         return UIScreen.main.bounds.height < 660
+    }
+    
+    private func layoutImage(_ image: UIImage) {
+        actionButton.removeFromSuperview()
+        let aspectRatio: CGFloat = image.size.height / image.size.width
+        let showcase = UIImageView(frame: CGRect(
+            x: contentTextView.frame.origin.x,
+            y: contentTextView.frame.maxY + (isRunningOnFourInch ? 0 : 20) + (dataSet?.imageVerticalOffset ?? 0),
+            width: contentTextView.frame.width,
+            height: contentTextView.frame.width * aspectRatio))
+        showcase.image = image
+        showcase.contentMode = .scaleAspectFill
+        view.addSubview(showcase)
+        showcaseImageView = showcase
     }
 }

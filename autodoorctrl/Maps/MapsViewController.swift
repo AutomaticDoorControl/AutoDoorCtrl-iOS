@@ -24,7 +24,9 @@ class MapsViewController: UIViewController {
     private var locationManager: CLLocationManager = CLLocationManager()
     private var isDoorsListExpanded = false
     private var keepingRegionScale = false
+    private var centerUser = false
     private var currentAnnotation: Door?
+    private var userLocation: MKPointAnnotation?
     var doorsListVC: DoorsListTableViewController?
     
     // MARK: - View Controller Lifecycle
@@ -39,7 +41,7 @@ class MapsViewController: UIViewController {
         centerLocationButton.accessibilityHint = NSLocalizedString("CenterUserButtonTitle", comment: "")
         refreshBLEButton.accessibilityLabel = NSLocalizedString("rescanTitle", comment: "")
         
-        mapView.showsUserLocation = true
+        mapView.showsUserLocation = false
         mapView.delegate = self
         locationManager.delegate = self
         
@@ -74,6 +76,7 @@ class MapsViewController: UIViewController {
     }
     
     func determineCurrentLocation() {
+        centerUser = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
@@ -142,8 +145,19 @@ extension MapsViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let userLocation = locations.first else { return }
-        centerMapOnUserLocation(from: userLocation.coordinate)
-        locationManager.stopUpdatingLocation()
+        if centerUser {
+            centerMapOnUserLocation(from: userLocation.coordinate)
+            centerUser = false
+        }
+        if self.userLocation == nil {
+            let location = MKPointAnnotation()
+            location.title = "My Location"
+            location.coordinate = userLocation.coordinate
+            mapView.addAnnotation(location)
+            self.userLocation = location
+        } else {
+            self.userLocation?.coordinate = userLocation.coordinate
+        }
     }
 }
 
@@ -151,10 +165,10 @@ extension MapsViewController: MKMapViewDelegate {
     // MARK: - MKMapViewDelegate
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let doorAnnotation = annotation as? Door else { return nil }
-        currentAnnotation = doorAnnotation
-        var view: MKAnnotationView
-        if #available(iOS 11.0, *) {
+        if let doorAnnotation = annotation as? Door {
+            // door annotation
+            currentAnnotation = doorAnnotation
+            var view: MKAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: Door.identifier)
             as? MKMarkerAnnotationView {
                 dequeuedView.annotation = doorAnnotation
@@ -169,8 +183,21 @@ extension MapsViewController: MKMapViewDelegate {
                 view.rightCalloutAccessoryView = doorButton
             }
             return view
+        } else {
+            // user location annotation
+            let identifier = "userLocation"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+            if annotationView == nil {
+                annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                (annotationView as? MKMarkerAnnotationView)?.markerTintColor = .blue
+                annotationView?.canShowCallout = true
+            } else {
+                annotationView?.annotation = annotation
+            }
+            annotationView?.displayPriority = .defaultLow
+            return annotationView
         }
-        return MKAnnotationView(annotation: annotation, reuseIdentifier: Door.identifier)
     }
     
     /// When user taps the lock button to connect to a door
