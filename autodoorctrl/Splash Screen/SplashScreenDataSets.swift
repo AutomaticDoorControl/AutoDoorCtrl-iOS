@@ -14,15 +14,18 @@ class SplashScreenDataSets {
             PageContentDataSet(
                 title: "Welcome",
                 content: "Thanks for becoming an Automatic Door Control user! We have a few tips to get you started.",
-                showcaseImage: UIImage(named: "ADCOnboarding")),
+                showcaseImage: UIImage(named: "ADCOnboarding"),
+                showcaseImageForiPad: UIImage(named: "ADCLogoiPad")),
             PageContentDataSet(
                 title: "Opening a Door",
                 content: "Select a discovered door from the list or tap on a location beacon on the map. Then, tap on the lock icon on the popup to open that door. Tap the refresh button on the top left to rescan for nearby doors.",
-                showcaseImage: UIImage(named: "SplashScreenOpenDoor")),
+                showcaseImage: UIImage(named: "SplashScreenOpenDoor"),
+                showcaseImageForiPad: UIImage(named: "iPad-OpenDoor")),
             PageContentDataSet(
                 title: "Reporting Issues",
                 content: "In case you encounter any issues while using this product, there are few handy options in the settings page to help you contact the right people to solve these issues.",
-                showcaseImage: UIImage(named: "SplashScreenReportIssue"))
+                showcaseImage: UIImage(named: "SplashScreenReportIssue"),
+                showcaseImageForiPad: UIImage(named: "iPad-ReportIssue"))
         ]
     }()
 }
