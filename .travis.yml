@@ -4,4 +4,4 @@ xcode_workspace: autodoorctrl.xcworkspace
 xcode_scheme: autodoorctrl
 xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11 Pro
 notifications:
-    slack: automaticdoor-ag67849:RGoAbaE1sJJWyr8KnAnlP49Y
+    slack: autodoorctrl:RGoAbaE1sJJWyr8KnAnlP49Y
