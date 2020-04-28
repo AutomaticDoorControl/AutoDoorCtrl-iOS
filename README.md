@@ -3,8 +3,8 @@
 # AutomaticDoorControl - iOS
 iOS Version of the AutomaticDoorControl Project.
 
-## Travis CI
-[Link to Travis CI](https://travis-ci.org/AutomaticDoorControl/AutoDoorCtrl-iOS)
+## Download the :iphone: App from the App Store!
+[download](https://apps.apple.com/us/app/automatic-door-control/id1500529300#?platform=iphone)
 
 ## Manual Installation
 * **In order to proceed you'll need access to a Mac.**
@@ -36,7 +36,6 @@ iOS Version of the AutomaticDoorControl Project.
 * `MapKit`
 * `LocalAuthentication`
 * `JLActivityIndicator`
-* `SwiftJWT` (Swift Packages Dependency)
 * `RxSwift` (Swift Packages Dependency)
 
 ## Bug Fix - module not found when using SPM and compiling unit tests
